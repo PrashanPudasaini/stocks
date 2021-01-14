@@ -49,32 +49,32 @@ class StockCreateView(CreateView):
     fields = ['symbol']
     def form_valid(self, form):
         symbol = form.cleaned_data['symbol'].upper()
-        url_quote = 'https://financialmodelingprep.com/api/v3/quote/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_profile = 'https://financialmodelingprep.com/api/v3/profile/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_rating = 'https://financialmodelingprep.com/api/v3/rating/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_historical_timeseries = 'https://financialmodelingprep.com/api/v3/historical-price-full/{}?timeseries=10000000&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_quarterly_income_stmt = 'https://financialmodelingprep.com/api/v3/income-statement/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_income_stmt = 'https://financialmodelingprep.com/api/v3/income-statement/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_dividend_history_timeseries = 'https://financialmodelingprep.com/api/v3/historical-price-full/stock_dividend/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_key_executives = 'https://financialmodelingprep.com/api/v3/key-executives/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quote = 'API'
+        url_profile = 'API'
+        url_rating = 'API'
+        url_historical_timeseries = 'API'
+        url_quarterly_income_stmt = 'API'
+        url_annual_income_stmt = 'API'
+        url_dividend_history_timeseries = 'API'
+        url_key_executives = 'API'
 
-        url_quarterly_balance_sheet_stmt = 'https://financialmodelingprep.com/api/v3/balance-sheet-statement/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_balance_sheet_stmt = 'https://financialmodelingprep.com/api/v3/balance-sheet-statement/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quarterly_balance_sheet_stmt = 'API'
+        url_annual_balance_sheet_stmt = 'API'
 
-        url_quarterly_cash_flow_stmt = 'https://financialmodelingprep.com/api/v3/cash-flow-statement/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_cash_flow_stmt = 'https://financialmodelingprep.com/api/v3/cash-flow-statement/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quarterly_cash_flow_stmt = 'API'
+        url_annual_cash_flow_stmt = 'API'
 
-        url_quarterly_financial_growth_stmt = 'https://financialmodelingprep.com/api/v3/financial-growth/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_financial_growth_stmt = 'https://financialmodelingprep.com/api/v3/financial-growth/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quarterly_financial_growth_stmt = 'API'
+        url_annual_financial_growth_stmt = 'API'
 
-        url_quarterly_financial_ratio_stmt = 'https://financialmodelingprep.com/api/v3/ratios/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_financial_ratio_stmt = 'https://financialmodelingprep.com/api/v3/ratios/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quarterly_financial_ratio_stmt = 'API'
+        url_annual_financial_ratio_stmt = 'API'
 
-        url_quarterly_enterprise_value_stmt = 'https://financialmodelingprep.com/api/v3/enterprise-values/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_enterprise_value_stmt = 'https://financialmodelingprep.com/api/v3/enterprise-values/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quarterly_enterprise_value_stmt = 'API'
+        url_annual_enterprise_value_stmt = 'API'
 
-        url_quarterly_key_metrics_stmt = 'https://financialmodelingprep.com/api/v3/key-metrics/{}?period=quarter&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
-        url_annual_key_metrics_stmt = 'https://financialmodelingprep.com/api/v3/key-metrics/{}?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+        url_quarterly_key_metrics_stmt = 'API'
+        url_annual_key_metrics_stmt = 'API'
 
         historical_dividend_json = requests.get(url_dividend_history_timeseries.format(symbol)).json()
         historical_dividend_date_dividend_col = pd.DataFrame({'date': ['a'], 'B': ['b']})
