@@ -1,0 +1,71 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Rupy | Sign Up {% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-5 login-register-page-col-1">
+<h1><a class = "login-signup-logo" href = "{% url 'home' %}">RUPY</a></h1>
+</div>
+<div class = "col-md-7 login-register-page-col-2">
+<div class = "login-sign-up-toggle">
+<ul>
+<li><a id = "login-register-page-col-2-sign-up-link" class = "login-page-login-highlight" href = "{% url 'register' %}">SIGN UP</a></li>
+<li><a id = "login-register-page-col-2-sign-up-link-login-link" href = "{% url 'login' %}">LOG IN</a></li>
+</ul>
+</div>
+<div class = "login-register-page-col-2-login-form-section">
+<h1>Create your account</h1>
+<form class = "login-register-page-col-2-login-form-main" method = "POST">
+{% csrf_token %}
+<div class = "login-register-page-col-2-login-form">
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-6 style-form-inline-padding">
+<div class = "style-form-inline">{{form.username | as_crispy_field}}</div>
+</div>
+<div class = "col-md-6 style-form-inline-padding">
+<div class = "style-form-inline">{{form.email | as_crispy_field}}</div>
+</div>
+</div>
+</div>
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-6 style-form-inline-padding">
+<div class = "style-form-inline">{{form.first_name | as_crispy_field}}</div>
+</div>
+<div class = "col-md-6 style-form-inline-padding">
+<div class = "style-form-inline">{{form.last_name | as_crispy_field}}</div>
+</div>
+</div>
+</div>
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-6 style-form-inline-padding">
+<div class = "style-form-inline">{{form.password1 | as_crispy_field}}</div>
+</div>
+<div class = "col-md-6 style-form-inline-padding">
+<div class = "style-form-inline">{{form.password2 | as_crispy_field}}</div>
+</div>
+</div>
+</div>
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-6 style-form-inline-padding">
+<button class = "login-register-page-col-2-login-form-submit" type = "submit">SIGN UP</button>
+</div>
+<div class = "col-md-3">
+</div>
+<div class = "col-md-3">
+</div>
+</div>
+</div>
+<small class = "signup-login-form-footer">Already have an account?<a href = "{% url 'login' %}"> LOG IN</a></small>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

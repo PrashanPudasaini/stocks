@@ -1,0 +1,741 @@
+<div class="modal-body stock-symbol-detail-page-full-width-historical-data-modal-body">
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-2 stock-detail-page-historical-data-full-width-col-2-left">
+<div class = "stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1">
+<h3>FROM THE DATA PRODUCT:</h3>
+<p>HISTORICAL DATA</p>
+<small>(14 441 datasets)</small>
+<p class = "stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1-btn">FREE ACCESS FOR LIMITED TIME ONLY</p>
+</div>
+<div class = "stock-detail-page-historical-data-full-width-col-2-left-data-info-div-2">
+<span>REFRESHED</span>
+<small> {{object.date_created}}</small>
+</div>
+<div class = "stock-detail-page-historical-data-full-width-col-2-left-data-info-div-3">
+<p>FREQUENCY</p>
+<small>Daily / Annual / Quarter</small>
+</div>
+
+<div class = "stock-detail-page-historical-data-full-width-col-2-left-data-info-div-4">
+<p>DESCRIPTION</p>
+<small>Ticker: {{object.symbol}}</small>
+<small>Name: {{object.name}}</small>
+<small>Exchange: {{object.exchangeShortName}}</small>
+<small>Cells with "—" indicate that the data is not present or is not yet available in Rupy database.</small>
+<small>Data is sourced from various stock exchanges and through third party vendors.</small>
+<small>These datasets are frequently updated in the Rupy database on a daily basis. Latest updates on these datasets can be received by querying Rupy database. </small>
+</div>
+
+</div>
+
+<div class = "col-md-8 stock-detail-page-historical-data-full-width-col-8">
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries" aria-selected="true">Timeseries</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement" aria-selected="false">Income Statement</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet" aria-selected="false">Balance Sheet</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow" aria-selected="false">Cash Flow</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth" aria-selected="false">Financial Growth</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratios-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratios" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratios" aria-selected="false">Financial Ratios</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value" aria-selected="false">Enterprise Value</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics" aria-selected="false">Key Metrics</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">EOD STOCK PRICES</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-2d-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-2d" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-2d" aria-selected="true">2D</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5d-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5d" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5d" aria-selected="false">5D</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1m-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1m" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1m" aria-selected="false">1M</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3m-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3m" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3m" aria-selected="false">3M</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-6m-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-6m" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-6m" aria-selected="false">6M</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1y-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1y" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1y" aria-selected="false">1Y</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3y-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3y" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3y" aria-selected="false">3Y</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5y-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5y" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5y" aria-selected="false">5Y</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-max-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-max" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-max" aria-selected="false">MAX</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-2d" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-2d-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+{% autoescape off %}
+{{object.display_historical_timeseries_2d}}
+{% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5d" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5d-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+{% autoescape off %}
+{{object.display_historical_timeseries_last_five_days}}
+{% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1m" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1m-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+{% autoescape off %}
+{{object.display_historical_timeseries_1m}}
+{% endautoescape %}
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3m" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3m-tab">
+{% if user.is_authenticated %}
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+{% autoescape off %}
+{{object.display_historical_timeseries_3m}}
+{% endautoescape %}
+</div>
+{% else %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-4">
+</div>
+<div class = "col-md-3 registered-users-only-data">
+<p><i class="fas fa-lock"></i></p>
+<p>You must be a registered Rupy user to view this dataset</p>
+<small>This dataset is only available for Rupy account holders.</small>
+<a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+<div class="dropdown-divider"></div>
+<p>Already a Subscriber?</p>
+<a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</div>
+<div class = "col-md-5">
+</div>
+</div>
+</div>
+{% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-6m" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-6m-tab">
+{% if user.is_authenticated %}
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+{% autoescape off %}
+{{object.display_historical_timeseries_6m}}
+{% endautoescape %}
+</div>
+{% else %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-4">
+</div>
+<div class = "col-md-3 registered-users-only-data">
+<p><i class="fas fa-lock"></i></p>
+<p>You must be a registered Rupy user to view this dataset</p>
+<small>This dataset is only available for Rupy account holders.</small>
+<a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+<div class="dropdown-divider"></div>
+<p>Already a Subscriber?</p>
+<a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</div>
+<div class = "col-md-5">
+</div>
+</div>
+</div>
+{% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1y" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-1y-tab">
+{% if user.is_authenticated %}
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+{% autoescape off %}
+{{object.display_historical_timeseries_1y}}
+{% endautoescape %}
+</div>
+{% else %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-4">
+</div>
+<div class = "col-md-3 registered-users-only-data">
+<p><i class="fas fa-lock"></i></p>
+<p>You must be a registered Rupy user to view this dataset</p>
+<small>This dataset is only available for Rupy account holders.</small>
+<a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+<div class="dropdown-divider"></div>
+<p>Already a Subscriber?</p>
+<a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</div>
+<div class = "col-md-5">
+</div>
+</div>
+</div>
+{% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3y" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-3y-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_historical_timeseries_3y}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5y" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-5y-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_historical_timeseries_5y}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-max" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-timeseries-max-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_historical_timeseries_max}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">INCOME STATEMENTS</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_income_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-income-statement-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_income_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">BALANCE SHEET STATEMENTS</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_balance_sheet_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-balance-sheet-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_balance_sheet_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">CASH FLOW STATEMENTS</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_cash_flow_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-cash-flow-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_cash_flow_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">FINANCIAL GROWTH STATEMENTS</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_financial_growth_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-growth-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_financial_growth_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratios" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratios-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">FINANCIAL RATIOS</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_financial_ratio_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-financial-ratio-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_financial_ratio_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">ENTERPRISE VALUE</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_enterprise_value_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-enterprise-value-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_enterprise_value_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-tab">
+<h2>{{object.name}} ({{object.symbol}}) - <span class = "stock-symbol-detail-page-full-width-historical-data-datatable-title">KEY METRICS</span></h2>
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-annual-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-annual" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-annual" aria-selected="true">Annual</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-quarter-tab" data-toggle="pill" href="#pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-quarter" role="tab" aria-controls="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-quarter" aria-selected="false">Quarter</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-annual" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-annual-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_annual_key_metrics_statement}}
+  {% endautoescape %}
+</div>
+</div>
+<div class="tab-pane fade" id="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-quarter" role="tabpanel" aria-labelledby="pills-stock-symbol-detail-page-full-width-historical-data-modal-body-menu-key-metrics-quarter-tab">
+  {% if user.is_authenticated %}
+  <div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+  {% autoescape off %}
+  {{object.display_quarterly_key_metrics_statement}}
+  {% endautoescape %}
+</div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-3 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for Rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-5">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class = "col-md-2 stock-detail-page-historical-data-full-width-col-2-right">
+<div class = "stock-detail-page-historical-data-full-width-col-2-right-api-info-div-1">
+<h3>RUPY Code</h3>
+<h4>Historical Data / {{object.symbol}}</h4>
+</div>
+<div class = "stock-detail-page-historical-data-full-width-col-2-right-api-info-div-2">
+<p>EXPORT DATA</p>
+<h5>API</h5>
+<ul>
+<li data-toggle="modal" data-target="#stock-detail-page-historical-data-full-width-json-api">JSON</li>
+<li data-toggle="modal" data-target="#stock-detail-page-historical-data-full-width-csv-api">CSV</li>
+<li data-toggle="modal" data-target="#stock-detail-page-historical-data-full-width-xml-api">XML</li>
+</ul>
+</div>
+<div class="modal fade" id="stock-detail-page-historical-data-full-width-json-api" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content stock-detail-page-historical-data-full-width-modal-content">
+<div class="modal-header stock-detail-page-historical-data-full-width-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">JSON</h5>
+</div>
+<div class="modal-body stock-detail-page-historical-data-full-width-modal-body">
+<p>Use this API call to get data in JSON format, using your selected parameters.</p>
+<div class = "stock-detail-page-historical-data-full-width-modal-body-inner-div">
+<p><a href = "http://127.0.0.1:8000/api/v1/datasets/symbol/aapl/?format=json" target = "blank">http://127.0.0.1:8000/api/v1/datasets/symbol/{{object.symbol}}/?format=json</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="stock-detail-page-historical-data-full-width-csv-api" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content stock-detail-page-historical-data-full-width-modal-content">
+<div class="modal-header stock-detail-page-historical-data-full-width-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">CSV</h5>
+</div>
+<div class="modal-body stock-detail-page-historical-data-full-width-modal-body">
+<p>Use this API call to get data in CSV format, using your selected parameters.</p>
+<div class = "stock-detail-page-historical-data-full-width-modal-body-inner-div">
+<p><a href = "http://127.0.0.1:8000/api/v1/datasets/symbol/aapl/?format=csv" target = "blank">http://127.0.0.1:8000/api/v1/datasets/symbol/{{object.symbol}}/?format=csv</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="stock-detail-page-historical-data-full-width-xml-api" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content stock-detail-page-historical-data-full-width-modal-content">
+<div class="modal-header stock-detail-page-historical-data-full-width-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">XML</h5>
+</div>
+<div class="modal-body stock-detail-page-historical-data-full-width-modal-body">
+<p>Use this API call to get data in XML format, using your selected parameters.</p>
+<div class = "stock-detail-page-historical-data-full-width-modal-body-inner-div">
+<p><a href = "http://127.0.0.1:8000/api/v1/datasets/symbol/aapl/?format=xml" target = "blank">http://127.0.0.1:8000/api/v1/datasets/symbol/{{object.symbol}}/?format=xml</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class = "stock-detail-page-historical-data-full-width-col-2-right-api-info-div-2">
+<h5>Libraries</h5>
+<ul>
+<li data-toggle="modal" data-target="#stock-detail-page-historical-data-full-width-python-api">PYTHON</li>
+<li data-toggle="modal" data-target="#stock-detail-page-historical-data-full-width-r-api">R</li>
+</ul>
+</div>
+<div class="modal fade" id="stock-detail-page-historical-data-full-width-python-api" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content stock-detail-page-historical-data-full-width-modal-content">
+<div class="modal-header stock-detail-page-historical-data-full-width-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">PYTHON</h5>
+</div>
+<div class="modal-body stock-detail-page-historical-data-full-width-modal-body">
+<p>Install the Rupy Python Package</p>
+<div class = "stock-detail-page-historical-data-full-width-modal-body-inner-div">
+<p>//code</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="stock-detail-page-historical-data-full-width-r-api" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content stock-detail-page-historical-data-full-width-modal-content">
+<div class="modal-header stock-detail-page-historical-data-full-width-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">R</h5>
+</div>
+<div class="modal-body stock-detail-page-historical-data-full-width-modal-body">
+<p>Install the Rupy R Package</p>
+<div class = "stock-detail-page-historical-data-full-width-modal-body-inner-div">
+<p>//code</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class = "stock-detail-page-historical-data-full-width-col-2-right-api-info-div-4">
+<h5>Tools</h5>
+<ul>
+<li data-toggle="modal" data-target="#stock-detail-page-historical-data-full-width-excel-api">EXCEL</li>
+</ul>
+</div>
+<div class="modal fade" id="stock-detail-page-historical-data-full-width-excel-api" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered" role="document">
+<div class="modal-content stock-detail-page-historical-data-full-width-modal-content">
+<div class="modal-header stock-detail-page-historical-data-full-width-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">EXCEL</h5>
+</div>
+<div class="modal-body stock-detail-page-historical-data-full-width-modal-body">
+<p>Download data as Excel</p>
+<div class = "stock-detail-page-historical-data-full-width-modal-body-inner-div">
+<p><a href = "http://127.0.0.1:8000/api/v1/datasets/symbol/aapl/?format=excel" target = "blank">Excel</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

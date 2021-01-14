@@ -1,0 +1,11 @@
+{% extends "Securities/base.html" %}
+{% block title %} Home | 9000technologies{% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid markets-summary-page">
+  <div class = "container">
+  <button class = "btn btn-light mt-4" onclick = "swapStyles('light.css')">Light Mode</button>
+  <button class = "btn btn-dark  mt-4" onclick = "swapStyles('dark.css')">Dark Mode</button>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

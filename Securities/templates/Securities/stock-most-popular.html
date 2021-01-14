@@ -1,0 +1,240 @@
+{% extends "Securities/base.html" %}
+{% load crispy_forms_tags %}
+{% load parse_numbers %}
+{% block title %} Rupy Investments | Most Popular Stocks in Rupy Investments{% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid stock-symbol-detail-page">
+<div class = "row">
+<div class = "col-md-1 stock-symbol-detail-page-col-1">
+<ul>
+<a href = "{% url 'stock-most-popular' %}"><li class = "in-stock-symbol-detail-page"><i class="far fa-star"></i></li></a>
+<li><i class="fas fa-poll"></i></li>
+<a href = "{% url 'markets' %}"><li><i class="fas fa-globe"></i></li></a>
+<li><i class="fab fa-searchengin"></i></li>
+<a href = "{% url 'profile' %}"><li><i class="fas fa-user-circle"></i></li></a>
+</ul>
+</div>
+
+<div class = "col-md-7 stock-watchlist-view-col-2">
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-10">
+<ul class="nav nav-pills stock-watchlist-nav-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link active stock-watchlist-nav" href = "{% url 'stock-most-popular' %}">Most Popular</a>
+</li>
+{% for portfolio in portfolio_list %}
+<li class="nav-item">
+<a class="nav-link stock-watchlist-nav" href="{% url 'portfolio-detail' portfolio.slug %}">{{portfolio.portfolio_name}}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+<div class = "col-md-2 stock-watchlist-nav-right">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+{% if user.is_authenticated %}
+<li class="nav-item stock-watchlist-nav-right">
+<a data-toggle="modal" data-target="#stock-watchlist-edit-modal" data-backdrop="static" data-keyboard="false" class="nav-link stock-watchlist-nav"><i class="far fa-edit"></i></a>
+</li>
+<li class="nav-item stock-watchlist-nav-right">
+<a data-toggle="modal" data-target="#stock-watchlist-add-modal" data-backdrop="static" data-keyboard="false" class="nav-link stock-watchlist-nav"><i class="far fa-plus-square"></i></a>
+</li>
+{% else %}
+<li class="nav-item stock-watchlist-nav-right">
+<a data-toggle="modal" data-target="#stock-watchlist-modal" class="nav-link stock-watchlist-nav"><i class="far fa-plus-square"></i></a>
+</li>
+{% endif %}
+</ul>
+<!-- Modal -->
+{% if user.is_authenticated %}
+<div class="modal fade" id="stock-watchlist-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content stock-watchlist-edit-modal-content">
+<div class="modal-header stock-watchlist-edit-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">EDIT PORTFOLIO</h5>
+<button type="button" class="close stock-watchlist-edit-modal-header-close-btn" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body stock-watchlist-edit-modal-body">
+<div class = "stock-watchlist-edit-modal-body-inner-div stock-watchlist-edit-modal-body-inner-div-all-portfolio">
+<table>
+{% for portfolio in portfolio_list %}
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+<tr>
+<td>{{portfolio.portfolio_name}}</td>
+<td id = "stock-watchlist-edit-modal-body-inner-div-all-portfolio-border-right"><i class="fas fa-pen-fancy"></i></td>
+<td id = "stock-watchlist-edit-modal-body-inner-div-all-portfolio-border-right"><a href = "{% url 'portfolio-delete' portfolio.slug %}"><i class="far fa-trash-alt"></i></a></td>
+</tr>
+{% endfor %}
+</table>
+
+<p id = "stock-watchlist-edit-modal-body-inner-div-all-portfolio-create-new-portfolio">Create New Portfolio</p>
+<form action = "{% url 'create-new-portfolio' %}" method = "POST"  autocomplete="off">
+{% csrf_token %}
+{{portfolio_create_form|crispy}}
+<button type = submit">Save</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="stock-watchlist-add-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content stock-watchlist-edit-modal-content">
+<div class="modal-header stock-watchlist-edit-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">CREATE PORTFOLIO</h5>
+<button type="button" class="close stock-watchlist-edit-modal-header-close-btn" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body stock-watchlist-edit-modal-body">
+<div class = "stock-watchlist-edit-modal-body-inner-div">
+<form action = "{% url 'create-new-portfolio' %}" method = "POST"  autocomplete="off">
+{% csrf_token %}
+{{portfolio_create_form|crispy}}
+<button type = submit">Save</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% else %}
+<div class="modal fade" id="stock-watchlist-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content stock-watchlist-edit-modal-content">
+<div class="modal-header stock-watchlist-edit-modal-header stock-watchlist-edit-modal-header-registered-users-only">
+<button type="button" class="close stock-watchlist-edit-modal-header-close-btn" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body stock-watchlist-edit-modal-body registered-users-only-data-stock-watchlist-edit-modal-body">
+<div class = "stock-watchlist-edit-modal-body-inner-div">
+<div class = "registered-users-only-data stock-watchlist-registered-users-only-data">
+<p><i class="fas fa-lock"></i></p>
+<p>You must be a registered Rupy user to create a Portfolio</p>
+<small>Login or Create a FREE acount to create a portfolio</small>
+<a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+<div class="dropdown-divider"></div>
+<p>Already a Subscriber?</p>
+<a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+<!-- END MODAL -->
+
+</div>
+</div>
+</div>
+
+
+<div class = "stock-watchlist-view-table">
+<table>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Price</th>
+<th>Open</th>
+<th>High</th>
+<th>Low</th>
+<th>Previous Close</th>
+<th>Change</th>
+<th>Change %</th>
+<th>Volume</th>
+<th>Avgerage Volume</th>
+<th>52wk High</th>
+<th>52wk Low</th>
+<th>PE</th>
+<th>EPS</th>
+<th>Market Cap</th>
+<th>Shaes Outstanding</th>
+<th>Beta</th>
+<th>Last Dividend</th>
+<th>Price Avg. 50</th>
+<th>Price Avg. 200</th>
+<th>DCF</th>
+<th>DCF Diff.</th>
+</tr>
+{% for symbol in symbols %}
+<tr>
+<script>
+jQuery(function($) {
+$('#symbol-link-on-double-click').click(function() {
+window.location = "www.facebook.com";
+return false;
+}).dblclick(function() {
+window.location = this.href;
+return false;
+});
+});
+</script>
+<td><a id = "symbol-link-on-double-click" href = "{% url 'stock-detail' symbol.slug %}">{{symbol.symbol}}</a></td>
+<td>{{symbol.name}}</td>
+{% if symbol.d_price > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_price|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_price|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_open > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_open|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_open|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_dayHigh > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_dayHigh|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_dayHigh|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_dayLow > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_dayLow|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_dayLow|floatformat:4}}</span></td>
+{% endif %}
+<td>{{symbol.d_previousClose|floatformat:4}}</td>
+{% if symbol.d_price > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">+{{symbol.d_change|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_change|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_price > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">+{{symbol.d_change_percentage|floatformat:4}} %</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_change_percentage|floatformat:4}} %</span></td>
+{% endif %}
+<td>{{symbol.d_volume}}</td>
+<td>{{symbol.d_avgVolume}}</td>
+<td>{{symbol.d_yearHigh|floatformat:4}}</td>
+<td>{{symbol.d_yearLow|floatformat:4}}</td>
+<td>{{symbol.d_pe|floatformat:4}}</td>
+<td>{{symbol.d_eps|floatformat:4}}</td>
+<td>{{symbol.d_market_cap}}</td>
+<td>{{symbol.d_sharesOutstanding}}</td>
+<td>{{symbol.d_beta|floatformat:4}}</td>
+<td>{{symbol.d_last_Div|floatformat:4}}</td>
+<td>{{symbol.d_priceAvg50|floatformat:4}}</td>
+<td>{{symbol.d_priceAvg200|floatformat:4}}</td>
+<td>{{symbol.d_dcf}}</td>
+<td>{{symbol.d_dcfDiff}}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+</div>
+
+
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

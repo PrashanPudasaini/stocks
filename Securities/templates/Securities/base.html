@@ -1,0 +1,178 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link id="mystylesheet" rel="stylesheet" type="text/css" href="{% static 'Securities/css/dark.css' %}">
+
+<script type="text/javascript" src="{% static 'Securities/js/d3.min.js' %}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="{% static 'include_by_ajax/js/include_by_ajax.min.js' %}" defer></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/c668c496a8.js" crossorigin="anonymous"></script>
+<title>{% block title %} {% endblock title%}</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<a class="navbar-brand" href="{% url 'home' %}"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<!-- <button type="button" class="media-navbar-stock-search-button" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-search" aria-hidden="true"></i></button>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog media-navbar-stock-search-button-modal-dialog modal-lg">
+    <div class="modal-content media-navbar-stock-search-button-modal-content">
+    <div class = "container-fluid">
+    <div class = "row">
+    <div class = "col-md-10 media-navbar-modal-content-div">
+      <form action = "{% url 'stock-search' %}" method = "POST">
+      {% csrf_token %}
+      {{stock_search_form|crispy}}
+      <button class = "media-navbar-stock-search-button-modal-content-stock-search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+      </form>
+    </div>
+    <div class = "col-md-3">
+      <span data-dismiss="modal" aria-label="Close" class = "close media-navbar-stock-search-button-modal-content-cancel-btn" aria-hidden="true">Cancel</span>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+</div> -->
+<script>
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle-tooltip=tooltip]' });
+});
+</script>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-auto">
+<li class="nav-item active">
+<a class="nav-link" href="{% url 'home' %}">HOME <span class="sr-only">(current)</span></a>
+</li>
+
+
+
+</ul>
+<script type = "text/javascript">
+  var cssFile = "{% static 'Securities/css' %}"
+  var setTheme = localStorage.getItem('theme')
+  if (setTheme == null){
+    swapStyles('dark.css')
+  }else{
+    swapStyles(setTheme)
+  }
+  function swapStyles(sheet){
+    document.getElementById('mystylesheet').href = cssFile + '/' + sheet
+    localStorage.setItem('theme', sheet)
+  }
+</script>
+{% if user.is_authenticated %}
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<img class = "navbar-account-img" src = "{{ request.user.profile.image.url }}">
+</a>
+{% endif %}
+{% if user.is_authenticated %}
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="{% url 'profile' %}">ACCOUNT SETTINGS</a>
+<a class = "dropdown-item" href = "{% url 'profile' %}">PROFILE</a>
+<div class="dropdown-divider"></div>
+<a class = "dropdown-item" href = "{% url 'logout' %}">LOG OUT</a>
+</div>
+{% else %}
+<ul class="navbar-nav">
+<li class="nav-item mr-3">
+<a class="nav-link navbar-signup-link" href = "{% url 'register' %}">SIGN UP</a>
+</li>
+<li class="nav-item mr-3">
+<a class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</li>
+</ul>
+{% endif %}
+</li>
+<form onkeydown="return event.key != 'Enter';" id = "stock_search_form_navbar" class = "media-queries-hide-stock-search-form prevent-enter-submit" action = "{% url 'stock-search' %}" method = "POST"  autocomplete="off">
+{% csrf_token %}
+{{stock_search_form|crispy}}
+<span class = "navbar-stock-search-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+</form>
+</div>
+</nav>
+<div id = "match-list"></div>
+<script>
+const search = document.getElementById('id_symbol');
+const matchList = document.getElementById('match-list');
+const searchSymbols = async searchText => {
+  const res = await fetch('https://financialmodelingprep.com/api/v3/stock/list?apikey=4ea5593093f3202bae9ca992c7ff4ce6');
+  const symbols = await res.json();
+  //Get all matches of current text input
+  let matches = symbols.filter(ticker => {
+    const regex = new RegExp(`^${searchText}`, 'gi');
+    return ticker.symbol.match(regex);
+  });
+  if(searchText.length === 0) {
+    matches = [];
+    matchList.innerHTML = '';
+  }
+  outputHtml(matches);
+};
+const outputHtml = matches => {
+  if(matches.length > 0) {
+    const html = matches.map(match => `
+        <div id = "stock-search-autocomplete-div-id" class = "container-fluid card card-body stock-search-autocomplete-div">
+        <div class = "row">
+        <div onclick='autoFillStockSearchForm(this)' class = "col-md-3 stock-search-autocomplete-div-col-3">
+        <p id = "stock-search-autocomplete-div-symbol-exchange-p">
+        <span class = "stock-search-autocomplete-div-symbol">${match.symbol}</span></p>
+        </div>
+        <div class = "col-md-9">
+        <p id = "stock-search-autocomplete-div-name">${match.name}<span class = "stock-search-autocomplete-div-pipe"> | </span><span class = "stock-search-autocomplete-div-exchange"> ${match.exchange}</span></p>
+        </div>
+        </div>
+        </div>
+      `)
+      .join('');
+    matchList.innerHTML = html;
+  }
+}
+search.addEventListener('input', () => searchSymbols(search.value));
+</script>
+<script>
+autoFillStockSearchForm = function(elem) {
+  var ticker = elem.innerText || elem.textContent;
+  console.log(ticker);
+  $('#id_symbol').val(ticker);
+  $('#stock_search_form_navbar').submit();
+}
+$(document).on("keydown", "prevent-enter-submit", function(event) {
+    return event.key != "Enter";
+});
+</script>
+{% if messages %}
+{% for message in messages %}
+<div class = "alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+{{message}}
+<button type="button" class="alert-close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+{% endfor %}
+{% endif %}
+<script>
+$(document).ready(function() {
+    $(".alert").first().hide().slideDown(500).delay(6000).slideUp(500, function () {
+       $(this).remove();
+    });
+});
+</script>
+{% block bodyContent %}
+{% endblock bodyContent %}
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>

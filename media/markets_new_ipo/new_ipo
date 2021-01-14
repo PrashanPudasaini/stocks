@@ -1,0 +1,353 @@
+date,company,symbol,exchange,actions,shares,priceRange,marketCap
+2021-01-21,MYT Netherlands Parent B.V.,MYTE,NYSE,Expected,,16.00 - 18.00,
+2021-01-21,"Dream Finders Homes, Inc.",DFH,NasdaqGS,Expected,,12.00 - 15.00,
+2021-01-19,E-Star Coml Mgmt Co Ltd,6668.HK,HKSE,Expected,,,
+2021-01-15,TZP Strategies Acquisition Corp.,TZPSU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-15,Authentic Equity Acquisition Corp.,AEACU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-15,Playtika Holding Corp.,PLTK,NasdaqGS,Expected,,22.00 - 24.00,
+2021-01-15,Driven Brands Holdings Inc.,DRVN,NasdaqGS,Expected,,17.00 - 20.00,
+2021-01-15,Virtuoso Acquisition Corp.,VOSOU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-15,HENNESSY CAPITAL INVESTMENT CORP. V,HCICU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-14,Authentic Equity Acquisition Corp.,AEACU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-14,Monument Circle Acquisition Corp.,MONCU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-14,Edify Acquisition Corp.,EACPU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-14,E-Star Coml Mgmt Co Ltd,6668.HK,HKSE,Expected,,,
+2021-01-14,Environmental Impact Acquisition Corp,ENVIU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-14,Silver Crest Acquisition Corp,SLCRU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-14,"Petco Health & Wellness Company, Inc.",WOOF,NasdaqGS,Expected,,18.00 - 18.00,
+2021-01-14,"Poshmark, Inc.",POSH,NasdaqGS,Expected,,35.00 - 39.00,
+2021-01-13,Edify Acquisition Corp.,EACU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-13,TZP Strategies Acquisition Corp.,TZPSU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-13,Northern Genesis Acquisition Corp. II,NGABU,NYSE,Expected,,10.00 - 10.00,
+2021-01-13,Deep Lake Capital Acquisition Corp.,DLCAU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-13,MARLIN TECHNOLOGY CORP.,FINMU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-13,Motorsport Games Inc.,MSGM,NasdaqCM,Expected,,20.00 - 20.00,
+2021-01-13,"Hamilton Lane Alliance Holdings I, Inc.",HLAHU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-13,"Affirm Holdings, Inc.",AFRM,NasdaqGS,Expected,,41.00 - 44.00,
+2021-01-12,Stolt Sea Farm Holdings BV,NA.OL,Oslo,Filed,,,
+2021-01-12,Deep Lake Capital Acquisition Corp.,DLCAU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-12,Adit EdTech Acquisition Corp.,ADEXU,NYSE,Expected,,10.00 - 10.00,
+2021-01-12,Athlon Acquisition Corp.,SWETU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-12,"890 5th Avenue Partners, Inc.",ENFAU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-12,Global Partner Acquisition Corp II,GPACU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-12,Qilian International Holding Group Ltd,QLI,NasdaqGM,Expected,,5.00 - 7.00,
+2021-01-12,Motorsport Games Inc.,MSGM,NasdaqCM,Expected,,19.00 - 20.00,
+2021-01-12,Big Cypress Acquisition Corp.,BCYPU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,LIGHTJUMP ACQUISITION CORP,LJAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Telus International (Cda) Inc,TINT,NYSE,Filed,,,
+2021-01-08,HAW Capital 2 Corp,HAW.P.V,TSXV,Priced,4000000.0,0.08 - 0.08,320000.0
+2021-01-08,Tastemaker Acquisition Corp.,TMKRU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Powered Brands,POWRU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Yidu Tech Inc,2158.HK,HKSE,Expected,,,
+2021-01-08,Global Synergy Acquisition Corp.,GSAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Locust Walk Acquisition Corp.,LWACU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Epiphany Technology Acquisition Corp.,EPHYU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Pioneer Merger Corp.,PACXU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,KL Acquisition Corp,KLAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Prospector Capital Corp.,PRSRU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,SVF Investment Corp.,SVFAU,Nasdaq,Expected,,10.00 - 10.00,
+2021-01-08,"Cullinan Oncology, LLC",CGEM,NasdaqGM,Expected,,17.00 - 19.00,
+2021-01-08,Provident Acquisition Corp.,PAQCU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-08,Gracell Biotechnologies Inc.,GRCL,NasdaqGM,Expected,,16.00 - 18.00,
+2021-01-08,Strawbear Entertainment Group,2125.HK,HKSE,Expected,,,
+2021-01-08,Roiserv Lifestyle Svcs Co Ltd,2146.HK,HKSE,Expected,,,
+2021-01-08,Cheshi Holdings Ltd,1490.HK,HKSE,Expected,,,
+2021-01-08,Empowerment & Inclusion Capital I Corp.,EPWRU,NYSE,Expected,,10.00 - 10.00,
+2021-01-08,Mountain Crest Acquisition Corp II,MCADU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-07,VectoIQ Acquisition Corp. II,VTIQU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-07,Sundy Svc Grp Co Ltd,9608.HK,HKSE,Expected,,,
+2021-01-07,Modern Chinese Medicine Grp,1643.HK,HKSE,Expected,,,
+2021-01-07,Altimeter Growth Corp. 2,AGCB,NYSE,Expected,,10.00 - 10.00,
+2021-01-07,Omega Alpha SPAC,OMEG,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-07,Torrens Mining Ltd,TRN.AX,ASX,Priced,50000000.0,0.15 - 0.15,7500000.0
+2021-01-07,Ivanhoe Capital Acquisition Corp.,IVANU,NYSE,Expected,,10.00 - 10.00,
+2021-01-07,Bright Lights Acquisition Corp.,BLTSU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-07,LIGHTJUMP ACQUISITION CORP,LJAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-07,Empowerment & Inclusion Capital I Corp.,EPWRU,NYSE,Expected,,10.00 - 10.00,
+2021-01-07,KLUDEIN I ACQUISITION CORP,INKAU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-07,Cascada Silver Corp,NA.CN,Canadian Sec,Filed,44890000.0,0.08 - 0.08,3591200.0
+2021-01-07,Vickers Vantage Corp. I,VCKAU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-06,MCI Onehealth Technologies Inc,DRDR.TO,Toronto,Priced,6000000.0,,
+2021-01-06,Sports Ventures Acquisition Corp.,AKICU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-06,LIGHTJUMP ACQUISITION CORP,LJAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-06,Legion Consortium Ltd,2129.HK,HKSE,Expected,,,
+2021-01-06,Kairos Acquisition Corp.,KAIRU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-06,POEMA Global Holdings Corp.,PPGHU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-06,Hempfusion Wellness Inc,CBD.U.TO,Toronto,Priced,10000000.0,,
+2021-01-05,Fortress Value Acquisition Corp. III,FVT-UN,NYSE,Expected,,10.00 - 10.00,
+2021-01-05,Tat Hong Equip Svc Co Ltd,2153.HK,HKSE,Expected,,,
+2021-01-05,Benessere Capital Acquisition Corp.,BENEU,NasdaqCM,Expected,,10.00 - 10.00,
+2021-01-04,Deyun Holdings Ltd,1440.HK,HKSE,Expected,,,
+2020-12-31,Modern Chinese Medicine Grp,1643.HK,HKSE,Expected,,,
+2020-12-31,Roiserv Lifestyle Svcs Co Ltd,2146.HK,HKSE,Expected,,,
+2020-12-31,Sundy Svc Grp Co Ltd,9608.HK,HKSE,Expected,,,
+2020-12-31,Yidu Tech Inc,2158.HK,HKSE,Expected,,,
+2020-12-31,Strawbear Entertainment Group,2125.HK,HKSE,Expected,,,
+2020-12-30,Tat Hong Equip Svc Co Ltd,2153.HK,HKSE,Expected,,,
+2020-12-30,Legion Consortium Ltd,2129.HK,HKSE,Expected,,,
+2020-12-30,Neonmind Biosciences Inc,MUSH.CN,Canadian Sec,Amended,40000000.0,0.07 - 0.07,2800000.0000000005
+2020-12-30,Wildcat Petroleum Plc,WCAT.L,LSE,Priced,600000000.0,,
+2020-12-30,BPM Minerals Ltd,BPM.AX,ASX,Priced,22500000.0,0.15 - 0.15,3375000.0
+2020-12-30,Cheshi Holdings Ltd,1490.HK,HKSE,Expected,,,
+2020-12-29,Benessere Capital Acquisition Corp.,BENEU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-29,Medirom Healthcare Technologies Inc.,MRM,NasdaqCM,Expected,,15.00 - 15.00,
+2020-12-28,Deyun Holdings Ltd,1440.HK,HKSE,Expected,,,
+2020-12-24,Newlink Tech Inc,9600.HK,HKSE,Expected,,,
+2020-12-24,Ventoux CCM Acquisition Corp.,VTAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-23,CF ACQUISITION CORP. IV,CFIVU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-23,Viveon Health Acquisition Corp.,VHAQU,NYSE MKT,Priced,17500000.0,10.00,175000000.0
+2020-12-23,"Inhibikase Therapeutics, Inc.",IKT,NasdaqCM,Expected,,10.00 - 12.00,
+2020-12-23,Payright Ltd,PYR.AX,ASX,Priced,15429470.0,,
+2020-12-23,Golcap Resources Corp,GCP.CN,Canadian Sec,Priced,2500000.0,0.07 - 0.07,175000.00000000003
+2020-12-23,Healthcare Services Acquisition Corp,HCARU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-23,GBS Inc.,GBS,NasdaqGM,Expected,,16.00 - 18.00,
+2020-12-23,7GC & Co. Holdings Inc.,VIIU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-22,Pharming Group N.V.,PHAR,NasdaqGM,Expected,,12.10 - 12.10,
+2020-12-22,Cross Border Capital I Inc,CBX.P.V,TSXV,Priced,3000000.0,0.08 - 0.08,240000.0
+2020-12-22,Golcap Resources Corp,GCP.CN,Canadian Sec,Priced,2500000.0,0.07 - 0.07,175000.00000000003
+2020-12-21,Newlink Tech Inc,9600.HK,HKSE,Expected,,,
+2020-12-21,Zero2IPO Holdings Inc,1945.HK,HKSE,Expected,,,
+2020-12-21,Evergreen Steel Corp,2211.TW,Taiwan,Filed,18500000.0,5.80 - 5.80,107300000.0
+2020-12-21,NZ Rural Land Co Ltd,NZL.NZ,NZSE,Priced,60000000.0,,
+2020-12-21,Rincon Resources Ltd,RCR.AX,ASX,Priced,30000000.0,,
+2020-12-21,China Gas Ind Invest Hldg Co,1940.HK,HKSE,Expected,,,
+2020-12-21,ACKRELL SPAC Partners I Co.,ACKIU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-18,INSU ACQUISITION CORP III,IIIIU,NASDAQ Capital,Priced,21800000.0,10.00,218000000.0
+2020-12-18,Seven Oaks Acquisition Corp.,SVOKU,NASDAQ Capital,Priced,22500000.0,10.00,225000000.0
+2020-12-18,Dune Acquisition Corp,DUNEU,NASDAQ Capital,Priced,15000000.0,10.00,150000000.0
+2020-12-18,Raily Aesthetic Medicine Intl,2135.HK,HKSE,Expected,,,
+2020-12-18,Cyviz AS,NA.OL,Oslo,Priced,1884058.0,3.94 - 3.94,7423188.52
+2020-12-18,MedTech Acquisition Corp,MTACU,NASDAQ Capital,Priced,22000000.0,10.00,220000000.0
+2020-12-18,Golden Falcon Acquisition Corp.,GFX'U,NYSE,Priced,30000000.0,10.00,300000000.0
+2020-12-18,908 Devices Inc.,MASS,NASDAQ Global,Priced,6500000.0,20.00,130000000.0
+2020-12-17,Corner Growth Acquisition Corp.,COOLU,NASDAQ Capital,Priced,35000000.0,10.00,350000000.0
+2020-12-17,"Virios Therapeutics, Inc.",VIRI,NASDAQ Capital,Priced,3000000.0,10.00,30000000.0
+2020-12-17,ScION Tech Growth I,SCOAU,NASDAQ Capital,Priced,50000000.0,10.00,500000000.0
+2020-12-17,MIDWEST HOLDING INC.,MDWT,NASDAQ Capital,Priced,1000000.0,70.00,70000000.0
+2020-12-16,ContextLogic Inc.,WISH,NASDAQ Global Select,Priced,46000000.0,24.00,1104000000.0
+2020-12-16,Churchill Capital Corp V,CCV'U,NYSE,Priced,45000000.0,10.00,450000000.0
+2020-12-16,"Upstart Holdings, Inc.",UPST,NASDAQ Global Select,Priced,12015690.0,20.00,240313800.0
+2020-12-16,Scopus Biopharma Inc.,SCPS,NASDAQ Global,Priced,500000.0,5.50,2750000.0
+2020-12-16,"BioAtla, Inc.",BCAB,NASDAQ Global,Priced,10500000.0,18.00,189000000.0
+2020-12-16,Elektroimportoren Invest AS,ELIMP.OL,Oslo,Priced,5489254.0,5.52 - 5.52,30300682.08
+2020-12-16,Jabbo Capital Corp,JAB.P.V,TSXV,Priced,1350000.0,0.11 - 0.11,148500.0
+2020-12-16,Wenling Zhejiang Measuring,1379.HK,HKSE,Expected,,,
+2020-12-15,Marquee Raine Acquisition Corp.,MRACU,NASDAQ Capital,Priced,32500000.0,10.00,325000000.0
+2020-12-15,Scopus Biopharma Inc.,SCPS,NasdaqGM,Expected,,5.25 - 5.75,
+2020-12-15,Oriental Culture Holding LTD,OCG,NASDAQ Capital,Priced,5065000.0,4.00,20260000.0
+2020-12-15,Wunong Net Technology Co Ltd,WNW,NASDAQ Capital,Priced,5999910.0,5.00,29999550.0
+2020-12-15,Blue Water Acquisition Corp.,BLUWU,NASDAQ Capital,Priced,5000000.0,10.00,50000000.0
+2020-12-15,"KINS Technology Group, Inc.",KINZU,NASDAQ Capital,Priced,24000000.0,10.00,240000000.0
+2020-12-14,Hexagon Purus AS,NA.OL,Oslo,Priced,27472527.0,,
+2020-12-14,Genusplus Group Ltd,GNP.AX,ASX,Priced,34177497.0,,
+2020-12-14,Chimeric Therapeutics Ltd,CHM.AX,ASX,Expected,,,
+2020-12-14,Jacobio Pharms Grp Co Ltd,1167.HK,HKSE,Expected,,,
+2020-12-11,Senior Connect Acquisition Corp. I,SNRHU,NASDAQ Capital,Priced,36000000.0,10.00,360000000.0
+2020-12-11,"Certara, Inc.",CERT,NASDAQ Global Select,Priced,29055000.0,23.00,668265000.0
+2020-12-11,Delwinds Insurance Acquisition Corp.,DWINU,NYSE,Priced,17500000.0,10.00,175000000.0
+2020-12-11,Thayer Ventures Acquisition Corp,TVACU,NASDAQ Capital,Priced,15000000.0,10.00,150000000.0
+2020-12-11,AbCellera Biologics Inc.,ABCL,NASDAQ Global Select,Priced,24150000.0,20.00,483000000.0
+2020-12-11,"Vivos Therapeutics, Inc.",VVOS,NASDAQ Capital,Priced,3500000.0,6.00,21000000.0
+2020-12-11,Roth CH Acquisition II Co,ROCCU,NASDAQ Capital,Priced,10000000.0,10.00,100000000.0
+2020-12-11,Nanobiotix S.A.,NBTX,NASDAQ Global Select,Priced,7300000.0,13.50,98550000.0
+2020-12-11,Globis Acquisition Corp.,GLAQU,NASDAQ Capital,Priced,10000000.0,10.00,100000000.0
+2020-12-11,Motive Capital Corp,MOTVU,NYSE,Priced,36000000.0,10.00,360000000.0
+2020-12-11,"CBRE Acquisition Holdings, Inc.",CBAHU,NYSE,Priced,35000000.0,10.00,350000000.0
+2020-12-11,"Gores Holdings VI, Inc.",GHVIU,NASDAQ Capital,Priced,30000000.0,10.00,300000000.0
+2020-12-11,Kingfisher Mining Ltd,KFM.AX,ASX,Priced,30000000.0,0.15 - 0.15,4500000.0
+2020-12-11,EdtechX Holdings Acquisition Corp. II,EDTXU,NASDAQ Capital,Priced,10000000.0,10.00,100000000.0
+2020-12-11,4D Molecular Therapeutics Inc.,FDMT,NASDAQ Global Select,Priced,8400000.0,23.00,193200000.0
+2020-12-11,Vesync Co Ltd,2148.HK,HKSE,Expected,,,
+2020-12-10,"Airbnb, Inc.",ABNB,NASDAQ Global Select,Priced,51323531.0,68.00,3490000108.0
+2020-12-10,Periphas Capital Partnering Corp,PCPCU,NYSE,Priced,14400000.0,25.00,360000000.0
+2020-12-10,"HYDROFARM HOLDINGS GROUP, INC.",HYFM,NASDAQ Global Select,Priced,8666667.0,20.00,173333340.0
+2020-12-10,Carney Technology Acquisition Corp. II,CTAQU,NASDAQ Capital,Priced,35000000.0,10.00,350000000.0
+2020-12-10,Cyviz AS,NA.OL,Oslo,Expected,,3.95 - 3.95,
+2020-12-10,RMG Acquisition Corp. II,RMGBU,NASDAQ Capital,Priced,30000000.0,10.00,300000000.0
+2020-12-10,Globis Acquisition Corp.,GLAQU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-10,Sino-Ocean Service Holding Ltd,6677.HK,HKSE,Expected,,,
+2020-12-10,Netjoy Holdings Ltd,2131.HK,HKSE,Expected,,,
+2020-12-10,"Vivos Therapeutics, Inc.",VVOS,NasdaqCM,Expected,,5.00 - 7.00,
+2020-12-09,"C3.ai, Inc.",AI,NYSE,Priced,15500000.0,42.00,651000000.0
+2020-12-09,HumanCo Acquisition Corp.,HMCOU,NASDAQ Capital,Priced,25000000.0,10.00,250000000.0
+2020-12-09,Cluey Ltd,CLU.AX,ASX,Priced,24999969.0,,
+2020-12-09,Altitude Acquisition Corp.,ALTUU,NASDAQ Capital,Priced,26100000.0,10.00,261000000.0
+2020-12-09,Live Oak Acquisition Corp II,LOKBU,NYSE,Expected,,10.00 - 10.00,
+2020-12-09,Frazier Lifesciences Acquisition Corp,FLACU,NASDAQ Capital,Priced,12000000.0,10.00,120000000.0
+2020-12-09,DoorDash Inc,DASH,NYSE,Priced,33000000.0,102.00,3366000000.0
+2020-12-09,Nebula Caravel Acquisition Corp.,NEBCU,NASDAQ Capital,Priced,25000000.0,10.00,250000000.0
+2020-12-09,"PubMatic, Inc.",PUBM,NASDAQ Global,Priced,5900000.0,20.00,118000000.0
+2020-12-09,Oriental Culture Holding LTD,OCG,NasdaqCM,Expected,,4.00 - 4.00,
+2020-12-09,Blue Moon Group Holdings Ltd,6993.HK,HKSE,Expected,,,
+2020-12-08,Altitude Acquisition Corp.,ALTUU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-08,DD3 Acquisition Corp. II,DDMXU,NASDAQ Capital,Priced,11000000.0,10.00,110000000.0
+2020-12-08,Mudrick Capital Acquisition Corp. II,MUDSU,NASDAQ Capital,Priced,27500000.0,10.00,275000000.0
+2020-12-08,HumanCo Acquisition Corp.,HMCOU,NasdaqCM,Expected,,10.00 - 10.00,
+2020-12-08,Concord Acquisition Corp,CND'U,NYSE,Priced,24000000.0,10.00,240000000.0
+2020-12-08,Revolution Acceleration Acquisition Corp,RAACU,NASDAQ Capital,Priced,25000000.0,10.00,250000000.0
+2020-12-07,Element 29 Resources Inc,ECU.V,TSXV,Priced,13310400.0,,
+2020-12-04,"Silverback Therapeutics, Inc.",SBTX,NASDAQ Global,Priced,11500000.0,21.00,241500000.0
+2020-12-04,PROPTECH INVESTMENT CORP. II,PTICU,NASDAQ Capital,Priced,20000000.0,10.00,200000000.0
+2020-12-04,17 Education & Technology Group Inc.,YQ,NASDAQ Global Select,Priced,27400000.0,10.50,287700000.0
+2020-12-04,Acusensus Ltd,ACE.AX,ASX,Expected,,,
+2020-12-04,Datang Group Holdings Ltd,2117.HK,HKSE,Expected,,,
+2020-12-04,"Seer, Inc.",SEER,NASDAQ Global Select,Priced,9210527.0,19.00,175000013.0
+2020-12-04,"Sigilon Therapeutics, Inc.",SGTX,NASDAQ Global Select,Priced,7000000.0,18.00,126000000.0
+2020-12-04,Pop Mart Intl Grp Ltd,9992.HK,HKSE,Expected,,,
+2020-12-04,Fintech Acquisition Corp V,FTCVU,NASDAQ Capital,Priced,21800000.0,10.00,218000000.0
+2020-12-03,Far Peak Acquisition Corp,FPACU,NYSE,Priced,55000000.0,10.00,550000000.0
+2020-12-03,PROPTECH INVESTMENT CORP. II,PTICU,NasdaqCM,Expected,,10.00 ,
+2020-12-03,Kinnate Biopharma Inc.,KNTE,NASDAQ Global Select,Priced,12000000.0,20.00,240000000.0
+2020-12-03,Live Oak Acquisition Corp II,LOKBU,NYSE,Priced,22000000.0,10.00,220000000.0
+2020-12-03,Leading Holdings Group Ltd,6999.HK,HKSE,Expected,,,
+2020-12-03,JAWS Spitfire Acquisition Corp,SPFRU,NYSE,Priced,30000000.0,10.00,300000000.0
+2020-12-03,Highland Transcend Partners I Corp.,HTPAU,NYSE,Priced,27500000.0,10.00,275000000.0
+2020-12-02,Jiayuan Services Holdings Ltd,1153.HK,HKSE,Expected,,,
+2020-12-02,Capitol Investment Corp. V,CAP'U,NYSE,Priced,30000000.0,10.00,300000000.0
+2020-12-02,NXL.AX,NXL.AX,ASX,Expected,,,
+2020-12-02,Rodgers Silicon Valley Acquisition Corp,RSVAU,NASDAQ Capital,Priced,20000000.0,10.00,200000000.0
+2020-12-02,Trepont Acquistion Corp I,TACAU,NYSE,Priced,20000000.0,10.00,200000000.0
+2020-12-02,Nuix Ltd,NXL.AX,ASX,Expected,,,
+2020-12-01,China Resources Mixc,1209.HK,HKSE,Expected,,,
+2020-11-30,Top Shelf Intl Hldg Ltd,TSI.AX,ASX,Expected,,,
+2020-11-30,Seaport Global Acquisition Corp,SGAMU,NasdaqCM,Expected,,10.00 ,
+2020-11-27,Yue Kan Hldg Ltd,2110.HK,HKSE,Expected,,,
+2020-11-27,2110.HK,2110.HK,HKSE,Expected,,,
+2020-11-27,Cadeler A/S,CADLR.OL,Oslo,Priced,59456510.0,,
+2020-11-26,6666.HK,6666.HK,HKSE,Expected,,,
+2020-11-26,Evergrande Ppty Svcs Grp Ltd,6666.HK,HKSE,Expected,,,
+2020-11-25,NA.OL,NA.OL,Oslo,Priced,26042000.0,,
+2020-11-25,FRX-UN,FRX-UN,NYSE,Expected,,10.00 ,
+2020-11-25,SGAMU,SGAMU,NasdaqCM,Expected,,10.00 ,
+2020-11-24,GNPKU,GNPKU,NYSE,Expected,,10.00 ,
+2020-11-24,VCVCU,VCVCU,NasdaqCM,Expected,,10.00 ,
+2020-11-24,SVSVU,SVSVU,NasdaqCM,Expected,,10.00 ,
+2020-11-24,OZON,OZON,NasdaqGS,Expected,,22.50 ,
+2020-11-24,HFEN,HFEN,NasdaqCM,Expected,,6.00 ,
+2020-11-23,BREZU,BREZU,NasdaqCM,Expected,,10.00 ,
+2020-11-20,OCA'U,OCA'U,NYSE,Expected,,10.00 ,
+2020-11-20,TLS,TLS,NasdaqGM,Expected,,16.00 ,
+2020-11-20,SHC,SHC,NasdaqGS,Expected,,20.00 ,
+2020-11-20,MRVI,MRVI,NasdaqGS,Expected,,24.00 ,
+2020-11-20,HXL.AX,HXL.AX,ASX,Expected,37500000.0,0.14 ,5250000.000000001
+2020-11-20,LSAQ,LSAQ,NasdaqCM,Expected,,10.00 ,
+2020-11-20,SOV.AX,SOV.AX,ASX,Expected,,,
+2020-11-20,NLSP,NLSP,NasdaqCM,Expected,,5.00 ,
+2020-11-19,YSG,YSG,NYSE,Expected,,8.50 ,
+2020-11-19,AKO.AX,AKO.AX,ASX,Expected,16000000.0,0.18 ,2880000.0
+2020-11-18,ARBGU,ARBGU,NasdaqCM,Expected,,10.00 ,
+2020-11-17,ASPI,ASPI,NYSE,Expected,,20.00 ,
+2020-11-13,BWACU,BWACU,NasdaqCM,Expected,,10.00 ,
+2020-11-13,IKT,IKT,NasdaqCM,Expected,,10.00 ,
+2020-11-13,HAACU,HAACU,NasdaqCM,Expected,,10.00 ,
+2020-11-13,HFEN,HFEN,NasdaqCM,Expected,,6.00 ,
+2020-11-13,CMPX,CMPX,NasdaqCM,Expected,,5.00 ,
+2020-11-13,DMYIU,DMYIU,NYSE,Expected,,10.00 ,
+2020-11-12,TVACU,TVACU,NasdaqCM,Expected,,10.00 ,
+2020-11-12,1516.HK,1516.HK,HKSE,Expected,,,
+2020-11-12,6996.HK,6996.HK,HKSE,Expected,,,
+2020-11-12,INAB,INAB,NasdaqGM,Expected,,15.00 ,
+2020-11-12,RRRP3.SA,RRRP3.SA,Sao Paolo,Priced,32857143.0,,
+2020-11-11,INAB,INAB,NasdaqGM,Expected,,15.00 ,
+2020-11-11,2599.HK,2599.HK,HKSE,Expected,,,
+2020-11-10,ADOCU,ADOCU,NasdaqCM,Expected,,10.00 ,
+2020-11-10,TVACU,TVACU,NasdaqCM,Expected,,10.00 ,
+2020-11-10,9666.HK,9666.HK,HKSE,Expected,,,
+2020-11-10,UNI.AX,UNI.AX,ASX,Expected,38900000.0,2.68 ,104252000.0
+2020-11-10,6900.HK,6900.HK,HKSE,Expected,,,
+2020-11-09,HMCC.P.V,HMCC.P.V,TSXV,Priced,3500000.0,0.07 ,245000.00000000003
+2020-11-09,ENJU3.SA,ENJU3.SA,Sao Paolo,Priced,110704891.0,,
+2020-11-06,1248.HK,1248.HK,HKSE,Expected,,,
+2020-11-06,1795.HK,1795.HK,HKSE,Expected,,,
+2020-11-04,BWACU,BWACU,NasdaqCM,Expected,,10.00 ,
+2020-11-02,1940.HK,1940.HK,HKSE,Expected,,,
+2020-11-02,543244.BO,543244.BO,BSE,Priced,210000.0,,
+2020-10-30,NOAC,NOAC,NasdaqCM,Expected,,10.00 ,
+2020-10-30,LU,LU,NYSE,Expected,,11.50 ,
+2020-10-30,AVIR,AVIR,NasdaqGS,Expected,,22.00 ,
+2020-10-30,GMVD,GMVD,NasdaqGM,Expected,,5.00 ,
+2020-10-30,2599.HK,2599.HK,HKSE,Expected,,,
+2020-10-30,IKT,IKT,NasdaqCM,Expected,,10.00 ,
+2020-10-30,MHK.AX,MHK.AX,ASX,Expected,22500000.0,0.14 ,3150000.0000000005
+2020-10-30,6900.HK,6900.HK,HKSE,Expected,,,
+2020-10-30,1795.HK,1795.HK,HKSE,Expected,,,
+2020-10-30,BHSEU,BHSEU,NasdaqCM,Expected,,10.00 ,
+2020-10-30,DBDRU,DBDRU,NasdaqCM,Expected,,10.00 ,
+2020-10-30,AUN.AX,AUN.AX,ASX,Expected,,0.14 ,
+2020-10-30,6688.HK,6688.HK,HKSE,Expected,,,
+2020-10-30,SQZ,SQZ,NYSE,Expected,,16.00 ,
+2020-10-30,AIRX-M.OL,AIRX-M.OL,Oslo,Priced,28870370.0,1.45 ,41862036.5
+2020-10-30,PVT.V,PVT.V,TSXV,Priced,7059000.0,6.35 ,44824650.0
+2020-10-30,MZH.SI,MZH.SI,SES,Priced,3861900.0,,
+2020-10-30,NGS.AX,NGS.AX,ASX,Priced,35000000.0,0.15 ,5250000.0
+2020-10-30,OTRAU,OTRAU,NasdaqCM,Expected,,10.00 ,
+2020-10-30,JUPW,JUPW,NasdaqCM,Expected,,7.50 ,
+2020-10-30,CONXU,CONXU,NasdaqCM,Expected,,10.00 ,
+2020-10-29,SBI.L,SBI.L,LSE,Priced,21604938.0,,
+2020-10-29,NA.OL,NA.OL,Oslo,Priced,9126364.0,2.36 ,21538219.04
+2020-10-29,AHM,AHM,NYSE,Expected,,16.00 ,
+2020-10-29,FSNT.F,FSNT.F,Frankfurt,Priced,3605000.0,,
+2020-10-29,LESL,LESL,NasdaqGM,Expected,,17.00 ,
+2020-10-29,HOMS,HOMS,NYSE,Expected,,14.00 ,
+2020-10-29,MVNR,MVNR,NasdaqGM,Expected,,22.00 ,
+2020-10-29,1248.HK,1248.HK,HKSE,Expected,,,
+2020-10-29,VLCY.P.V,VLCY.P.V,TSXV,Priced,3000000.0,0.07 ,210000.00000000003
+2020-10-29,KDSX.V,KDSX.V,TSXV,Amended,8306450.0,0.59 ,4900805.5
+2020-10-29,SMLT.ME,SMLT.ME,MCX,Priced,3078968.0,,
+2020-10-29,ALGM,ALGM,NasdaqGS,Expected,,12.00 ,
+2020-10-29,DSACU,DSACU,NasdaqCM,Expected,,10.00 ,
+2020-10-29,SFT-F.BK,SFT-F.BK,Thailand,Priced,120000000.0,,
+2020-10-29,GLTO,GLTO,NasdaqGM,Expected,,14.00 ,
+2020-10-29,LEGOU,LEGOU,NasdaqCM,Expected,,10.00 ,
+2020-10-28,ACICU,ACICU,NYSE,Expected,,10.00 ,
+2020-10-28,GATO,GATO,NYSE,Expected,,7.00 ,
+2020-10-28,9995.HK,9995.HK,HKSE,Amended,7654000.0,,
+2020-10-28,6756.TW,6756.TW,Taiwan,Amended,1125000.0,5.77 ,6491249.999999999
+2020-10-28,2126.HK,2126.HK,HKSE,Expected,,,
+2020-10-28,AUUD,AUUD,NasdaqCM,Expected,,4.13 ,
+2020-10-28,MAX,MAX,NYSE,Expected,,19.00 ,
+2020-10-28,BDSX,BDSX,NasdaqGM,Expected,,17.00 ,
+2020-10-28,ROOT,ROOT,Nasdaq,Expected,,22.00 ,
+2020-10-28,VLCY.P.V,VLCY.P.V,TSXV,Priced,3000000.0,0.07 ,210000.00000000003
+2020-10-28,1940.HK,1940.HK,HKSE,Expected,,,
+2020-10-28,UNI.AX,UNI.AX,ASX,Amended,,,
+2020-10-28,BOACU,BOACU,NYSE,Expected,,10.00 ,
+2020-10-27,SBI.L,SBI.L,LSE,Priced,21604938.0,,
+2020-10-27,LUXAU,LUXAU,NasdaqCM,Expected,,10.00 ,
+2020-10-27,MACUU,MACUU,NasdaqCM,Expected,,10.00 ,
+2020-10-27,GATO,GATO,NYSE,Priced,21430000.0,,
+2020-10-26,CBL.AX,CBL.AX,ASX,Amended,,,
+2020-10-26,SOL.MC,SOL.MC,MCE,Amended,30881767.0,,
+2020-10-26,TFCO4.SA,TFCO4.SA,Sao Paolo,Priced,56540900.0,,
+2020-10-26,6688.HK,6688.HK,HKSE,Amended,1336564800.0,,
+2020-10-22,Bull Horn Holdings Corp.,BHSEU,NASDAQ Capital,expected,7500000.0,10.00,75000000.0
+2020-10-22,McAfee Corp.,MCFE,NASDAQ Global Select,expected,30982558.0,19.00-22.00,936100000.0
+2020-10-21,DATTO HOLDING CORP.,MSP,NYSE,expected,22000000.0,24.00-27.00,683100000.0
+2020-10-21,"Supernova Partners Acquisition Company, Inc.",SPNVU,NYSE,expected,30000000.0,10.00,345000000.0
+2020-10-21,"Jupiter Wellness, Inc.",JUPW,NASDAQ Capital,expected,1000000.0,7.50	,8625000.0
+2020-10-20,Horizon Acquisition Corp II,HZONU,NYSE,expected,50000000.0,10.00,500000000.0
+2020-10-20,Decarbonization Plus Acquisition Corp,DCRBU,NASDAQ Capital,expected,20000000.0,10.00,200000000.0
+2020-10-20,GOOD WORKS ACQUISITION CORP.,GWACU,NASDAQ Capital,expected,15000000.0,10.00,172500000.0
+2020-10-20,MingZhu Logistics Holdings Ltd,YGMZ,NASDAQ Capital,expected,3000000.0,4.00,13800000.0
+2020-10-19,Ronn Motor Group Inc.,,,withdrawn,,,
+2020-10-19,"Compass Therapeutics, Inc.",CMPX,,filed,,,50000000.0
+2020-10-16,"Praxis Precision Medicines, Inc.",PRAX,NASDAQ Global Select,priced,10000000.0,19.00,190000000.0
+2020-10-16,"Eargo, Inc.",EAR,NASDAQ Global Select,priced,7851852.0,18.00,141333336.0
+2020-10-16,"Tarsus Pharmaceuticals, Inc.",TARS,NASDAQ Global Select,priced,5500000.0,16.00,88000000.0
+2020-10-16,"Aligos Therapeutics, Inc.",ALGS,NASDAQ Global Select,priced,10000000.0,15.00,150000000.0
+2020-10-16,TURMERIC ACQUISITION CORP.,TMPMU,NASDAQ Capital,priced,8500000.0,10.00,85000000.0
+2020-10-16,Bridgetown Holdings Ltd,BTWNU,NASDAQ Capital,priced,55000000.0,10.00,550000000.0
+2020-10-16,Opthea Ltd,OPT,NASDAQ Global Select,priced,8563300.0,13.50,115604550.0
+2020-10-16,"Kiromic Biopharma, Inc.",KRBP,NASDAQ Capital,priced,1250000.0,12.00,15000000.0
+2020-10-16,"dMY Technology Group, Inc. III",DMYIU,,filed,,,287500000.0
+2020-10-16,"IN8BIO, INC.",INAB,,filed,,,86250000.0
+2020-10-15,"Eastern Bankshares, Inc.",EBC,NASDAQ Global Select,priced,179300000.0,10.00,1793000000.0
+2020-10-15,Spartacus Acquisition Corp,TMTSU,NASDAQ Capital,priced,20000000.0,10.00,200000000.0
+2020-10-15,Motion Acquisition Corp.,MOTNU,NASDAQ Capital,priced,11500000.0,10.00,115000000.0
+2020-10-15,MINISO Group Holding Ltd,MNSO,NYSE,priced,30400000.0,20.00,608000000.0
+2020-10-15,"Array Technologies, Inc.",ARRY,NASDAQ Global,priced,47500000.0,22.00,1045000000.0
+2020-10-15,L&F Acquisition Corp.,LNFAU,,filed,,,230000000.0
+2020-10-14,5:01 Acquisition Corp.,FVAM,NASDAQ Capital,priced,8000000.0,10.00,80000000.0
+2020-10-14,"Codiak BioSciences, Inc.",CDAK,NASDAQ Global,priced,5500000.0,15.00,82500000.0
+2020-10-14,PROPTECH INVESTMENT CORP. II,PTICU,,filed,,,201250000.0
+2020-10-14,Lifesci Acquisition II Corp.,LSAQ,,filed,,,86250000.0

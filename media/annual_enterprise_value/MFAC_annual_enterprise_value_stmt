@@ -1,0 +1,3 @@
+symbol,date,stockPrice,numberOfShares,marketCapitalization,minusCashAndCashEquivalents,addTotalDebt,enterpriseValue
+MFAC,2019-12-31,10.28,16928889000,174028978920.0,482665,0,174028496255.0
+MFAC,2018-12-31,9.85,16571111,163225443.35,1192945,258559000,420591498.35

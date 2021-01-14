@@ -1,0 +1,237 @@
+{% extends "Securities/base.html" %}
+{% load crispy_forms_tags %}
+{% load include_by_ajax_tags %}
+{% load parse_numbers %}
+{% block title %} {{object.symbol}} {{object.exchangeShortName}} | {{object.name}}{% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid stock-symbol-detail-page">
+<div class = "row">
+<div class = "col-md-1 stock-symbol-detail-page-col-1">
+<ul>
+<a href = "{% url 'stock-most-popular' %}"><li><i class="far fa-star"></i></li></a>
+<li class = "in-stock-symbol-detail-page"><i class="fas fa-poll"></i></li>
+<a href = "{% url 'markets' %}"><li><i class="fas fa-globe"></i></li></a>
+<li><i class="fab fa-searchengin"></i></li>
+<a href = "{% url 'profile' %}"><li><i class="fas fa-user-circle"></i></li></a>
+</ul>
+</div>
+<div class = "col-md-7 stock-symbol-detail-page-col-2">
+<div class = "stock-symbol-detail-page-col-2-header">
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-9">
+<h1>
+<span class = "stock-symbol-detail-page-col-2-header-price-name">{{object.name}}</span>
+<span class = "stock-symbol-detail-page-col-2-header-price-symbol">({{object.symbol}} {{object.exchangeShortName}})</span>
+{% if object.price > object.previousClose %}
+<span class = "stock-symbol-detail-page-col-2-header-price-increase">{{object.price}}</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-2-header-price-decrease">{{object.price}}</span>
+{% endif %}
+{% if object.d_price > object.d_previousClose %}
+<span class = "stock-symbol-detail-page-col-2-header-price-change-positive">+{{object.d_change|floatformat:4}} | +{{object.d_change_percentage|floatformat:4}}%</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-2-header-price-change-negative">{{object.d_change|floatformat:4}} | {{object.d_change_percentage|floatformat:4}}%</span></h1>
+{% endif %}
+</div>
+<div class = "col-md-3 stock-symbol-detail-page-col-2-header-col-2">
+<h1><span data-toggle = "modal" data-target = "#stock-symbol-detail-page-full-width-historical-data" class = "stock-symbol-detail-page-col-2-header-historical-datatables-btn">Historical Data</span></h1>
+</div>
+</div>
+</div>
+</div>
+<div class = "stock-symbol-detail-page-col-2-header-chart-range">
+<div class = "container-fluid stock-symbol-detail-page-col-2-header-chart-range-link">
+<div class = "row">
+<div class = "col-md-6">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+<span class = "stock-symbol-detail-page-col-2-header-chart-range-text">Range:</span>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1 active" id="pills-2d-chart-tab" data-toggle="pill" href="#pills-2d-chart" role="tab" aria-controls="pills-2d-chart" aria-selected="true">2D</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-5d-chart-tab" data-toggle="pill" href="#pills-5d-chart" role="tab" aria-controls="pills-5d-chart" aria-selected="false">5D</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-1m-chart-tab" data-toggle="pill" href="#pills-1m-chart" role="tab" aria-controls="pills-1m-chart" aria-selected="false">1M</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-3m-chart-tab" data-toggle="pill" href="#pills-3m-chart" role="tab" aria-controls="pills-3m-chart" aria-selected="false">3M</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-6m-chart-tab" data-toggle="pill" href="#pills-6m-chart" role="tab" aria-controls="pills-6m-chart" aria-selected="false">6M</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-1y-chart-tab" data-toggle="pill" href="#pills-1y-chart" role="tab" aria-controls="pills-1y-chart" aria-selected="false">1Y</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-3y-chart-tab" data-toggle="pill" href="#pills-3y-chart" role="tab" aria-controls="pills-3y-chart" aria-selected="false">3Y</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-5y-chart-tab" data-toggle="pill" href="#pills-5y-chart" role="tab" aria-controls="pills-5y-chart" aria-selected="false">5Y</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1" id="pills-max-chart-tab" data-toggle="pill" href="#pills-max-chart" role="tab" aria-controls="pills-max-chart" aria-selected="false">MAX</a>
+</li>
+</ul>
+</div>
+<div class = "col-md-6 stock-symbol-detail-page-col-2-header-chart-range-full-featured-chart-div">
+<ul class="nav nav-pills stock-symbol-detail-page-col-2-header-chart-range-full-featured-chart" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-2-header-chart-range-nav-link-col2" id="pills-max-chart-tab" data-toggle="pill" href="#pills-max-chart" role="tab" aria-controls="pills-max-chart" aria-selected="false"><i class="fas fa-chart-line"></i> Full Featured Chart </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-2d-chart" role="tabpanel" aria-labelledby="pills-2d-chart-tab">
+{% include 'stock_detail_chart.html' %}
+
+</div>
+<div class="tab-pane fade" id="pills-5d-chart" role="tabpanel" aria-labelledby="pills-5d-chart-tab">2D CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">5d CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">1M CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">3M CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">6M CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">1Y CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">3Y CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">5Y CHART</div>
+<div class="tab-pane fade" id="pills-1m-chart" role="tabpanel" aria-labelledby="pills-1m-chart-tab">MAX CHART</div>
+</div>
+</div>
+
+<div class="modal fade" id="stock-symbol-detail-page-full-width-historical-data" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog stock-symbol-detail-page-full-width-historical-data-modal-dialog" role="document">
+<div class="modal-content stock-symbol-detail-page-full-width-historical-data-modal-content">
+<div class="modal-header stock-symbol-detail-page-full-width-historical-data-modal-dialog-header">
+<h3>
+<span class = "stock-symbol-detail-page-col-2-header-price-symbol">{{object.symbol}} | {{object.exchangeShortName}}</span>
+{% if object.price > object.previousClose %}
+<span class = "stock-symbol-detail-page-col-2-header-price-increase">{{object.price}}</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-2-header-price-decrease">{{object.price}}</span>
+{% endif %}
+{% if object.d_price > object.d_previousClose %}
+<span class = "stock-symbol-detail-page-col-2-header-price-change-positive">+{{object.d_change|floatformat:4}} | +{{object.d_change_percentage|floatformat:4}}%</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-2-header-price-change-negative">{{object.d_change|floatformat:4}} | {{object.d_change_percentage|floatformat:4}}%</span>
+{% endif %}
+</h3>
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-dialog-header-minimize">
+<span data-dismiss="modal"><i class="fas fa-compress-arrows-alt"></i></span>
+</div>
+</div>
+{% include_by_ajax 'stock_detail_historical_data.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class = "col-md-3 stock-symbol-detail-page-col-3">
+<div class = "container-fluid stock-symbol-detail-page-col-3-sticky-quote">
+<h2>{{object.symbol}} | {{object.exchangeShortName}}</h2>
+<h3>{{object.name}}</h3>
+{% if object.price > object.previousClose %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-increase">{{object.price}}</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-decrease">{{object.price}}</span>
+{% endif %}
+{% if object.d_price > object.d_previousClose %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-change-positive">+{{object.d_change|floatformat:4}} | +{{object.d_change_percentage|floatformat:4}}%</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-change-negative">{{object.d_change|floatformat:4}} | {{object.d_change_percentage|floatformat:4}}%</span>
+{% endif %}
+<p class = "stock-symbol-detail-page-col-3-sticky-quote-last-updated">Refreshed: {{object.date_created}}</p>
+
+<div class= "dropdown show stock-detail-page-add-to-watchlist-edit-alert-section">
+<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+{% if is_watching %}<i class="fas fa-star"></i>{% else %} <i class="far fa-star"></i> {% endif %}
+</a>
+<div class = "dropdown-menu stock-detail-page-add-to-watchlist-edit-alert-section-dropdown-menu">
+{% for forms in add_to_portfolio %}
+<form method = "POST" autocomplete="off" id = "add-symbol-to-{{forms.slug.value}}" class = 'add-to-portfolio-form'>
+{% csrf_token %}
+{{ add_to_portfolio.management_form }}
+<div onclick="document.getElementById('add-symbol-to-{{forms.slug.value}}').submit()" class = "forms-portfolio-name-div">
+<p>{{forms.portfolio_name}}</p>
+</div>
+</form>
+{% endfor %}
+<div class = "add-remove-action-list">
+{% for action in add_remove_action_list %}
+{% if action == "REMOVE" %}
+<p><i class="fas fa-star"></i></p>
+{% else %}
+<p><i class="far fa-star"></i></p>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+<a><i class="far fa-edit"></i></a>
+</div>
+
+</div>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="stock-symbol-detail-page-col-3-sticky-quote-summary" role="tabpanel" aria-labelledby="stock-symbol-detail-page-col-3-sticky-quote-summary-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats">
+<h3>Key Statistics</h3>
+{% include 'stock_detail_key_stats.html' %}
+</div>
+</div>
+<div class="tab-pane fade" id="stock-symbol-detail-page-col-3-sticky-quote-news" role="tabpanel" aria-labelledby="stock-symbol-detail-page-col-3-sticky-quote-news-tab">NEWS HERE</div>
+<div class="tab-pane fade" id="stock-symbol-detail-page-col-3-sticky-quote-financials" role="tabpanel" aria-labelledby="stock-symbol-detail-page-col-3-sticky-quote-financials-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats-financials">
+<h3>Financials <span data-toggle = "modal" data-target = "#stock-detail-profile-key-executives" class = "stock-symbol-detail-page-col-3-sticky-quote-maximize"><i class="far fa-window-maximize"></i></span></h3>
+{% include 'stock_detail_financials.html' %}
+</div>
+</div>
+<div class="tab-pane fade" id="stock-symbol-detail-page-col-3-sticky-quote-analysis" role="tabpanel" aria-labelledby="stock-symbol-detail-page-col-3-sticky-quote-analysis-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-analysis">
+<h3>Analysis</h3>
+{% include 'stock_detail_analysis.html' %}
+</div>
+</div>
+<div class="tab-pane fade" id="stock-symbol-detail-page-col-3-sticky-quote-profile" role="tabpanel" aria-labelledby="stock-symbol-detail-page-col-3-sticky-quote-profile-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile">
+<h3>Profile <span data-toggle = "modal" data-target = "#stock-detail-profile-key-executives" class = "stock-symbol-detail-page-col-3-sticky-quote-maximize"><i class="far fa-window-maximize"></i></span></h3>
+{% include 'stock_detail_profile.html' %}
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class = "col-md-1 stock-symbol-detail-page-col-4">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu active" id="stock-symbol-detail-page-col-3-sticky-quote-summary-tab" data-toggle="pill" href="#stock-symbol-detail-page-col-3-sticky-quote-summary" role="tab" aria-controls="stock-symbol-detail-page-col-3-sticky-quote-summary" aria-selected="true"><i class="far fa-edit"></i></a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="stock-symbol-detail-page-col-3-sticky-quote-news-tab" data-toggle="pill" href="#stock-symbol-detail-page-col-3-sticky-quote-news" role="tab" aria-controls="stock-symbol-detail-page-col-3-sticky-quote-news" aria-selected="false"><i class="fas fa-rss-square"></i></a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="stock-symbol-detail-page-col-3-sticky-quote-financials-tab" data-toggle="pill" href="#stock-symbol-detail-page-col-3-sticky-quote-financials" role="tab" aria-controls="stock-symbol-detail-page-col-3-sticky-quote-financials" aria-selected="false"><i class="fas fa-file-invoice-dollar"></i></a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="stock-symbol-detail-page-col-3-sticky-quote-analysis-tab" data-toggle="pill" href="#stock-symbol-detail-page-col-3-sticky-quote-analysis" role="tab" aria-controls="stock-symbol-detail-page-col-3-sticky-quote-analysis" aria-selected="false"><i class="fas fa-chart-line"></i></a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="stock-symbol-detail-page-col-3-sticky-quote-profile-tab" data-toggle="pill" href="#stock-symbol-detail-page-col-3-sticky-quote-profile" role="tab" aria-controls="stock-symbol-detail-page-col-3-sticky-quote-profile" aria-selected="false"><i class="fas fa-id-badge"></i></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

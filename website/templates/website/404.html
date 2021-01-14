@@ -1,0 +1,19 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Rupy | 404 Page Not Found {% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-5 login-register-page-col-1">
+<h1>RUPY</h1>
+</div>
+<div class = "col-md-7 login-register-page-col-2">
+<div class = "login-register-page-col-2-login-form-section">
+  <h1>404 Page Not Found</h1>
+  <p>The page has been removed or does not exist</p>
+</div>
+</div>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

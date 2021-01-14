@@ -1,0 +1,37 @@
+{% extends "Securities/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} RUPY | Subscriptions {% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid profile-page">
+<div class = "row">
+<div class = "col-md-1">
+</div>
+<div class = "col-md-3 user-profile-page-side-nav-section">
+<div class = "user-profile-page-side-nav">
+<ul class = "user-profile-page-side-nav-ul">
+{% if request.user.is_superuser %}
+<a href = "{% url 'profile' %}"><li>PROFILE</li></a>
+<a href = "{% url 'password' %}"><li>PASSWORD</li></a>
+<a href = "{% url 'subscriptions' %}"><li>SUBSCRIPTIONS <i style = "float:right;" class="fas fa-arrow-right"></i></li></a>
+<a href = "{% url 'admin:index' %}" target = "blank"><li>ADMIN SITE</li></a>
+<a href = "{% url 'logout' %}"><li>LOG OUT</li></a>
+{% else %}
+<a href = "{% url 'profile' %}"><li>PROFILE</li></a>
+<a href = "{% url 'password' %}"><li>PASSWORD</li></a>
+<a href = "{% url 'subscriptions' %}"><li>SUBSCRIPTIONS <i style = "float:right;" class="fas fa-arrow-right"></i></li></a>
+<a href = "{% url 'logout' %}"><li>LOG OUT</li></a>
+{% endif %}
+</ul>
+</div>
+</div>
+<div class = "col-md-7 profile-page-user-details">
+<h1>No Active Subscriptions</h1>
+
+</div>
+
+<div class = "col-md-1">
+</div>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

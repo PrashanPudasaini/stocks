@@ -1,0 +1,3 @@
+symbol,date,stockPrice,numberOfShares,marketCapitalization,minusCashAndCashEquivalents,addTotalDebt,enterpriseValue
+RMED,2019-12-31,2.36,13146000,31024560,14584000,265000,16705560
+RMED,2018-12-31,7.32,9230000,67563600,64315000,557000,3805600

@@ -1,0 +1,3 @@
+symbol,date,stockPrice,numberOfShares,marketCapitalization,minusCashAndCashEquivalents,addTotalDebt,enterpriseValue
+XAIR,2020-03-31,7.37,11506210,84800767.7,19829280,4674430,69645917.7
+XAIR,2019-03-31,4.8,8498530,40792944.0,1340200,298140,39750884.0

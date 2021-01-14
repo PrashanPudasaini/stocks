@@ -1,0 +1,105 @@
+<div>
+<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-3-sticky-quote-summary-profile-brief active" id="pills-profile-brief-tab" data-toggle="pill" href="#pills-profile-brief" role="tab" aria-controls="pills-profile-brief" aria-selected="true">Brief</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-3-sticky-quote-summary-profile-key-executives" id="pills-profile-executives-tab" data-toggle = "modal" data-target = "#stock-detail-profile-{{symbol.symbol}}-key-executives">Key Executives</a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-profile-brief" role="tabpanel" aria-labelledby="pills-profile-brief-tab">
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Symbol</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.symbol}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Name</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.name}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">CEO</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_ceo}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Country</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_country}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Exchange</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_exchange}} ({{symbol.d_exchangeShortName}})</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Sector</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_sector}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Industry</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_industry}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Full Time Employees</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_fullTimeEmployees}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Website</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data"><a href = "{{symbol.website}}" target = "blank">{{symbol.d_website}}</a></span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">City</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_city}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">State</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_state}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Zip</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_zip}}</span></p>
+<p><span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title">Phone</span> <span class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data">{{symbol.d_phone}}</span></p>
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile-description">
+<p>{{symbol.d_description}}</p>
+</div>
+</div>
+</div>
+
+<div class="modal fade" id="stock-detail-profile-{{symbol.symbol}}-key-executives" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog stock-symbol-detail-page-full-width-historical-data-modal-dialog" role="document">
+<div class="modal-content stock-symbol-detail-page-full-width-historical-data-modal-content">
+<div class="modal-header stock-symbol-detail-page-full-width-historical-data-modal-dialog-header">
+<h3 id = "stock-detail-profile-key-executives-h3-no-border">
+<span class = "stock-symbol-detail-page-col-2-header-price-symbol">{{symbol.symbol}}</span>
+{% if symbol.price > symbol.previousClose %}
+<span class = "stock-symbol-detail-page-col-2-header-price-increase">{{symbol.price}}</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-2-header-price-decrease">{{symbol.price}}</span>
+{% endif %}
+{% if symbol.d_price > symbol.d_previousClose %}
+<span class = "stock-symbol-detail-page-col-2-header-price-change-positive">+{{symbol.d_change|floatformat:4}} | +{{symbol.d_change_percentage|floatformat:4}}%</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-2-header-price-change-negative">{{symbol.d_change|floatformat:4}} | {{symbol.d_change_percentage|floatformat:4}}%</span>
+{% endif %}
+</h3>
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-dialog-header-minimize">
+<span data-dismiss="modal"><i class="fas fa-window-minimize"></i></span>
+</div>
+</div>
+<div class="modal-body stock-symbol-detail-page-full-width-historical-data-modal-body">
+<ul class="nav nav-pills stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link active" id="{{symbol.symbol}}-brief-tab" data-toggle="pill" href="#{{symbol.symbol}}-brief" role="tab" aria-controls="{{symbol.symbol}}-brief" aria-selected="true">Brief</a>
+</li>
+<li class="nav-item">
+<a class="nav-link stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link" id="{{symbol.symbol}}-key-exec-tab" data-toggle="pill" href="#{{symbol.symbol}}-key-exec" role="tab" aria-controls="{{symbol.symbol}}-key-exec" aria-selected="true">Key Executives</a>
+</li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="{{symbol.symbol}}-brief" role="tabpanel" aria-labelledby="{{symbol.symbol}}-brief">
+<h2>{{symbol.name}} ({{symbol.symbol}}) Company Profile</h2>
+
+<div class = "container-fluid stock-symbol-detail-page-full-width-historical-data-modal-body-datatable">
+<div class = "row">
+<div class = "col-md-3 stock-detail-full-width-modal-profile-profile">
+<p><span class = "stock-detail-full-width-modal-profile-title">Symbol</span> <span class = "stock-detail-full-width-modal-profile-data">{{symbol.symbol}}</span></p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Name</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.name}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">CEO</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_ceo}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Country</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_country}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Exchange</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_exchange}} ({{symbol.d_exchangeShortName}})</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Sector</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_exchange}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Industry</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_industry}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Full Time Employees</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_fullTimeEmployees}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Website</span> <span class = "stock-detail-full-width-modal-profile-data"> <a href = "{{symbol.website}}" target = "blank">{{symbol.d_website}}</a></p>
+<p><span class = "stock-detail-full-width-modal-profile-title">City</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_city}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">State</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_state}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Zip</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_zip}}</p>
+<p><span class = "stock-detail-full-width-modal-profile-title">Phone</span> <span class = "stock-detail-full-width-modal-profile-data"> {{symbol.d_phone}}</p>
+</div>
+<div class = "col-md-9 stock-detail-full-width-modal-profile-description">
+<h4>Description: </h4>
+<p>{{symbol.d_description}}</p>
+</div>
+</div>
+</div>
+
+</div>
+<div class="tab-pane fade show" id="{{symbol.symbol}}-key-exec" role="tabpanel" aria-labelledby="{{symbol.symbol}}-key-exec-tab">
+<div class = "stock-symbol-detail-page-full-width-historical-data-modal-body-datatable stock-symbol-detail-page-full-width-historical-data-modal-body-datatable-key-exec-p">
+<h2>{{symbol.name}} ({{symbol.symbol}}) Key Executives</h2>
+{% autoescape off %}
+{{symbol.display_key_executives}}
+{% endautoescape %}
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>

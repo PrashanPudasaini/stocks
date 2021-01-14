@@ -1,0 +1,851 @@
+<div>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle stock-detail-page-col-3-financials-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Financial Charts <i class="far fa-caret-square-down stock-detail-page-col-3-financials-link-dropdown-icon"></i></a>
+<div class="dropdown-menu stock-detail-page-col-3-financials-menu">
+<ul class="nav nav-pills mb-3 stock-detail-page-col-3-financials-nav" id="pills-tab" role="tablist">
+<li>
+<a class="" id="pills-income-statement-tab" data-toggle="pill" href="#pills-income-statement" role="tab" aria-controls="pills-income-statement" aria-selected="true">Income Statement</a>
+</li>
+<li>
+<a class="" id="pills-balance-sheet-tab" data-toggle="pill" href="#pills-balance-sheet" role="tab" aria-controls="pills-balance-sheet" aria-selected="false">Balance Sheet</a>
+</li>
+<li>
+<a class="" id="pills-cash-flow-tab" data-toggle="pill" href="#pills-cash-flow" role="tab" aria-controls="pills-cash-flow" aria-selected="false">Cash Flow</a>
+</li>
+</ul>
+</div>
+</li>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-income-statement" role="tabpanel" aria-labelledby="pills-income-statement-tab">
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-income-stmt-eps-chart-container">
+<h4>Earnings Per Share (EPS)</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-income-stmt-operating-income-chart-container">
+<h4>Operating Income</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-income-stmt-net-income-chart-container">
+<h4>Net Income</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-income-stmt-revenue-chart-container">
+<h4>Revenue</h4>
+</div>
+</div>
+<script>
+  const parseDate = d3.utcParse("%Y-%m-%d");
+  const formatDate = d3.timeFormat("%Y");
+  const formatSpecs= d3.formatSpecifier(".4s");
+  const formatRevenue = d3.format(formatSpecs);
+
+  const formatSpecsTicks= d3.formatSpecifier("~s");
+  const formatTicks = d3.format(formatSpecsTicks);
+
+  const formatEpsSpecs = d3.formatSpecifier(".3f");
+  const formatEps = d3.format(formatEpsSpecs);
+
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL EPS CHART---------------------------
+  //------------------------------------------------------------------------------
+    const annualEps = d3.csv("{{object.annual_income_statement.url}}", function(d) {
+      return {
+        date: formatDate(parseDate(d.date)),
+        eps: +d.eps,
+      };
+    });
+
+    nrows = annualEps.then(function(data){
+      sixRows = data.slice(0,6);
+      return sixRows;
+    });
+
+    nrows.then(function(data){
+      data.sort(function(a, b) {
+        return a.date - b.date;
+      });
+      const svg = d3.select('#stock-detail-income-stmt-eps-chart-container').append('svg');
+      const margin =30;
+      const width = 300;
+      const height = 200;
+      const chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+      const xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map((s) => s.date))
+        .padding(0.2)
+
+      const yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(data, d => d.eps), d3.max(data, d => d.eps)]);
+
+      const makeYLines = () => d3.axisLeft()
+        .scale(yScale)
+      chart.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+      chart.append('g')
+        .call(d3.axisLeft(yScale)
+          .ticks(0));
+        chart.append('g')
+          .attr('class', 'grid')
+          .call(makeYLines()
+            .tickSize(-width, 0, 0)
+            .tickFormat(function(d) {
+              return formatEps(d)
+            })
+          )
+        const barGroups = chart.selectAll()
+          .data(data)
+          .enter()
+          .append('g')
+        barGroups
+          .append('rect')
+          .attr('fill', (d, i) => {
+            if (i === 0) {
+              return '#5a6b31';
+            } else {
+              return data[i - 1].eps > d.eps ? '#c0392b' : '#5a6b31';
+            }
+          })
+          .attr('x', (g) => xScale(g.date))
+          .attr('y', (g) => yScale(g.eps))
+          .attr('height', (g) => height - yScale(g.eps))
+          .attr('width', xScale.bandwidth())
+        barGroups
+          .append('text')
+          .attr('class', 'revenue')
+          .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.eps) - 5)
+          .attr('text-anchor', 'middle')
+          .text((a) => `${formatEps(a.eps)}`)
+    });
+
+
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL REVENUE CHART---------------------------
+  //------------------------------------------------------------------------------
+
+  const annualRevenue = d3.csv("{{object.annual_income_statement.url}}", function(d) {
+    return {
+      date: formatDate(parseDate(d.date)),
+      revenue: +d.revenue,
+    };
+  });
+
+  nrows = annualRevenue.then(function(data){
+    sixRows = data.slice(0,6);
+    return sixRows;
+  });
+
+  nrows.then(function(data){
+    data.sort(function(a, b) {
+      return a.date - b.date;
+    });
+
+    const svg = d3.select('#stock-detail-income-stmt-revenue-chart-container').append('svg');
+    const margin =30;
+    const width = 300;
+    const height = 200;
+    const chart = svg.append('g')
+      .attr('transform', `translate(${margin}, ${margin})`);
+
+    const xScale = d3.scaleBand()
+      .range([0, width])
+      .domain(data.map((s) => s.date))
+      .padding(0.2)
+
+    const yScale = d3.scaleLinear()
+      .range([height, 0])
+      .domain([0, d3.max(data, d => d.revenue)]);
+
+    const makeYLines = () => d3.axisLeft()
+      .scale(yScale)
+
+    chart.append('g')
+      .attr('transform', `translate(0, ${height})`)
+      .call(d3.axisBottom(xScale));
+
+    chart.append('g')
+      .call(d3.axisLeft(yScale)
+        .ticks(0));
+      chart.append('g')
+        .attr('class', 'grid')
+        .call(makeYLines()
+          .tickSize(-width, 0, 0)
+          .tickFormat(function(d) {
+            return formatTicks(d)
+          })
+        )
+      const barGroups = chart.selectAll()
+        .data(data)
+        .enter()
+        .append('g')
+      barGroups
+        .append('rect')
+        .attr('fill', (d, i) => {
+          if (i === 0) {
+            return '#5a6b31';
+          } else {
+            return data[i - 1].revenue > d.revenue ? '#c0392b' : '#5a6b31';
+          }
+        })
+        .attr('x', (g) => xScale(g.date))
+        .attr('y', (g) => yScale(g.revenue))
+        .attr('height', (g) => height - yScale(g.revenue))
+        .attr('width', xScale.bandwidth())
+      barGroups
+        .append('text')
+        .attr('class', 'revenue')
+        .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+        .attr('y', (a) => yScale(a.revenue) - 5)
+        .attr('text-anchor', 'middle')
+        .text((a) => `${formatRevenue(a.revenue)}`)
+  });
+
+//------------------------------------------------------------------------------
+//-----------------------------------ANNUAL NET INCOME CHART---------------------------
+//------------------------------------------------------------------------------
+  const annualNetIncome = d3.csv("{{object.annual_income_statement.url}}", function(d) {
+    return {
+      date: formatDate(parseDate(d.date)),
+      netIncome: +d.netIncome,
+    };
+  });
+
+  nrows = annualNetIncome.then(function(data){
+    sixRows = data.slice(0,6);
+    return sixRows;
+  });
+
+  nrows.then(function(data){
+    data.sort(function(a, b) {
+      return a.date - b.date;
+    });
+    const svg = d3.select('#stock-detail-income-stmt-net-income-chart-container').append('svg');
+    const margin =30;
+    const width = 300;
+    const height = 200;
+    const chart = svg.append('g')
+      .attr('transform', `translate(${margin}, ${margin})`);
+    const xScale = d3.scaleBand()
+      .range([0, width])
+      .domain(data.map((s) => s.date))
+      .padding(0.2)
+
+    const yScale = d3.scaleLinear()
+      .range([height, 0])
+      .domain([d3.min(data, d => d.netIncome), d3.max(data, d => d.netIncome)]);
+
+    const makeYLines = () => d3.axisLeft()
+      .scale(yScale)
+    chart.append('g')
+      .attr('transform', `translate(0, ${height})`)
+      .call(d3.axisBottom(xScale));
+    chart.append('g')
+      .call(d3.axisLeft(yScale)
+        .ticks(0));
+      chart.append('g')
+        .attr('class', 'grid')
+        .call(makeYLines()
+          .tickSize(-width, 0, 0)
+          .tickFormat(function(d) {
+            return formatTicks(d)
+          })
+        )
+      const barGroups = chart.selectAll()
+        .data(data)
+        .enter()
+        .append('g')
+      barGroups
+        .append('rect')
+        .attr('fill', (d, i) => {
+          if (i === 0) {
+            return '#5a6b31';
+          } else {
+            return data[i - 1].netIncome > d.netIncome ? '#c0392b' : '#5a6b31';
+          }
+        })
+        .attr('x', (g) => xScale(g.date))
+        .attr('y', (g) => yScale(g.netIncome))
+        .attr('height', (g) => height - yScale(g.netIncome))
+        .attr('width', xScale.bandwidth())
+      barGroups
+        .append('text')
+        .attr('class', 'revenue')
+        .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+        .attr('y', (a) => yScale(a.netIncome) - 5)
+        .attr('text-anchor', 'middle')
+        .text((a) => `${formatRevenue(a.netIncome)}`)
+  });
+
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL OPERATING INCOME CHART---------------------------
+  //------------------------------------------------------------------------------
+    const annualOperatingIncome = d3.csv("{{object.annual_income_statement.url}}", function(d) {
+      return {
+        date: formatDate(parseDate(d.date)),
+        operatingIncome: +d.operatingIncome,
+      };
+    });
+
+    nrows = annualOperatingIncome.then(function(data){
+      sixRows = data.slice(0,6);
+      return sixRows;
+    });
+
+    nrows.then(function(data){
+      data.sort(function(a, b) {
+        return a.date - b.date;
+      });
+      const svg = d3.select('#stock-detail-income-stmt-operating-income-chart-container').append('svg');
+      const margin =30;
+      const width = 300;
+      const height = 200;
+      const chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+      const xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map((s) => s.date))
+        .padding(0.2)
+
+      const yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(data, d => d.operatingIncome), d3.max(data, d => d.operatingIncome)]);
+
+      const makeYLines = () => d3.axisLeft()
+        .scale(yScale)
+      chart.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+      chart.append('g')
+        .call(d3.axisLeft(yScale)
+          .ticks(0));
+        chart.append('g')
+          .attr('class', 'grid')
+          .call(makeYLines()
+            .tickSize(-width, 0, 0)
+            .tickFormat(function(d) {
+              return formatTicks(d)
+            })
+          )
+        const barGroups = chart.selectAll()
+          .data(data)
+          .enter()
+          .append('g')
+        barGroups
+          .append('rect')
+          .attr('fill', (d, i) => {
+            if (i === 0) {
+              return '#5a6b31';
+            } else {
+              return data[i - 1].operatingIncome > d.operatingIncome ? '#c0392b' : '#5a6b31';
+            }
+          })
+
+          .attr('x', (g) => xScale(g.date))
+          .attr('y', (g) => yScale(g.operatingIncome))
+          .attr('height', (g) => height - yScale(g.operatingIncome))
+          .attr('width', xScale.bandwidth())
+        barGroups
+          .append('text')
+          .attr('class', 'revenue')
+          .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.operatingIncome) - 5)
+          .attr('text-anchor', 'middle')
+          .text((a) => `${formatRevenue(a.operatingIncome)}`)
+    });
+</script>
+
+
+
+<div class="tab-pane fade" id="pills-balance-sheet" role="tabpanel" aria-labelledby="pills-balance-sheet-tab">
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-balance-sheet-stmt-total-assets-chart-container">
+<h4>Total Assets</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-balance-sheet-stmt-total-liabilities-chart-container">
+<h4>Total Liabilities</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-balance-sheet-stmt-net-debt-chart-container">
+<h4>Net Debt</h4>
+</div>
+</div>
+<script>
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL NET DEBT CHART---------------------------
+  //------------------------------------------------------------------------------
+    const annualNetDebt = d3.csv("{{object.annual_balance_sheet_statement.url}}", function(d) {
+      return {
+        date: formatDate(parseDate(d.date)),
+        netDebt: +d.netDebt,
+      };
+    });
+
+    nrows = annualNetDebt.then(function(data){
+      sixRows = data.slice(0,6);
+      return sixRows;
+    });
+
+    nrows.then(function(data){
+      data.sort(function(a, b) {
+        return a.date - b.date;
+      });
+      const svg = d3.select('#stock-detail-balance-sheet-stmt-net-debt-chart-container').append('svg');
+      const margin =30;
+      const width = 300;
+      const height = 200;
+      const chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+      const xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map((s) => s.date))
+        .padding(0.2)
+
+      const yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(data, d => d.netDebt), d3.max(data, d => d.netDebt)]);
+
+      const makeYLines = () => d3.axisLeft()
+        .scale(yScale)
+      chart.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+      chart.append('g')
+        .call(d3.axisLeft(yScale)
+          .ticks(0));
+        chart.append('g')
+          .attr('class', 'grid')
+          .call(makeYLines()
+            .tickSize(-width, 0, 0)
+            .tickFormat(function(d) {
+              return formatTicks(d)
+            })
+          )
+        const barGroups = chart.selectAll()
+          .data(data)
+          .enter()
+          .append('g')
+        barGroups
+          .append('rect')
+          .attr('fill', (d, i) => {
+            if (i === 0) {
+              return '#c0392b';
+            } else {
+              return data[i - 1].netDebt > d.netDebt ? '#5a6b31' : '#c0392b';
+            }
+          })
+          .attr('x', (g) => xScale(g.date))
+          .attr('y', (g) => yScale(g.netDebt))
+          .attr('height', (g) => height - yScale(g.netDebt))
+          .attr('width', xScale.bandwidth())
+        barGroups
+          .append('text')
+          .attr('class', 'revenue')
+          .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.netDebt) - 5)
+          .attr('text-anchor', 'middle')
+          .text((a) => `${formatRevenue(a.netDebt)}`)
+    });
+
+
+
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL TOTAL ASSETS CHART---------------------------
+  //------------------------------------------------------------------------------
+    const annualTotalAssets = d3.csv("{{object.annual_balance_sheet_statement.url}}", function(d) {
+      return {
+        date: formatDate(parseDate(d.date)),
+        totalAssets: +d.totalAssets,
+      };
+    });
+
+    nrows = annualTotalAssets.then(function(data){
+      sixRows = data.slice(0,6);
+      return sixRows;
+    });
+
+    nrows.then(function(data){
+      data.sort(function(a, b) {
+        return a.date - b.date;
+      });
+      const svg = d3.select('#stock-detail-balance-sheet-stmt-total-assets-chart-container').append('svg');
+      const margin =30;
+      const width = 300;
+      const height = 200;
+      const chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+      const xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map((s) => s.date))
+        .padding(0.2)
+
+      const yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(data, d => d.totalAssets), d3.max(data, d => d.totalAssets)]);
+
+      const makeYLines = () => d3.axisLeft()
+        .scale(yScale)
+      chart.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+      chart.append('g')
+        .call(d3.axisLeft(yScale)
+          .ticks(0));
+        chart.append('g')
+          .attr('class', 'grid')
+          .call(makeYLines()
+            .tickSize(-width, 0, 0)
+            .tickFormat(function(d) {
+              return formatTicks(d)
+            })
+          )
+        const barGroups = chart.selectAll()
+          .data(data)
+          .enter()
+          .append('g')
+        barGroups
+          .append('rect')
+          .attr('fill', (d, i) => {
+            if (i === 0) {
+              return '#c0392b';
+            } else {
+              return data[i - 1].totalAssets > d.totalAssets ? '#c0392b' : '#5a6b31';
+            }
+          })
+          .attr('x', (g) => xScale(g.date))
+          .attr('y', (g) => yScale(g.totalAssets))
+          .attr('height', (g) => height - yScale(g.totalAssets))
+          .attr('width', xScale.bandwidth())
+        barGroups
+          .append('text')
+          .attr('class', 'revenue')
+          .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.totalAssets) - 5)
+          .attr('text-anchor', 'middle')
+          .text((a) => `${formatRevenue(a.totalAssets)}`)
+    });
+
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL TOTAL LIABILITIES CHART---------------------------
+  //------------------------------------------------------------------------------
+    const annualTotalLiabilities = d3.csv("{{object.annual_balance_sheet_statement.url}}", function(d) {
+      return {
+        date: formatDate(parseDate(d.date)),
+        totalLiabilities: +d.totalLiabilities,
+      };
+    });
+
+    nrows = annualTotalLiabilities.then(function(data){
+      sixRows = data.slice(0,6);
+      return sixRows;
+    });
+
+    nrows.then(function(data){
+      data.sort(function(a, b) {
+        return a.date - b.date;
+      });
+      const svg = d3.select('#stock-detail-balance-sheet-stmt-total-liabilities-chart-container').append('svg');
+      const margin =30;
+      const width = 300;
+      const height = 200;
+      const chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+      const xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map((s) => s.date))
+        .padding(0.2)
+
+      const yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(data, d => d.totalLiabilities), d3.max(data, d => d.totalLiabilities)]);
+
+      const makeYLines = () => d3.axisLeft()
+        .scale(yScale)
+      chart.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+      chart.append('g')
+        .call(d3.axisLeft(yScale)
+          .ticks(0));
+        chart.append('g')
+          .attr('class', 'grid')
+          .call(makeYLines()
+            .tickSize(-width, 0, 0)
+            .tickFormat(function(d) {
+              return formatTicks(d)
+            })
+          )
+        const barGroups = chart.selectAll()
+          .data(data)
+          .enter()
+          .append('g')
+        barGroups
+          .append('rect')
+          .attr('fill', (d, i) => {
+            if (i === 0) {
+              return '#c0392b';
+            } else {
+              return data[i - 1].totalLiabilities > d.totalLiabilities ? '#5a6b31' : '#c0392b';
+            }
+          })
+          .attr('x', (g) => xScale(g.date))
+          .attr('y', (g) => yScale(g.totalLiabilities))
+          .attr('height', (g) => height - yScale(g.totalLiabilities))
+          .attr('width', xScale.bandwidth())
+        barGroups
+          .append('text')
+          .attr('class', 'revenue')
+          .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.totalLiabilities) - 5)
+          .attr('text-anchor', 'middle')
+          .text((a) => `${formatRevenue(a.totalLiabilities)}`)
+    });
+
+</script>
+
+
+
+
+
+
+
+<div class="tab-pane fade" id="pills-cash-flow" role="tabpanel" aria-labelledby="pills-cash-flow-tab">
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-cash-flow-operating-chart-container">
+<h4>Net Cash Provided by Operating Activities</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-cash-flow-investing-chart-container">
+<h4>Net Cash Used for Investing Activities</h4>
+</div>
+<div class = "stock-detail-income-stmt-operating-income-chart-container" id="stock-detail-cash-flow-financing-chart-container">
+<h4>Net Cash Provided By Financing Activities	</h4>
+</div>
+</div>
+
+<script>
+  //------------------------------------------------------------------------------
+  //-----------------------------------ANNUAL OPERATING CASH FLOWCHART---------------------------
+  //------------------------------------------------------------------------------
+    const annualOperatingCashFlow = d3.csv("{{object.annual_cash_flow_statement.url}}", function(d) {
+      return {
+        date: formatDate(parseDate(d.date)),
+        netCashProvidedByOperatingActivities: +d.netCashProvidedByOperatingActivities,
+      };
+    });
+
+    nrows = annualOperatingCashFlow.then(function(data){
+      sixRows = data.slice(0,6);
+      return sixRows;
+    });
+
+    nrows.then(function(data){
+      data.sort(function(a, b) {
+        return a.date - b.date;
+      });
+      const svg = d3.select('#stock-detail-cash-flow-operating-chart-container').append('svg');
+      const margin =30;
+      const width = 300;
+      const height = 200;
+      const chart = svg.append('g')
+        .attr('transform', `translate(${margin}, ${margin})`);
+      const xScale = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map((s) => s.date))
+        .padding(0.2)
+
+      const yScale = d3.scaleLinear()
+        .range([height, 0])
+        .domain([d3.min(data, d => d.netCashProvidedByOperatingActivities), d3.max(data, d => d.netCashProvidedByOperatingActivities)]);
+
+      const makeYLines = () => d3.axisLeft()
+        .scale(yScale)
+      chart.append('g')
+        .attr('transform', `translate(0, ${height})`)
+        .call(d3.axisBottom(xScale));
+      chart.append('g')
+        .call(d3.axisLeft(yScale)
+          .ticks(0));
+        chart.append('g')
+          .attr('class', 'grid')
+          .call(makeYLines()
+            .tickSize(-width, 0, 0)
+            .tickFormat(function(d) {
+              return formatTicks(d)
+            })
+          )
+        const barGroups = chart.selectAll()
+          .data(data)
+          .enter()
+          .append('g')
+        barGroups
+          .append('rect')
+          .attr('fill', (d, i) => {
+            if (i === 0) {
+              return '#c0392b';
+            } else {
+              return data[i - 1].netCashProvidedByOperatingActivities > d.netCashProvidedByOperatingActivities ? '#c0392b' : '#5a6b31';
+            }
+          })
+          .attr('x', (g) => xScale(g.date))
+          .attr('y', (g) => yScale(g.netCashProvidedByOperatingActivities))
+          .attr('height', (g) => height - yScale(g.netCashProvidedByOperatingActivities))
+          .attr('width', xScale.bandwidth())
+        barGroups
+          .append('text')
+          .attr('class', 'revenue')
+          .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+          .attr('y', (a) => yScale(a.netCashProvidedByOperatingActivities) - 5)
+          .attr('text-anchor', 'middle')
+          .text((a) => `${formatRevenue(a.netCashProvidedByOperatingActivities)}`)
+    });
+
+    //------------------------------------------------------------------------------
+    //-----------------------------------ANNUAL INVESTING CASH FLOW CHART---------------------------
+    //------------------------------------------------------------------------------
+      const annualInvestingCashFlow = d3.csv("{{object.annual_cash_flow_statement.url}}", function(d) {
+        return {
+          date: formatDate(parseDate(d.date)),
+          netCashUsedForInvestingActivites: +d.netCashUsedForInvestingActivites,
+        };
+      });
+
+      nrows = annualInvestingCashFlow.then(function(data){
+        sixRows = data.slice(0,6);
+        return sixRows;
+      });
+
+      nrows.then(function(data){
+        data.sort(function(a, b) {
+          return a.date - b.date;
+        });
+        const svg = d3.select('#stock-detail-cash-flow-investing-chart-container').append('svg');
+        const margin =30;
+        const width = 300;
+        const height = 200;
+        const chart = svg.append('g')
+          .attr('transform', `translate(${margin}, ${margin})`);
+        const xScale = d3.scaleBand()
+          .range([0, width])
+          .domain(data.map((s) => s.date))
+          .padding(0.2)
+
+        const yScale = d3.scaleLinear()
+          .range([height, 0])
+          .domain([d3.min(data, d => d.netCashUsedForInvestingActivites), d3.max(data, d => d.netCashUsedForInvestingActivites)]);
+
+        const makeYLines = () => d3.axisLeft()
+          .scale(yScale)
+        chart.append('g')
+          .attr('transform', `translate(0, ${height})`)
+          .call(d3.axisBottom(xScale));
+        chart.append('g')
+          .call(d3.axisLeft(yScale)
+            .ticks(0));
+          chart.append('g')
+            .attr('class', 'grid')
+            .call(makeYLines()
+              .tickSize(-width, 0, 0)
+              .tickFormat(function(d) {
+                return formatTicks(d)
+              })
+            )
+          const barGroups = chart.selectAll()
+            .data(data)
+            .enter()
+            .append('g')
+          barGroups
+            .append('rect')
+            .attr('fill', (d, i) => {
+              if (i === 0) {
+                return '#c0392b';
+              } else {
+                return data[i - 1].netCashUsedForInvestingActivites > d.netCashUsedForInvestingActivites ? '#c0392b' : '#5a6b31';
+              }
+            })
+            .attr('x', (g) => xScale(g.date))
+            .attr('y', (g) => yScale(g.netCashUsedForInvestingActivites))
+            .attr('height', (g) => height - yScale(g.netCashUsedForInvestingActivites))
+            .attr('width', xScale.bandwidth())
+          barGroups
+            .append('text')
+            .attr('class', 'revenue')
+            .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+            .attr('y', (a) => yScale(a.netCashUsedForInvestingActivites) - 5)
+            .attr('text-anchor', 'middle')
+            .text((a) => `${formatRevenue(a.netCashUsedForInvestingActivites)}`)
+      });
+
+      //------------------------------------------------------------------------------
+      //-----------------------------------ANNUAL FINANCING CASH FLOW CHART---------------------------
+      //------------------------------------------------------------------------------
+        const annualFinancingCashFlow = d3.csv("{{object.annual_cash_flow_statement.url}}", function(d) {
+          return {
+            date: formatDate(parseDate(d.date)),
+            netCashUsedProvidedByFinancingActivities: +d.netCashUsedProvidedByFinancingActivities,
+          };
+        });
+
+        nrows = annualFinancingCashFlow.then(function(data){
+          sixRows = data.slice(0,6);
+          return sixRows;
+        });
+
+        nrows.then(function(data){
+          data.sort(function(a, b) {
+            return a.date - b.date;
+          });
+          const svg = d3.select('#stock-detail-cash-flow-financing-chart-container').append('svg');
+          const margin =30;
+          const width = 300;
+          const height = 200;
+          const chart = svg.append('g')
+            .attr('transform', `translate(${margin}, ${margin})`);
+          const xScale = d3.scaleBand()
+            .range([0, width])
+            .domain(data.map((s) => s.date))
+            .padding(0.2)
+
+          const yScale = d3.scaleLinear()
+            .range([height, 0])
+            .domain([d3.min(data, d => d.netCashUsedProvidedByFinancingActivities), d3.max(data, d => d.netCashUsedProvidedByFinancingActivities)]);
+
+          const makeYLines = () => d3.axisLeft()
+            .scale(yScale)
+          chart.append('g')
+            .attr('transform', `translate(0, ${height})`)
+            .call(d3.axisBottom(xScale));
+          chart.append('g')
+            .call(d3.axisLeft(yScale)
+              .ticks(0));
+            chart.append('g')
+              .attr('class', 'grid')
+              .call(makeYLines()
+                .tickSize(-width, 0, 0)
+                .tickFormat(function(d) {
+                  return formatTicks(d)
+                })
+              )
+            const barGroups = chart.selectAll()
+              .data(data)
+              .enter()
+              .append('g')
+            barGroups
+              .append('rect')
+              .attr('fill', (d, i) => {
+                if (i === 0) {
+                  return '#c0392b';
+                } else {
+                  return data[i - 1].netCashUsedProvidedByFinancingActivities > d.netCashUsedProvidedByFinancingActivities ? '#c0392b' : '#5a6b31';
+                }
+              })
+              .attr('x', (g) => xScale(g.date))
+              .attr('y', (g) => yScale(g.netCashUsedProvidedByFinancingActivities))
+              .attr('height', (g) => height - yScale(g.netCashUsedProvidedByFinancingActivities))
+              .attr('width', xScale.bandwidth())
+            barGroups
+              .append('text')
+              .attr('class', 'revenue')
+              .attr('x', (a) => xScale(a.date) + xScale.bandwidth() / 2)
+              .attr('y', (a) => yScale(a.netCashUsedProvidedByFinancingActivities) - 5)
+              .attr('text-anchor', 'middle')
+              .text((a) => `${formatRevenue(a.netCashUsedProvidedByFinancingActivities)}`)
+        });
+</script>
+</div>
+</div>

@@ -1,0 +1,700 @@
+<!-- <div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade" id="pills-historical-chart-2d" role="tabpanel" aria-labelledby="pills-historical-chart-2d-tab">
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-2d"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-2d"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_2d_date|safe}},
+        datasets: [{
+            data: {{object.chart_2d_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_2d_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_2d_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_2d_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_2d_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+</div>
+<div class="tab-pane fade" id="pills-historical-chart-5d" role="tabpanel" aria-labelledby="pills-historical-chart-5d-tab">
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-5d"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-5d"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_5d_date|safe}},
+        datasets: [{
+            data: {{object.chart_5d_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_5d_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_5d_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_5d_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_5d_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+</div>
+
+<div class="tab-pane show active fade" id="pills-historical-chart-1m" role="tabpanel" aria-labelledby="pills-historical-chart-1m-tab">
+<div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+<canvas id="chart-1m"></canvas>
+<script>
+  Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+  var oneMinChart = new Chart(document.getElementById("chart-1m"), {
+    type: 'line',
+    data: {
+      labels: {{object.chart_1m_date|safe}},
+      datasets: [{
+          data: {{object.chart_1m_open|safe}},
+          label: "Open",
+          borderColor: "#423e3e",
+          fill: true
+        },
+        {
+          data: {{object.chart_1m_high|safe}},
+          label: "High",
+          borderColor: "green",
+          fill: true
+        },
+        {
+          data: {{object.chart_1m_low|safe}},
+          label: "Low",
+          borderColor: "red",
+          fill: true
+        },
+        {
+          data: {{object.chart_1m_close|safe}},
+          label: "Close",
+          borderColor: "blue",
+          fill: true
+        },
+          {
+          data: {{object.chart_1m_volume|safe}},
+          label: "Volume",
+          borderColor: "purple",
+          fill: true
+        }
+      ]
+    },
+    options: {
+      legend: {
+        labels: {
+          fontColor: '#c2c2c2'
+        }
+      },
+      responsive: true,
+      maintainAspectRatio : false,
+      scales: {
+          yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+          xAxes: [{
+            type: 'time',
+            distribution: 'linear',
+            ticks: {
+              fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+            }
+            }]
+      }
+    }
+  });
+</script>
+</div>
+</div>
+
+
+<div class="tab-pane fade" id="pills-historical-chart-3m" role="tabpanel" aria-labelledby="pills-historical-chart-3m-tab">
+{% if user.is_authenticated %}
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-3m"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-3m"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_3m_date|safe}},
+        datasets: [{
+            data: {{object.chart_3m_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_3m_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_3m_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_3m_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_3m_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              type: 'time',
+              distribution: 'linear',
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-4 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this chart</p>
+  <small>This dataset is only available for rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-4">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+<div class="tab-pane fade" id="pills-historical-chart-6m" role="tabpanel" aria-labelledby="pills-historical-chart-6m-tab">
+  {% if user.is_authenticated %}
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-6m"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-6m"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_6m_date|safe}},
+        datasets: [{
+            data: {{object.chart_6m_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_6m_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_6m_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_6m_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_6m_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              type: 'time',
+              distribution: 'linear',
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+{% else %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-4">
+</div>
+<div class = "col-md-4 registered-users-only-data">
+<p><i class="fas fa-lock"></i></p>
+<p>You must be a registered Rupy user to view this chart</p>
+<small>This dataset is only available for rupy account holders.</small>
+<a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+<div class="dropdown-divider"></div>
+<p>Already a Subscriber?</p>
+<a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</div>
+<div class = "col-md-4">
+</div>
+</div>
+</div>
+{% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-historical-chart-1y" role="tabpanel" aria-labelledby="pills-historical-chart-1y-tab">
+  {% if user.is_authenticated %}
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-1y"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-1y"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_1y_date|safe}},
+        datasets: [{
+            data: {{object.chart_1y_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_1y_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_1y_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_1y_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_1y_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#c2c2c2'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              type: 'time',
+              distribution: 'linear',
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-4 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this dataset</p>
+  <small>This dataset is only available for rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-4">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-historical-chart-3y" role="tabpanel" aria-labelledby="pills-historical-chart-3y-tab">
+{% if user.is_authenticated %}
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-3y"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-3y"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_3y_date|safe}},
+        datasets: [{
+            data: {{object.chart_3y_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_3y_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_3y_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_3y_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_3y_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              type: 'time',
+              distribution: 'linear',
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-4 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this chart</p>
+  <small>This dataset is only available for rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-4">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+
+<div class="tab-pane fade" id="pills-historical-chart-5y" role="tabpanel" aria-labelledby="pills-historical-chart-5y-tab">
+{% if user.is_authenticated %}
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-5y"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-5y"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_5y_date|safe}},
+        datasets: [{
+            data: {{object.chart_5y_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_5y_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_5y_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_5y_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_5y_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              type: 'time',
+              distribution: 'linear',
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-4 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this chart</p>
+  <small>This dataset is only available for rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-4">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+<div class="tab-pane fade" id="pills-historical-chart-max" role="tabpanel" aria-labelledby="pills-historical-chart-max-tab">
+{% if user.is_authenticated %}
+  <div class="chart-container" style="position: relative; height:75vh; width:70vw; padding-left:5px; margin-top:20px;">
+  <canvas id="chart-max"></canvas>
+  <script>
+    Chart.defaults.global.defaultFontFamily = "rajdhani-medium";
+    var oneMinChart = new Chart(document.getElementById("chart-max"), {
+      type: 'line',
+      data: {
+        labels: {{object.chart_max_date|safe}},
+        datasets: [{
+            data: {{object.chart_max_open|safe}},
+            label: "Open",
+            borderColor: "#423e3e",
+            fill: true
+          },
+          {
+            data: {{object.chart_max_high|safe}},
+            label: "High",
+            borderColor: "green",
+            fill: true
+          },
+          {
+            data: {{object.chart_max_low|safe}},
+            label: "Low",
+            borderColor: "red",
+            fill: true
+          },
+          {
+            data: {{object.chart_max_close|safe}},
+            label: "Close",
+            borderColor: "blue",
+            fill: true
+          },
+            {
+            data: {{object.chart_max_volume|safe}},
+            label: "Volume",
+            borderColor: "purple",
+            fill: true
+          }
+        ]
+      },
+      options: {
+        legend: {
+          labels: {
+            fontColor: '#423e3e'
+          }
+        },
+        responsive: true,
+        maintainAspectRatio : false,
+        scales: {
+            yAxes: [{ticks: {fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'}, display: true, gridLines: {drawBorder: true, color:'#171616', zeroLineColor: '#171616'}}],
+            xAxes: [{
+              type: 'time',
+              distribution: 'linear',
+              ticks: {
+                fontSize: 12, fontFamily: "rajdhani-medium", fontColor: '#423e3e'
+              }
+              }]
+        }
+      }
+    });
+  </script>
+  </div>
+  {% else %}
+  <div class = "container-fluid">
+  <div class = "row">
+  <div class = "col-md-4">
+  </div>
+  <div class = "col-md-4 registered-users-only-data">
+  <p><i class="fas fa-lock"></i></p>
+  <p>You must be a registered Rupy user to view this chart</p>
+  <small>This dataset is only available for rupy account holders.</small>
+  <a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+  <div class="dropdown-divider"></div>
+  <p>Already a Subscriber?</p>
+  <a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+  </div>
+  <div class = "col-md-4">
+  </div>
+  </div>
+  </div>
+  {% endif %}
+</div>
+</div> -->

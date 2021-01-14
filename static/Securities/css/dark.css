@@ -1,0 +1,770 @@
+@import url(fonts.css);
+
+html{
+  height:100vh;
+}
+
+/*------------------------------------------------------------------------------
+---------------------------LOADING PLEASE WAIT-------------------------------------------
+------------------------------------------------------------------------------*/
+.data-not-found{
+  color:#292926;
+  font-size:16px;
+  font-family:"rajdhani-medium";
+  margin-top:200px;
+  text-align:center;
+}
+ .data-not-found-icon{
+  font-size:60px;
+  border:2px solid #292926;
+  border-radius:4px;
+  padding:10px;
+  margin-bottom:10px;
+ }
+.loading_wait{
+  color:#292926;
+  padding-top:100px;
+  font-family:"rajdhani-medium";
+  white-space:nowrap;
+}
+.loader, .loader:before, .loader:after {
+  background: #292926;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #292926;
+  margin:0 auto;
+  margin-top:200px;
+  /* text-indent: -9999em; */
+  font-size: 16px;
+  font-family:"rajdhani-medium";
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before, .loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: 1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------NAVIGATION-------------------------------------------
+------------------------------------------------------------------------------*/
+.bg-dark{
+  background-color:#1a1a19 !important;
+}
+
+.navbar-brand{
+  font-family:"rajdhani-bold";
+  color:#5a6b31 !important;
+}
+
+.nav-link{
+  font-family:"rajdhani-medium";
+}
+
+.dropdown-menu{
+  background-color:#24261e;
+}
+.dropdown-item{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+}
+
+.dropdown-item:hover{
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  color:#ffffff;
+}
+.dropdown-divider{
+  border:1px solid #1e1e1f;
+}
+
+
+
+#id_symbol{
+  padding:18px;
+  border-radius:2px;
+  font-family:"rajdhani-medium";
+  background-color: #000000;
+  border: 1px solid #000000;
+  color:#ffffff;
+  white-space: nowrap;
+  text-transform:uppercase;
+}
+form{
+  display:flex;
+  flex-direction:row;
+  margin-bottom:-15px;
+}
+input:focus {
+  outline: none;
+}
+button {
+  background-color:#000000;
+  border:none;
+  color:#8e8e8e;
+  margin-left:-35px;
+  margin-bottom:20px !important;
+}
+
+.dropdown{
+  list-style:none;
+}
+
+.navbar-account-img{
+  border-radius:100px;
+  height:30px;
+  width:30px;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------USER LOGIN PAGE-------------------------------------------
+------------------------------------------------------------------------------*/
+
+.login-register-page-col-1{
+  background-color:#000000;
+  padding-top:30px;
+}
+.login-signup-logo{
+  color:#5a6b31;
+}
+.login-signup-logo:hover{
+  text-decoration:none;
+  color:#5a6b31;
+  opacity:0.8;
+}
+
+.login-register-page-col-1 h1{
+  font-family:"rajdhani-bold";
+  color:#5a6b31;
+}
+
+.login-register-page-col-1 p{
+  font-family:"rajdhani-medium";
+}
+
+.login-register-page-col-2{
+  background-color:#ffffff;
+  padding-top:30px;
+}
+
+.login-page-login-highlight{
+  border-bottom:3px solid #5a6b31;
+}
+
+.login-register-page-col-2 ul li{
+  display:inline;
+  font-family:"rajdhani-bold";
+}
+
+.login-sign-up-toggle{
+  border-bottom:1px solid #c2c2c2;
+}
+
+.login-register-page-col-2 ul li a{
+  color:#5a6b31;
+  font-size:28px;
+  padding-bottom:17px;
+  margin-right:30px;
+}
+
+.login-register-page-col-2 ul li a:hover{
+  opacity:0.8;
+  text-decoration:none;
+}
+
+#login-register-page-col-2-sign-up-link{
+}
+
+.login-register-page-col-2-login-form-main{
+  display:block !important;
+}
+
+.login-register-page-col-2-login-form-section{
+  padding-top:30px;
+  padding-left:40px;
+  padding-right:70px;
+  height:100vh;
+}
+
+.login-register-page-col-2-login-form-section h1{
+  color:#33442c;
+  font-family:"rajdhani-semibold";
+  font-size:22px;
+  padding-bottom:30px;
+}
+
+.login-signup-form-control{
+  color:#000000 !important;
+  font-family:"rajdhani-medium";
+}
+
+.text-muted{
+  font-family:"rajdhani-medium";
+  display:none;
+}
+
+.password-requirement-description{
+  display:none !important;
+}
+
+.signup-login-form-footer{
+  font-family:"rajdhani-medium";
+}
+
+.signup-login-form-footer a{
+  color:#5a6b31;
+  font-family:"rajdhani-semibold";
+}
+
+.signup-login-form-footer a:hover{
+  opacity:0.8;
+  text-decoration:none;
+}
+
+.login-register-page-col-2-login-form-submit{
+  position:relative;
+  margin-left:0px;
+  padding:10px;
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  border-radius:2px;
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:17px;
+  width:100%;
+}
+
+.login-register-page-col-2-login-form-submit:hover{
+  opacity:0.8;
+}
+
+.login-register-page-col-2-login-form-submit:before, .login-register-page-col-2-login-form-submit:after {
+  height:15px;
+  width:15px;
+  background:#ffffff;
+  position:absolute;
+  content:'';
+}
+.login-register-page-col-2-login-form-submit:before {
+  top:0;
+  left:0;
+  transform:rotate(49deg) translate(-71%);
+}
+.login-register-page-col-2-login-form-submit:after {
+  bottom:0;
+  right:0;
+  border:none !important;
+  transform:rotate(49deg) translate(71%);
+}
+
+.invalid-feedback{
+  color:red;
+  font-family:"rajdhani-medium";
+  margin-bottom:0px;
+}
+
+.alert{
+  margin-bottom:0px;
+  font-family:"rajdhani-medium";
+  border-radius:0px;
+  border:none;
+  background-color:#24261e;
+  text-align:center;
+}
+
+.alert-success{
+  color:#8ca83f;
+}
+
+.alert-danger{
+  color:red;
+  margin-bottom:15px;
+}
+
+.alert-warning{
+  color:red;
+}
+
+.alert-danger ul li{
+  font-family:"rajdhani-medium";
+}
+
+.alert-close{
+  color:#000000;
+  background-color:#ffffff;
+  border-radius:100px;
+  float:right;
+  font-family:"rajdhani-bold";
+}
+
+.style-form-inline-padding{
+  padding-left:0px !important;
+}
+
+.style-form-inline input{
+  padding:10px;
+  width:100%;
+  border:1px solid #ced4da;
+  margin-bottom:10px;
+  border-radius:4px;
+}
+
+/*------------------------------------------------------------------------------
+--------------------------- USER PROFILE PAGE---------------------
+------------------------------------------------------------------------------*/
+.profile-page{
+  background-color:#000000;
+}
+
+
+.user-profile-page-side-nav-section{
+  padding-top:30px;
+}
+
+.user-profile-page-side-nav{
+  padding:10px;
+  background-color:#000000;
+}
+
+.user-profile-page-side-nav-ul{
+  padding:0px;
+}
+
+.user-profile-page-side-nav ul li{
+  list-style:none;
+  font-family:"rajdhani-bold";
+  border:1px solid #c2c2c2;
+  padding:10px;
+  color:#5a6b31;
+}
+
+.user-profile-page-side-nav ul li a{
+  color:#5a6b31;
+  text-decoration:none;
+}
+
+.user-profile-page-side-nav-ul a:hover{
+  text-decoration:none;
+  opacity:0.8;
+
+}
+
+.profile-page-user-details{
+  padding-top:30px;
+}
+
+.profile-page-user-details h1{
+  color:#33442c;
+  font-family:"rajdhani-semibold";
+  font-size:22px;
+  border-bottom:1px solid #c2c2c2;
+  padding-bottom:10px;
+}
+
+.profile-page-user-image{
+  border-radius:100px;
+  height:200px;
+  width:200px;
+  margin:auto;
+  display:block;
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:10px;
+  padding-right:10px;
+  margin-bottom:30px;
+}
+
+.clearablefileinput{
+  font-family:"rajdhani-medium";
+}
+
+#div_id_image, #text{
+  font-family:"rajdhani-medium";
+}
+
+#div_id_image a{
+  color:#5a6b31;
+}
+
+#div_id_image a:hover{
+  opacity:0.8;
+  text-decoration:none;
+}
+
+#file-upload-button{
+  background-color:red;
+}
+
+/*------------------------------------------------------------------------------
+--------------------------- PASSWORD CHANGE PAGE---------------------
+------------------------------------------------------------------------------*/
+.password-change-form{
+  margin-top:30px;
+}
+
+.password-requirement-description{
+  font-family:"rajdhani-medium";
+  color:#6c757d;
+  font-size:12px;
+}
+
+label{
+  font-family:"rajdhani-medium";
+}
+
+/*------------------------------------------------------------------------------
+---------------------------MARKETS SUMMARY PAGE / HOMEPAGE---------------------
+------------------------------------------------------------------------------*/
+.markets-summary-page{
+  background-color:#000000;
+  height:100vh;
+}
+
+/*------------------------------------------------------------------------------
+---------------------------STOCK DETAIL PAGE------------------------------------
+------------------------------------------------------------------------------*/
+.custom-container{
+  display:table-cell;
+  height:90vh;
+  background-color:#000000;
+}
+.custom-div-col1{
+  width:5%;
+  border-right:1px solid #1e1e1f;
+}
+.custom-div-col1 ul{
+  list-style:none;
+  font-size:30px;
+}
+.custom-div-col2{
+  width:70%;
+  border-right:1px solid #1e1e1f;
+}
+.historical-timeseries-section{
+  margin-bottom:0px !important;
+  border-bottom:1px solid #1e1e1f;
+}
+.historical-timeseries-section li a{
+  color:#c2c2c2;
+  font-family:"rajdhani-semibold";
+  font-size:16px;
+}
+
+
+
+.historical_timeseries_table{
+  height:80vh;
+  overflow-y:auto;
+  overflow-x:auto;
+  width:1050px;
+
+}
+.historical_timeseries_table td{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:12px;
+  padding:5px;
+  border:1px solid #1e1e1f;
+  white-space: nowrap; /* Don't break line in table data */
+}
+
+.historical_timeseries_table th{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-weight:400;
+  font-size:14px;
+  padding:7px;
+  border:1px solid #1e1e1f;
+  text-align:left;
+  white-space: nowrap;
+}
+.financial-statements-annual-quarter-toggle-btn.active{
+  background-color:#0069d9 !important;
+}
+.financial-statements-annual-quarter-toggle-btn{
+  border:1px solid #1e1e1f;
+  color:#ffffff;
+  border-collapse:collapse;
+  font-size:12px !important;
+  border-radius:0px !important;
+}
+
+.financial_statements_dataframe{
+  height:80vh;
+  overflow-y:auto;
+  width:1050px;
+  overflow-x:auto;
+}
+
+.financial_statements_dataframe td{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:12px;
+  padding:5px;
+  border:1px solid #1e1e1f;
+  white-space: nowrap; /* Don't break line in table data */
+}
+
+.financial_statements_dataframe th{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-weight:400;
+  font-size:14px;
+  padding:7px;
+  border:1px solid #1e1e1f;
+  text-align:left;
+  white-space: nowrap;
+}
+
+#pills-tabContent p{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:16px;
+  margin-top:10px;
+  padding-left:10px;
+}
+
+.historical_timeseries_table tr:nth-child(even) {background: #171716}
+.historical_timeseries_table tr:nth-child(odd) {background: #000000}
+
+.financial_statements_dataframe tr:nth-child(even) {background: #171716}
+.financial_statements_dataframe tr:nth-child(odd) {background: #000000}
+
+.custom-div-col3{
+  width:23%;
+  padding:2px;
+}
+.custom-div-col3-cards-main-quote{
+  background-color:#24261e;
+  padding-top:20px;
+  padding-left:10px;
+  padding-bottom:20px;
+}
+.custom-div-col3-cards-main-quote h3{
+  color:#ffffff;
+  font-size:20px;
+  text-transform:uppercase;
+  font-family:"rajdhani-semibold";
+  margin-bottom:0px;
+  margin-top:0px;
+}
+.custom-div-col3-cards-main-quote p{
+  color:#c2c2c2;
+  font-size:16px;
+  font-family:"rajdhani-medium";
+  margin-bottom:0px;
+}
+.custom-div-col3-cards-price-increase{
+  color:#8ca82f;
+  font-size:38px;
+  font-family:"rajdhani-bold";
+}
+.custom-div-col3-cards-price-decrease{
+  color:#ff2600;
+  font-size:38px;
+  font-family:"rajdhani-bold"
+}
+.custom-div-col3-cards-price-change-positive{
+  font-size:16px !important;
+  padding-bottom:10px!important;
+  color:#8ca83f!important;
+  font-family:"rajdhani-bold"
+}
+.custom-div-col3-cards-price-change-negative{
+  font-size:16px;
+  padding-bottom:10px;
+  color:#ff2600;
+  font-family:"rajdhani-bold"
+}
+
+.custom-div-col3-cards-key-metrics{
+  background-color:#171716;
+  padding-top:10px;
+  padding-left:10px;
+  margin-top:5px;
+  padding-bottom:10px;
+  height:80vh;
+  overflow-y:auto;
+}
+.custom-div-col3-cards-key-metrics p{
+  margin-bottom:0px;
+  color:#ffffff;
+  font-family:"rajdhani-semibold";
+  font-size:16px;
+}
+#key-metrics{
+  border-bottom:1px solid #c2c2c2;
+}
+.key-metrics-margin-top{
+  margin-top:15px;
+}
+.custom-div-col3-cards-key-metrics-title{
+  color:#c2c2c2;
+  font-size:12px;
+  font-family:"rajdhani-medium";
+}
+.custom-div-col3-cards-key-metrics-data{
+  color:#ffffff;
+  font-size:12px;
+  font-family:"rajdhani-medium";
+  float:right;
+}
+.custom-div-col3-cards-key-metrics-data a{
+  color:#ffffff;
+}
+.profile-description-para{
+  border-top:1px solid #c2c2c2;
+}
+#profile-description{
+  font-size:12px;
+  font-family:"rajdhani-medium";
+  margin-top:20px;
+}
+
+.yahoonews-excerpt{
+  border-bottom:1px solid #24261e;
+  padding-bottom:10px;
+}
+.yahoonews-excerpt:hover{
+  cursor:pointer;
+}
+.yahoonews-excerpt h3{
+  font-size:12px;
+  color:#ffffff;
+  padding-top:10px;
+  font-family:"rajdhani-semibold";
+}
+.yahoonews-excerpt small{
+  font-size:10px;
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+}
+.yahoonews-excerpt p{
+  font-size:12px;
+  color:#ffffff;
+  line-height:20px;
+  font-family:"rajdhani-medium";
+}
+.yahoonews-detail{
+  background-color:#171716 !important;
+}
+.modal-header{
+  padding-bottom:0px;
+  padding-top:0px;
+  border-bottom:1px solid #24261e;
+}
+.modal-body{
+  border-bottom:1px solid #24261e;
+}
+.modal-footer{
+  border-top:none;
+  padding-bottom:15px;
+}
+.full-news-source{
+  background-color:#0069d9;
+  border:1px solid #0069d9;
+  font-family:"rajdhani-medium";
+  padding:5px;
+  font-size:16px;
+  color:#ffffff;
+  margin-top:10px;
+  border-radius:4px;
+}
+.full-news-source:hover{
+  text-decoration:none;
+  opacity:0.8;
+  color:#ffffff;
+}
+.yahoonews-detail-h3{
+  font-size:16px;
+  color:#ffffff;
+  padding-top:10px;
+  font-family:"rajdhani-semibold";
+}
+.yahoonews-detail-small{
+  font-size:10px;
+  color:#ffffff;
+  font-family:"rajdhani-medium" !important;
+}
+.yahoonews-detail-p{
+  font-size:14px !important;
+  color:#ffffff;
+  line-height:20px;
+  font-family:"rajdhani-medium" !important;
+}
+
+.custom-div-col4{
+  width:2%;
+  border-left:1px solid #1e1e1f;
+}
+.custom-div-col4 a{
+  color:#c2c2c2;
+  font-family:"rajdhani-semibold";
+  font-size:12px;
+  writing-mode:vertical-rl;
+  padding-right:10px;
+  padding-left:0px;
+  border-bottom:1px solid #1e1e1f;
+}
+.nav-pills .nav-link.active{
+  background-color:transparent;
+}
+.nav-link:hover{
+  color:#ffffff;
+}
+
+
+#pills-eps-tab, #pills-revenue-tab, #pills-ebit-tab, #pills-net-income-tab{
+  color:#ffffff;
+  border:1px solid #0069d9;
+  padding:5px;
+  font-size:12px;
+  font-family:"rajdhani-medium";
+  background-color:#0069d9;
+  border-radius:0px;
+  text-align:center;
+}

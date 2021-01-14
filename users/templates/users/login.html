@@ -1,0 +1,33 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Rupy | Log In {% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-5 login-register-page-col-1">
+<h1><a class = "login-signup-logo" href = "{% url 'home' %}">RUPY</a></h1>
+</div>
+<div class = "col-md-7 login-register-page-col-2">
+<div class = "login-sign-up-toggle">
+<ul>
+<li><a id = "login-register-page-col-2-sign-up-link" href = "{% url 'register' %}">SIGN UP</a></li>
+<li><a id = "login-register-page-col-2-sign-up-link-login-link" class = "login-page-login-highlight" href = "{% url 'login' %}">LOG IN</a></li>
+</ul>
+</div>
+<div class = "login-register-page-col-2-login-form-section">
+<h1>Log in to your account</h1>
+<form class = "login-register-page-col-2-login-form-main" method = "POST">
+{% csrf_token %}
+<div class = "login-register-page-col-2-login-form">
+{{form | crispy}}
+<button class = "login-register-page-col-2-login-form-submit" type = "submit">LOG IN</button>
+<p><small class = "signup-login-form-footer"><a href = "{% url 'password-reset' %}">FORGOT YOUR PASSWORD?</a></small></p>
+<p><small class = "signup-login-form-footer">Don't have an account?<a href = "{% url 'register' %}"> SIGN UP</a></small></p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

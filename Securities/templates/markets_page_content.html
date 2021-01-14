@@ -1,0 +1,53 @@
+<div class = "markets-page-pd-dataframe">
+{% for major_indexes in markets_data %}
+{% autoescape off %}
+{{major_indexes.display_major_indexes}}
+{% endautoescape %}
+{% endfor %}
+</div>
+<div class = "markets-page-pd-dataframe">
+{% for sector_performance in markets_data %}
+{% autoescape off %}
+{{sector_performance.display_sector_performance}}
+{% endautoescape %}
+{% endfor %}
+</div>
+<div class = "markets-page-pd-dataframe">
+{% for most_active in markets_data %}
+{% autoescape off %}
+{{most_active.display_most_active}}
+{% endautoescape %}
+{% endfor %}
+<!-- <script>
+$('tr td:contains("+")').css('color', '#8ca83f');
+$('tr td:contains("(-")').css('color', 'red');
+</script> -->
+</div>
+<div class = "markets-page-pd-dataframe">
+{% for top_gainers in markets_data %}
+{% autoescape off %}
+{{top_gainers.display_top_gainers}}
+{% endautoescape %}
+{% endfor %}
+</div>
+<div class = "markets-page-pd-dataframe">
+{% for top_losers in markets_data %}
+{% autoescape off %}
+{{top_losers.display_top_losers}}
+{% endautoescape %}
+{% endfor %}
+</div>
+<div class = "markets-page-pd-dataframe">
+{% for upcoming_earnings in markets_data %}
+{% autoescape off %}
+{{upcoming_earnings.display_upcoming_earnings}}
+{% endautoescape %}
+{% endfor %}
+</div>
+<div class = "markets-page-pd-dataframe">
+{% for new_ipo in markets_data %}
+{% autoescape off %}
+{{new_ipo.display_new_ipo}}
+{% endautoescape %}
+{% endfor %}
+</div>

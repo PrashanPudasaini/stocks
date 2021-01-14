@@ -1,0 +1,360 @@
+{% extends "Securities/base.html" %}
+{% load crispy_forms_tags %}
+{% load parse_numbers %}
+{% block title %} Rupy Investments | Portfolio | {{symbol.portfolio_name}}{% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid stock-symbol-detail-page">
+<div class = "row">
+<div class = "col-md-1 stock-symbol-detail-page-col-1">
+<ul>
+<a data-toggle-tooltip="tooltip" data-placement="right" title="My Portfolio" href = "{% url 'stock-most-popular' %}"><li class = "in-stock-symbol-detail-page"><i class="far fa-star"></i></li></a>
+<li data-toggle-tooltip="tooltip" data-placement="right" title="Stocks"><i class="fas fa-poll"></i></li>
+<a data-toggle-tooltip="tooltip" data-placement="right" title="Markets" href = "{% url 'markets' %}"><li><i class="fas fa-globe"></i></li></a>
+<li data-toggle-tooltip="tooltip" data-placement="right" title="Stock Screener"><i class="fab fa-searchengin"></i></li>
+<a data-toggle-tooltip="tooltip" data-placement="right" title="My Account" href = "{% url 'profile' %}"><li><i class="fas fa-user-circle"></i></li></a>
+</ul>
+</div>
+
+<div class = "col-md-7 stock-symbol-detail-page-col-2 portfolio-detail-page-col-2">
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-10">
+<ul class="nav nav-pills stock-watchlist-nav-ul" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link active stock-watchlist-nav" href = "{% url 'portfolio-all-stocks' %}">All Stocks</a>
+</li>
+<li class="nav-item">
+<a class="nav-link active stock-watchlist-nav" href = "{% url 'stock-most-popular' %}">Most Popular</a>
+</li>
+{% for portfolio in portfolio_list %}
+<li class="nav-item">
+<a class="nav-link stock-watchlist-nav" href="{% url 'portfolio-detail' portfolio.slug %}">{{portfolio.portfolio_name}}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+<div class = "col-md-2 stock-watchlist-nav-right">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+{% if user.is_authenticated %}
+<li class="nav-item stock-watchlist-nav-right">
+<a data-toggle="modal" data-target="#stock-watchlist-edit-modal" data-backdrop="static" data-keyboard="false" class="nav-link stock-watchlist-nav"><i class="far fa-edit"></i></a>
+</li>
+<li class="nav-item stock-watchlist-nav-right">
+<a data-toggle="modal" data-target="#stock-watchlist-add-modal" data-backdrop="static" data-keyboard="false" class="nav-link stock-watchlist-nav"><i class="far fa-plus-square"></i></a>
+</li>
+{% else %}
+<li class="nav-item stock-watchlist-nav-right">
+<a data-toggle="modal" data-target="#stock-watchlist-modal" class="nav-link stock-watchlist-nav"><i class="far fa-plus-square"></i></a>
+</li>
+{% endif %}
+</ul>
+<!-- Modal -->
+{% if user.is_authenticated %}
+<div class="modal fade" id="stock-watchlist-edit-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content stock-watchlist-edit-modal-content">
+<div class="modal-header stock-watchlist-edit-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">EDIT {{portfolio.portfolio_name}}</h5>
+<button type="button" class="close stock-watchlist-edit-modal-header-close-btn" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body stock-watchlist-edit-modal-body">
+<div class = "stock-watchlist-edit-modal-body-inner-div stock-watchlist-edit-modal-body-inner-div-all-portfolio">
+<form action = "" method = "POST"  autocomplete="off">
+{% csrf_token %}
+<p>{{portfolio_update_form|crispy}}</p>
+<button type = submit">Save</button>
+<a href = "" class = "stock-watchlist-edit-modal-portfolio-delete-btn" type = submit"><i class="far fa-trash-alt"></i></a>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="stock-watchlist-add-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content stock-watchlist-edit-modal-content">
+<div class="modal-header stock-watchlist-edit-modal-header">
+<h5 class="modal-title" id="exampleModalLabel">CREATE PORTFOLIO</h5>
+<button type="button" class="close stock-watchlist-edit-modal-header-close-btn" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body stock-watchlist-edit-modal-body">
+<div class = "stock-watchlist-edit-modal-body-inner-div">
+<form action = "{% url 'create-new-portfolio' %}" method = "POST"  autocomplete="off">
+{% csrf_token %}
+{{portfolio_create_form|crispy}}
+<button type = submit">Save</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% else %}
+<div class="modal fade" id="stock-watchlist-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content stock-watchlist-edit-modal-content">
+<div class="modal-header stock-watchlist-edit-modal-header stock-watchlist-edit-modal-header-registered-users-only">
+<button type="button" class="close stock-watchlist-edit-modal-header-close-btn" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body stock-watchlist-edit-modal-body registered-users-only-data-stock-watchlist-edit-modal-body">
+<div class = "stock-watchlist-edit-modal-body-inner-div">
+<div class = "registered-users-only-data stock-watchlist-registered-users-only-data">
+<p><i class="fas fa-lock"></i></p>
+<p>You must be a registered Rupy user to create a Portfolio</p>
+<small>Login or Create a FREE acount to create a portfolio</small>
+<a id = "registered-users-only-sec-sign-up" class="nav-link navbar-login-link" href = "{% url 'register' %}">CREATE FREE ACCOUNT</a>
+<div class="dropdown-divider"></div>
+<p>Already a Subscriber?</p>
+<a id = "registered-users-only-sec-login" class="nav-link navbar-login-link" href = "{% url 'login' %}">LOG IN</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endif %}
+<!-- END MODAL -->
+</div>
+</div>
+</div>
+<div class = "stock-watchlist-view-table">
+<table>
+<tr>
+<th>Symbol</th>
+<th>Name</th>
+<th>Price</th>
+<th>Open</th>
+<th>High</th>
+<th>Low</th>
+<th>Previous Close</th>
+<th>Change</th>
+<th>Change %</th>
+<th>Volume</th>
+<th>Avgerage Volume</th>
+<th>52wk High</th>
+<th>52wk Low</th>
+<th>PE</th>
+<th>EPS</th>
+<th>Market Cap</th>
+<th>Shaes Outstanding</th>
+<th>Beta</th>
+<th>Last Dividend</th>
+<th>Price Avg. 50</th>
+<th>Price Avg. 200</th>
+<th>DCF</th>
+<th>DCF Diff.</th>
+</tr>
+
+{% for portfolio in portfolio_qset %}
+{% for symbol in portfolio.portfolio_symbols.all %}
+
+<tr id = "{{symbol.symbol}}-hide-show" name = "{{symbol.symbol}}" class = "portfolio-detail-table-tr">
+<td>{{symbol.symbol}}</td>
+<td>{{symbol.name}}</td>
+{% if symbol.d_price > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_price|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_price|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_open > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_open|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_open|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_dayHigh > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_dayHigh|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_dayHigh|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_dayLow > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">{{symbol.d_dayLow|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_dayLow|floatformat:4}}</span></td>
+{% endif %}
+<td>{{symbol.d_previousClose|floatformat:4}}</td>
+{% if symbol.d_price > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">+{{symbol.d_change|floatformat:4}}</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_change|floatformat:4}}</span></td>
+{% endif %}
+{% if symbol.d_price > symbol.d_previousClose %}
+<td><span class = "stock-watchlist-view-green">+{{symbol.d_change_percentage|floatformat:4}} %</span></td>
+{% else %}
+<td><span class = "stock-watchlist-view-red">{{symbol.d_change_percentage|floatformat:4}} %</span></td>
+{% endif %}
+<td>{{symbol.d_volume}}</td>
+<td>{{symbol.d_avgVolume}}</td>
+<td>{{symbol.d_yearHigh|floatformat:4}}</td>
+<td>{{symbol.d_yearLow|floatformat:4}}</td>
+<td>{{symbol.d_pe|floatformat:4}}</td>
+<td>{{symbol.d_eps|floatformat:4}}</td>
+<td>{{symbol.d_market_cap}}</td>
+<td>{{symbol.d_sharesOutstanding}}</td>
+<td>{{symbol.d_beta|floatformat:4}}</td>
+<td>{{symbol.d_last_Div|floatformat:4}}</td>
+<td>{{symbol.d_priceAvg50|floatformat:4}}</td>
+<td>{{symbol.d_priceAvg200|floatformat:4}}</td>
+<td>{{symbol.d_dcf}}</td>
+<td>{{symbol.d_dcfDiff}}</td>
+</tr>
+{% endfor %}
+{% endfor %}
+</table>
+</div>
+</div>
+
+
+<!-- FINANCIALS CHART CONS DECLATIONS -->
+<script>
+  const parseDate = d3.utcParse("%Y-%m-%d");
+  const formatDate = d3.timeFormat("%Y");
+  const formatSpecs= d3.formatSpecifier(".4s");
+  const formatRevenue = d3.format(formatSpecs);
+  const formatSpecsTicks= d3.formatSpecifier("~s");
+  const formatTicks = d3.format(formatSpecsTicks);
+
+  const formatEpsSpecs = d3.formatSpecifier(".3f");
+  const formatEps = d3.format(formatEpsSpecs);
+
+</script>
+<!-- END FINANCIALS CHART CONST DECLARATIONS -->
+
+<div class = "col-md-3 stock-symbol-detail-page-col-3">
+{% for portfolio in portfolio_qset %}
+{% for symbol in portfolio.portfolio_symbols.all %}
+<div id = "portfolio-detail-show-{{symbol.symbol}}-div-on-click">
+<div class = "container-fluid stock-symbol-detail-page-col-3-sticky-quote">
+<h2><span class = "">{{symbol.symbol}} | {{symbol.exchangeShortName}}</span> <span class = "portfolio-detail-stick-quote-expand-to-detail"><a href = "{% url 'stock-detail' symbol.slug %}"><i class="fas fa-expand"></i></a></span></h2>
+<h3>{{symbol.name}}</h3>
+{% if symbol.price > symbol.previousClose %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-increase">{{symbol.price}}</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-decrease">{{symbol.price}}</span>
+{% endif %}
+{% if symbol.d_price > symbol.d_previousClose %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-change-positive">+{{symbol.d_change|floatformat:4}} | +{{symbol.d_change_percentage|floatformat:4}}%</span>
+{% else %}
+<span class = "stock-symbol-detail-page-col-3-sticky-quote-price-change-negative">{{symbol.d_change|floatformat:4}} | {{symbol.d_change_percentage|floatformat:4}}%</span>
+{% endif %}
+<p class = "stock-symbol-detail-page-col-3-sticky-quote-last-updated">Last Updated: {{symbol.date_created}}</p>
+
+
+
+<div class= "dropdown show stock-detail-page-add-to-watchlist-edit-alert-section">
+<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+{% if is_watching %}<i class="fas fa-star"></i>{% else %} <i class="far fa-star"></i> {% endif %}
+</a>
+<div class = "dropdown-menu stock-detail-page-add-to-watchlist-edit-alert-section-dropdown-menu">
+{% for forms in add_to_portfolio %}
+<form method = "POST" autocomplete="off" id = "add-symbol-to-{{forms.slug.value}}" class = 'add-to-portfolio-form'>
+{% csrf_token %}
+{{ add_to_portfolio.management_form }}
+<div onclick="document.getElementById('add-symbol-to-{{forms.slug.value}}').submit()" class = "forms-portfolio-name-div">
+<p>{{forms.portfolio_name}}</p>
+</div>
+</form>
+{% endfor %}
+<div class = "add-remove-action-list">
+{% for action in add_remove_action_list %}
+{% if action == "REMOVE" %}
+<p><i class="fas fa-star"></i></p>
+{% else %}
+<p><i class="far fa-star"></i></p>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+<a><i class="far fa-edit"></i></a>
+</div>
+
+
+
+
+
+</div>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="{{symbol.symbol}}-summary" role="tabpanel" aria-labelledby="{{symbol.symbol}}-summary-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats">
+<h3>Key Statistics</h3>
+{% include 'portfolio_detail_key_stats.html' %}
+</div>
+</div>
+<div class="tab-pane fade" id="{{symbol.symbol}}-news" role="tabpanel" aria-labelledby="{{symbol.symbol}}-news-tab">{{symbol.symbol}}NEWS HERE</div>
+<div class="tab-pane fade" id="{{symbol.symbol}}-financials" role="tabpanel" aria-labelledby="{{symbol.symbol}}-financials-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats-financials">
+<h3>Financials</h3>
+{% include 'portfolio_detail_financials.html' %}
+</div>
+</div>
+<div class="tab-pane fade" id="{{symbol.symbol}}-analysis" role="tabpanel" aria-labelledby="{{symbol.symbol}}-analysis-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-analysis">
+<h3>Analysis</h3>
+{% include 'portfolio_detail_analysis.html' %}
+</div>
+</div>
+<div class="tab-pane fade" id="{{symbol.symbol}}-profile" role="tabpanel" aria-labelledby="{{symbol.symbol}}-profile-tab">
+<div class = "stock-symbol-detail-page-col-3-sticky-quote-summary-profile">
+<h3>Profile <span data-toggle = "modal" data-target = "#stock-detail-profile-{{symbol.symbol}}-key-executives" class = "stock-symbol-detail-page-col-3-sticky-quote-maximize"><i class="far fa-window-maximize"></i></span></h3>
+{% include 'portfolio_detail_profile.html' %}
+</div>
+</div>
+</div>
+</div>
+<script>
+  $("#portfolio-detail-show-{{symbol.symbol}}-div-on-click:not(:first-child)").hide();  //hide all but first
+  $("#{{symbol.symbol}}-hide-show").click(function (e) {
+    $('#portfolio-detail-show-{{symbol.symbol}}-div-on-click').show().siblings().hide();
+    e.stopPropagation();
+    return false;
+  });
+</script>
+{% endfor %}
+{% endfor %}
+</div>
+
+
+
+<div class = "col-md-1 stock-symbol-detail-page-col-4">
+{% for portfolio in portfolio_qset %}
+{% for symbol in portfolio.portfolio_symbols.all %}
+<div id = "portfolio-detail-show-{{symbol.symbol}}-menu-div-on-click">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+<li data-toggle-tooltip = "tooltip" data-placement="left" title="Summary" class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu active" id="{{symbol.symbol}}-summary-tab" data-toggle="pill" href="#{{symbol.symbol}}-summary" role="tab" aria-controls="{{symbol.symbol}}-summary" aria-selected="true"><i class="far fa-edit"></i></a>
+</li>
+<li data-toggle-tooltip = "tooltip" data-placement="left" title="News" class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="{{symbol.symbol}}-news-tab" data-toggle="pill" href="#{{symbol.symbol}}-news" role="tab" aria-controls="{{symbol.symbol}}-news" aria-selected="false"><i class="fas fa-rss-square"></i></a>
+</li>
+<li data-toggle-tooltip = "tooltip" data-placement="left" title="Financials" class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="{{symbol.symbol}}-financials-tab" data-toggle="pill" href="#{{symbol.symbol}}-financials" role="tab" aria-controls="{{symbol.symbol}}-financials" aria-selected="false"><i class="fas fa-file-invoice-dollar"></i></a>
+</li>
+<li data-toggle-tooltip = "tooltip" data-placement="left" title="Analysis" class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="{{symbol.symbol}}-analysis-tab" data-toggle="pill" href="#{{symbol.symbol}}-analysis" role="tab" aria-controls="{{symbol.symbol}}-analysis" aria-selected="false"><i class="fas fa-chart-line"></i></a>
+</li>
+<li data-toggle-tooltip = "tooltip" data-placement="left" title="Profile" class="nav-item">
+<a class="nav-link stock-symbol-detail-page-col-4-menu" id="{{symbol.symbol}}-profile-tab" data-toggle="pill" href="#{{symbol.symbol}}-profile" role="tab" aria-controls="{{symbol.symbol}}-profile" aria-selected="false"><i class="fas fa-id-badge"></i></a>
+</li>
+</ul>
+</div>
+<script>
+  $("#portfolio-detail-show-{{symbol.symbol}}-menu-div-on-click:not(:first-child)").hide();  //hide all but first
+  $("#{{symbol.symbol}}-hide-show").click(function (e) {
+    $('#portfolio-detail-show-{{symbol.symbol}}-menu-div-on-click').show().siblings().hide();
+    e.stopPropagation();
+    return false;
+  });
+</script>
+{% endfor %}
+{% endfor %}
+</div>
+
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

@@ -1,0 +1,2375 @@
+@import url(fonts.css);
+
+html{
+  height:100vh;
+  background-color:#000000;
+}
+
+.tooltip .tooltip-inner {
+    background-color:#1a1a19;
+    color:#ffffff !important;
+    font-family:"rajdhani-semibold";
+    font-size:16px;
+}
+.tooltip.show{
+    opacity: 1;
+}
+.bs-tooltip-auto[x-placement^=right] .arrow::before, .bs-tooltip-right .arrow::before {
+    border-right-color: #1a1a19 !important;
+}
+.bs-tooltip-auto[x-placement^=left] .arrow::before, .bs-tooltip-left .arrow::before {
+    border-left-color: #1a1a19 !important;
+}
+/*------------------------------------------------------------------------------
+---------------------------STOCK SEARCH AUTOCOMPLETES---------------------------
+------------------------------------------------------------------------------*/
+#match-list{
+  width:360px;
+  position:fixed;
+  height:60vh;
+  overflow:auto;
+  right:20px;
+  z-index:1;
+  margin-top:0px;
+  border-radius:4px;
+  pointer-events:none;
+}
+
+.stock-search-autocomplete-div{
+  padding-top:2px;
+  padding-bottom:0px;
+  border-radius:0px;
+  background-color:#1a1a19;
+  pointer-events:all;
+}
+
+.stock-search-autocomplete-div:hover{
+  background-color:#000000;
+}
+
+.stock-search-autocomplete-div-col-3{
+  padding-left:5px;
+}
+
+.stock-search-autocomplete-div-col-3:hover{
+  cursor:pointer;
+}
+
+#stock-search-autocomplete-div-name{
+  margin-bottom:0px;
+  font-family:"rajdhani-semibold";
+  color:#ffffff;
+  font-size:14px;
+}
+
+.stock-search-autocomplete-div-symbol{
+  font-family:"rajdhani-bold";
+  color:#5a6b31;
+  font-size:14px;
+}
+.stock-search-autocomplete-div-symbol:hover{
+  cursor:pointer;
+}
+
+.stock-search-autocomplete-div-exchange{
+  font-family:"rajdhani-medium";
+  color:#6c757d;
+  font-size:14px;
+}
+
+#stock-search-autocomplete-div-symbol-exchange-p{
+  margin-bottom:5px;
+}
+.stock-search-autocomplete-div-pipe{
+  color:#c2c2c2;
+}
+
+/*------------------------------------------------------------------------------
+---------------------------SCROLL BAR-------------------------------------------
+------------------------------------------------------------------------------*/
+
+::-webkit-scrollbar {
+  width: 5px !important;
+  height:5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a19 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8e8e8e !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888888 !important;
+}
+::-webkit-scrollbar-corner {
+  background:#1a1a19 !important;
+}
+/*------------------------------------------------------------------------------
+---------------------------LOADING PLEASE WAIT-------------------------------------------
+------------------------------------------------------------------------------*/
+.data-not-found{
+  color:#292926;
+  font-size:16px;
+  font-family:"rajdhani-medium";
+  margin-top:200px;
+  text-align:center;
+}
+ .data-not-found-icon{
+  font-size:60px;
+  border:2px solid #292926;
+  border-radius:4px;
+  padding:10px;
+  margin-bottom:10px;
+ }
+.loading_wait{
+  color:#292926;
+  padding-top:100px;
+  font-family:"rajdhani-medium";
+  white-space:nowrap;
+}
+.loader, .loader:before, .loader:after {
+  background: #292926;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader {
+  color: #292926;
+  margin:0 auto;
+  margin-top:200px;
+  /* text-indent: -9999em; */
+  font-size: 16px;
+  font-family:"rajdhani-medium";
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before, .loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: 1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------NAVIGATION-------------------------------------------
+------------------------------------------------------------------------------*/
+.bg-dark{
+  background-color:#1a1a19 !important;
+  padding-top:5px;
+  padding-bottom:3px;
+}
+
+.media-navbar-stock-search-button{
+  display:none;
+}
+
+.navbar-brand{
+  font-family:"rajdhani-bold";
+  color:#5a6b31 !important;
+  font-weight:800;
+}
+
+.nav-link{
+  font-family:"rajdhani-medium";
+}
+
+.dropdown-menu{
+  background-color:#1a1a19;
+}
+.dropdown-item{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+}
+
+.dropdown-item:hover{
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  color:#ffffff;
+}
+.dropdown-divider{
+  border:1px solid #1e1e1f;
+}
+
+.navbar-login-link{
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  color:#ffffff !important;
+  position:relative;
+  border-radius:2px;
+}
+.navbar-login-link:hover{
+  opacity:0.8;
+}
+
+.navbar-login-link:before, .navbar-login-link:after {
+  height:10px;
+  width:10px;
+  background:#1a1a19;
+  position:absolute;
+  content:'';
+}
+.navbar-login-link:before {
+  top:0;
+  left:0;
+  transform:rotate(49deg) translate(-71%);
+}
+.navbar-login-link:after {
+  bottom:0;
+  right:0;
+  border:none !important;
+  transform:rotate(49deg) translate(71%);
+}
+.navbar-signup-link{
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  color:#ffffff !important;
+  position:relative;
+  border-radius:2px;
+}
+
+.navbar-signup-link:hover{
+  opacity:0.8;
+}
+
+.navbar-signup-link:before, .navbar-signup-link:after {
+  height:10px;
+  width:10px;
+  background:#1a1a19;
+  position:absolute;
+  content:'';
+}
+.navbar-signup-link:before {
+  top:0;
+  left:0;
+  transform:rotate(49deg) translate(-71%);
+}
+.navbar-signup-link:after {
+  bottom:0;
+  right:0;
+  border:none !important;
+  transform:rotate(49deg) translate(71%);
+}
+
+
+#id_symbol{
+  padding:18px;
+  border-radius:2px;
+  font-family:"rajdhani-medium";
+  background-color: #000000;
+  border: 1px solid #000000;
+  color:#ffffff;
+  white-space: nowrap;
+  text-transform:uppercase;
+}
+
+.navbar-stock-search-icon{
+  border:none;
+  color:#8e8e8e;
+  margin-left:-24px;
+  margin-top:5px;
+}
+
+form{
+  display:flex;
+  flex-direction:row;
+  margin-bottom:-15px;
+}
+input:focus {
+  outline: none;
+}
+button{
+  background-color:#000000;
+  border:none;
+  color:#8e8e8e;
+  margin-left:-5px;
+  margin-bottom:20px !important;
+}
+
+.dropdown{
+  list-style:none;
+}
+
+.navbar-account-img{
+  border-radius:100px;
+  height:30px;
+  width:30px;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------USER LOGIN PAGE-------------------------------------------
+------------------------------------------------------------------------------*/
+
+.login-register-page-col-1{
+  background-color:#000000;
+  padding-top:30px;
+  border-right:1px solid #1e1e1f;
+}
+.login-signup-logo{
+  color:#5a6b31;
+}
+.login-signup-logo:hover{
+  text-decoration:none;
+  color:#5a6b31;
+  opacity:0.8;
+}
+
+.login-register-page-col-1 h1{
+  font-family:"rajdhani-bold";
+  color:#5a6b31;
+}
+
+.login-register-page-col-1 p{
+  font-family:"rajdhani-medium";
+}
+
+.login-register-page-col-2{
+  background-color:#000000;
+  padding-top:30px;
+  padding-left:0px;
+}
+
+.login-page-login-highlight{
+  border-bottom:3px solid #5a6b31;
+}
+
+.login-register-page-col-2 ul li{
+  display:inline;
+  font-family:"rajdhani-bold";
+}
+
+.login-sign-up-toggle{
+  border-bottom:1px solid #1e1e1f;
+}
+
+.login-register-page-col-2 ul li a{
+  color:#5a6b31;
+  font-size:28px;
+  padding-bottom:17px;
+  margin-right:30px;
+}
+
+.login-register-page-col-2 ul li a:hover{
+  opacity:0.8;
+  text-decoration:none;
+}
+
+#login-register-page-col-2-sign-up-link{
+}
+
+.login-register-page-col-2-login-form-main{
+  display:block !important;
+}
+
+.login-register-page-col-2-login-form-section{
+  padding-top:30px;
+  padding-left:40px;
+  padding-right:70px;
+  height:100vh;
+}
+
+.login-register-page-col-2-login-form-section h1{
+  color:#33442c;
+  font-family:"rajdhani-semibold";
+  font-size:22px;
+  padding-bottom:30px;
+}
+
+.login-signup-form-control{
+  background-color:#1a1a19;
+  font-family:"rajdhani-medium";
+  border:none;
+}
+
+.login-signup-form-control:focus{
+  background-color:#1a1a19;
+  color:#ffffff;
+}
+
+.text-muted{
+  font-family:"rajdhani-medium";
+  display:none;
+}
+
+.password-requirement-description{
+  display:none !important;
+}
+
+.signup-login-form-footer{
+  font-family:"rajdhani-medium";
+}
+
+.signup-login-form-footer a{
+  color:#5a6b31;
+  font-family:"rajdhani-semibold";
+}
+
+.signup-login-form-footer a:hover{
+  opacity:0.8;
+  text-decoration:none;
+}
+
+.login-register-page-col-2-login-form-submit{
+  position:relative;
+  margin-left:0px;
+  padding:10px;
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  border-radius:2px;
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:17px;
+  width:100%;
+}
+
+.login-register-page-col-2-login-form-submit:hover{
+  opacity:0.8;
+}
+
+.login-register-page-col-2-login-form-submit:before, .login-register-page-col-2-login-form-submit:after {
+  height:15px;
+  width:15px;
+  background:#000000;
+  position:absolute;
+  content:'';
+}
+.login-register-page-col-2-login-form-submit:before {
+  top:0;
+  left:0;
+  transform:rotate(49deg) translate(-71%);
+}
+.login-register-page-col-2-login-form-submit:after {
+  bottom:0;
+  right:0;
+  border:none !important;
+  transform:rotate(49deg) translate(71%);
+}
+
+.invalid-feedback{
+  color:#ff0303;
+  font-family:"rajdhani-medium";
+  margin-bottom:0px;
+}
+
+.alert{
+  margin-bottom:0px;
+  font-family:"rajdhani-medium";
+  border-radius:0px;
+  border:none;
+  background-color:#24261e;
+  text-align:center;
+}
+
+.alert-success{
+  color:#8ca83f;
+}
+
+.alert-danger{
+  color:#ff0303;
+  margin-bottom:15px;
+}
+
+.alert-warning{
+  color:#ff0303;
+}
+
+.alert-danger ul li{
+  font-family:"rajdhani-medium";
+}
+
+.alert-close{
+  color:#000000;
+  background-color:#ffffff;
+  border-radius:100px;
+  float:right;
+  font-family:"rajdhani-bold";
+}
+
+.style-form-inline-padding{
+  padding-left:0px !important;
+}
+
+.style-form-inline input{
+  padding:10px;
+  width:100%;
+  margin-bottom:10px;
+  border-radius:4px;
+}
+
+/*------------------------------------------------------------------------------
+--------------------------- USER PROFILE PAGE---------------------
+------------------------------------------------------------------------------*/
+.users-profile-page{
+  background-color:#0f0f0f;
+}
+.users-profile-page-col-2{
+  max-width:94%;
+  flex: 0 0 94%;
+  background-color:#0f0f0f;
+}
+.profile-page-user-cover-image{
+  height:60vh;
+  width:100%;
+  opacity:0.7;
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  z-index:-100;
+}
+.profile-page-user-image{
+  border-radius:100px;
+  height:200px;
+  width:200px;
+  margin:auto;
+  display:block;
+  opacity:0.99;
+  border:6px solid #1c1c1c;
+  /* margin-top:-220px; */
+  margin-top:20px;
+  z-index:1000;
+}
+.profile-page-user-image:hover{
+  cursor:pointer;
+  opacity:0.9;
+}
+.image-upload {
+    position: relative;
+    overflow: hidden;
+    margin-top:-85px;
+    margin-left:600px;
+    margin-bottom:80px;
+}
+.image-upload i{
+  font-size:30px;
+  color:#ffffff;
+  border:5px solid #1c1c1c;
+  border-radius:100px;
+  padding:5px;
+  opacity:0.7;
+}
+.image-upload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.users-profile-page-header-img-section-heading{
+  margin-bottom:20px;
+  border-bottom:1px solid #1e1e1f;
+}
+
+.users-profile-page-header-img-section-heading h2{
+  text-align:center;
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  margin-top:-20px;
+  font-size:32px;
+}
+
+.users-profile-page-header-img-section-nav ul li{
+  display:inline;
+  list-style:none;
+  text-align:center;
+  padding:15px;
+}
+.users-profile-page-header-img-section-nav ul li:hover{
+  color:#ffffff;
+  border-bottom:3px solid #5a6b31;
+  cursor:pointer;
+  text-decoration:none;
+}
+.users-profile-page-header-img-section-nav ul a{
+  padding-left:0px;
+  color:#8e8e8e;
+  font-size:16px;
+  font-family:"rajdhani-semibold";
+}
+.users-profile-page-header-img-section-nav ul a:hover{
+  text-decoration:none;
+}
+.users-profile-page-header-img-section-body{
+  background-color:#000000;
+  padding-top:40px;
+  padding-right:20px;
+  padding-left:20px;
+  padding-bottom:40px;
+  margin-bottom:80px;
+  border-radius:8px;
+}
+
+
+
+
+.users-profile-page-col-3{
+  max-width:3%;
+  flex: 0 0 3%;
+  background-color:#0f0f0f;
+}
+
+.user-profile-page-side-nav-section{
+  padding-top:30px;
+}
+
+.user-profile-page-side-nav{
+  padding:10px;
+  background-color:#000000;
+}
+
+.user-profile-page-side-nav-ul{
+  padding:0px;
+}
+
+.user-profile-page-side-nav ul li{
+  list-style:none;
+  font-family:"rajdhani-bold";
+  border:1px solid #1e1e1f;
+  padding:10px;
+  color:#5a6b31;
+}
+
+.user-profile-page-side-nav ul li a{
+  color:#5a6b31;
+  text-decoration:none;
+}
+
+.user-profile-page-side-nav-ul a:hover{
+  text-decoration:none;
+  opacity:0.8;
+
+}
+
+.profile-page-user-details{
+  padding-top:30px;
+  height:100vh;
+  margin-bottom:50px;
+}
+
+.profile-page-user-details h1{
+  color:#33442c;
+  font-family:"rajdhani-semibold";
+  font-size:22px;
+  border-bottom:1px solid #1e1e1f;
+  padding-bottom:10px;
+}
+
+
+
+/*------------------------------------------------------------------------------
+--------------------------- PASSWORD CHANGE PAGE---------------------
+------------------------------------------------------------------------------*/
+.password-change-form{
+  margin-top:30px;
+}
+
+.password-requirement-description{
+  font-family:"rajdhani-medium";
+  color:#6c757d;
+  font-size:12px;
+}
+
+label{
+  font-family:"rajdhani-medium";
+}
+
+/*------------------------------------------------------------------------------
+---------------------------MARKETS SUMMARY PAGE / HOMEPAGE---------------------
+------------------------------------------------------------------------------*/
+.markets-page{
+  background-color:#000000;
+}
+.markets-page-col-1{
+  background-color:#000000;
+  max-width:3%;
+  flex:0 0 3%;
+  border-right:1px solid #1e1e1f;
+  padding:0px;
+}
+
+.markets-page-col-1 ul li{
+  font-size:24px;
+  padding-top:20px;
+  padding-bottom:20px;
+  color:#c2c2c2;
+  text-align:center;
+  border-bottom:1px solid #1e1e1f;
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.in-markets-page{
+  background: radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+}
+
+.markets-page-col-1 ul li:hover{
+  cursor:pointer;
+  background: radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+}
+
+
+
+.markets-page-col-1 ul{
+  list-style:none;
+  padding:0px;
+}
+.markets-page-col-11{
+  height:86.2vh;
+  overflow:auto;
+  flex:0 0 97%;
+  max-width:97%;
+  padding-right:0px;
+  padding-left:0px;
+  padding-bottom:0px;
+  padding-top:10px;
+}
+
+.markets-page-col-11-row-1{
+  margin-bottom:10px;
+}
+.markets-page-col-11-row-2{
+  margin-bottom:20px;
+}
+
+.markets-page-col-divs{
+  border-right:1px solid #1e1e1f;
+  border-bottom:1px solid #1e1e1f;
+  height:300px;
+  overflow:auto;
+  padding:0px;
+}
+
+.markets-page-col-divs h1{
+  color:#5a6b31;
+  font-size:16px;
+  font-family:"rajdhani-bold";
+  padding-left:15px;
+}
+.markets-page-col-divs h2{
+  color:#5a6b31;
+  font-size:16px;
+  font-family:"rajdhani-bold";
+  padding-left:15px;
+}
+
+.markets-page-col-divs h3{
+  color:#5a6b31;
+  font-size:16px;
+  font-family:"rajdhani-bold";
+  padding-bottom:0px;
+  padding-top:0px;
+  padding-left:0px;
+}
+
+.markets-page-pills-tabs{
+  padding-bottom:0px;
+  padding-top:0px;
+}
+.markets-page-pills-tabs:hover{
+  border-bottom:1px solid #5a6b31 !important;
+  border-radius:0px;
+}
+
+.markets-page-pills-tabs.active{
+  background:none !important;
+  background-color:none !important;
+  border:none !important;
+  border-bottom:1px solid #5a6b31 !important;
+  padding-bottom:0px !important;
+  color:#ffffff !important;
+  border-radius:0px;
+}
+
+.markets-page-pd-dataframe .dataframe{
+  border-top:1px solid #1e1e1f;
+  border-bottom:none;
+  border-left:none;
+  border-right:none;
+}
+.markets-page-pd-dataframe .dataframe th{
+  color:#c2c2c2;
+  text-transform:uppercase;
+  font-family:"rajdhani-semibold";
+  font-weight:400;
+  font-size:14px;
+  text-align:left;
+  white-space: nowrap;
+  padding:7px;
+  border:1px solid #1e1e1f;
+}
+.markets-page-pd-dataframe .dataframe td{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  text-align:left;
+  white-space: nowrap;
+  padding-right:12px;
+  padding-left:10px;
+  padding-bottom:5px;
+  padding-top:5px;
+  font-size:12px;
+  border:1px solid #1e1e1f;
+}
+
+.markets-page-pd-dataframe .dataframe tr:nth-child(even) {background: #171716}
+.markets-page-pd-dataframe .dataframe tr:nth-child(odd) {background: #000000}
+
+
+/*------------------------------------------------------------------------------
+---------------------------STOCK WATCHLIST PAGE---------------------------------
+------------------------------------------------------------------------------*/
+.stock-watchlist-view-col-2{
+  padding-right: 0px !important;
+  padding-left:0px !important;
+  padding-top:0px !important;
+  flex:0 0 97% !important;
+  max-width:97% !important;
+}
+
+.portfolio-detail-page-col-2{
+  height:auto !important;
+  padding-top:0px !important;
+}
+
+.stock-watchlist-nav{
+  color:#c2c2c2 !important;
+  text-transform:uppercase;
+  font-family:"rajdhani-semibold";
+  font-size:14px;
+}
+.stock-watchlist-nav:hover{
+  color:#ffffff !important;
+  border-bottom:1px solid #5a6b31;
+  border-radius:0px;
+  cursor:pointer;
+}
+.nav-pills .stock-watchlist-nav.active{
+  background-color:#000000;
+  border-bottom:1px solid #5a6b31;
+  border-radius:0px;
+  color:#ffffff !important
+}
+.stock-watchlist-nav-right ul{
+  float:right;
+  text-align:right;
+}
+
+.stock-watchlist-edit-modal-body-inner-div-all-portfolio{
+  padding-top:0px;
+}
+.stock-watchlist-edit-modal-body-inner-div-all-portfolio table{
+  width:100%;
+}
+.portfolio-detail-table-tr:hover{
+  cursor:pointer;
+  background-color:#171716;
+}
+
+#portfolio-detail-symbol-link-on-double-click{
+  cursor:pointer;
+}
+#portfolio-detail-symbol-link-on-double-click:hover{
+  background-color:#171716;
+}
+
+.stock-watchlist-edit-modal-body-inner-div-all-portfolio table td{
+  padding-left:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-right:5px;
+  border-bottom:1px solid #1e1e1f;
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  text-transform:uppercase;
+  font-size:14px;
+}
+
+
+#stock-watchlist-edit-modal-body-inner-div-all-portfolio-border-right{
+  border-right:1px solid #1e1e1f;
+  text-align:center;
+  border-left:1px solid #1e1e1f;
+  color:#8e8e8e;
+}
+#stock-watchlist-edit-modal-body-inner-div-all-portfolio-border-right a{
+  color:#c2c2c2;
+}
+#stock-watchlist-edit-modal-body-inner-div-all-portfolio-border-right a:hover{
+  color:#ffffff;
+}
+#stock-watchlist-edit-modal-body-inner-div-all-portfolio-border-right:hover{
+  color:#ffffff;
+  cursor:pointer;
+}
+#stock-watchlist-edit-modal-body-inner-div-all-portfolio-create-new-portfolio{
+  padding-left:10px;
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  margin-bottom:0px;
+  padding-top:10px;
+  text-align:center;
+  border-top:1px solid #1e1e1f;
+}
+.portfolio-detail-stick-quote-expand-to-detail a{
+  float:right;
+  color:#5a6b31;
+  padding-right:10px;
+}
+.portfolio-detail-stick-quote-expand-to-detail a:hover{
+  cursor:pointer;
+  color:#ffffff;
+}
+
+
+
+
+.stock-watchlist-edit-modal-content{
+  border:none;
+}
+.stock-watchlist-edit-modal-header{
+  background-color:#1a1a19;
+  padding-bottom:0px;
+  padding-top:5px;
+  border:none;
+  border-radius:0px;
+  height:30px;
+  border-top-right-radius:2px;
+  border-top-left-radius:2px;
+
+}
+.stock-watchlist-edit-modal-header h5{
+  color:#ffffff;
+  font-family:"rajdhani-semibold";
+  font-size:14px;
+  text-align:center;
+  padding-top:5px;
+  margin:auto;
+  width:100%;
+  text-transform:uppercase;
+}
+.stock-watchlist-edit-modal-header-close-btn{
+  color:#ffffff;
+}
+.stock-watchlist-edit-modal-header-close-btn:hover{
+  color:#ffffff;
+}
+.stock-watchlist-edit-modal-body{
+  background-color:#1a1a19;
+  padding-right:12px;
+  padding-left:12px;
+  padding-top:10px;
+  padding-bottom:30px;
+  border:none;
+  border-radius:2px;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
+.stock-watchlist-edit-modal-body-inner-div{
+  background-color:#000000;
+}
+
+.stock-watchlist-edit-modal-body-inner-div form{
+  padding-left:10px;
+  padding-top:15px;
+  border-radius:2px;
+}
+.stock-watchlist-edit-modal-body-inner-div form input{
+  border-radius:2px;
+  text-transform:uppercase;
+  font-family:"rajdhani-semibold";
+  width:320px;
+}
+.stock-watchlist-edit-modal-body-inner-div form button{
+  margin-left:-40px;
+  background-color:#5a6b31;
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  margin-bottom:17px !important;
+  padding-right:50px;
+  padding-left:50px;
+  border-radius:2px;
+  border:1px solid #5a6b31;
+}
+
+.stock-watchlist-edit-modal-portfolio-delete-btn{
+  margin-left:10px !important;
+  background-color:#c0392b !important;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  margin-bottom:17px !important;
+  padding-right:10px !important;
+  padding-left:10px !important;
+  border-radius:2px;
+  border:1px solid #c0392b !important;
+  color:#ffffff !important;
+  padding-top:7px;
+}
+.stock-watchlist-edit-modal-portfolio-delete-btn:hover{
+  opacity:0.8;
+}
+.stock-watchlist-edit-modal-portfolio-confirm-delete-btn{
+  margin-left:10px !important;
+  background-color:#c0392b !important;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  margin-bottom:17px !important;
+  padding-right:10px !important;
+  padding-left:10px !important;
+  border-radius:2px;
+  border:1px solid #c0392b !important;
+  color:#ffffff !important;
+  padding-top:7px;
+  padding-bottom:7px;
+  float:right;
+}
+.stock-watchlist-edit-modal-portfolio-confirm-delete-btn:hover{
+  text-decoration:none;
+  opacity:0.8;
+}
+.stock-watchlist-edit-modal-portfolio-delete-keep-it-btn{
+  background-color:#5a6b31 !important;
+  font-family:"rajdhani-bold";
+  font-size:16px;
+  margin-bottom:17px !important;
+  padding-right:10px !important;
+  padding-left:10px !important;
+  border-radius:2px;
+  border:1px solid #5a6b31 !important;
+  color:#ffffff !important;
+  padding-top:7px;
+  padding-bottom:7px;
+  float:left;
+}
+.stock-watchlist-edit-modal-portfolio-delete-keep-it-btn:hover{
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.stock-watchlist-edit-modal-body-portfolio-confirm-delete{
+  padding-bottom:70px;
+  padding-right:10px;
+}
+.portfolio-delete-confirm-modal-question{
+  font-size:90px;
+  position:fixed;
+  z-index:1000;
+  margin:auto;
+  color:#c0392b;
+  margin-top:-90px;
+  right:47%;
+  padding-right:5px;
+}
+.portfolio-delete-confirm-form{
+  display:block;
+}
+.portfolio-delete-confirm-modal p{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+.stock-watchlist-edit-modal-body-inner-div form button:hover{
+  opacity:0.8;
+}
+
+.stock-watchlist-edit-modal-add-watchlist{
+  border-top:1px solid #1e1e1f;
+  padding-top:5px;
+  padding-left:5px;
+}
+
+.registered-users-only-data-stock-watchlist-edit-modal-body{
+  padding-left:0px;
+  padding-right:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+}
+.stock-watchlist-edit-modal-header-registered-users-only{
+  background-color:#171716 !important;
+}
+
+.stock-watchlist-registered-users-only-data{
+  margin-top:0px !important;
+}
+.stock-watchlist-view-table{
+  height:80vh;
+  overflow:scroll;
+}
+.stock-watchlist-view-table table th{
+  color:#ffffff;
+  font-family:"rajdhani-semibold";
+  font-weight:400;
+  text-transform:uppercase;
+  font-size:14px;
+  white-space:nowrap;
+  position:sticky;
+  top:0;
+  background-color:#12120d;
+  padding:7px;
+  border:1px solid #1e1e1f;
+}
+.stock-watchlist-view-table table td{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:13px;
+  white-space:nowrap;
+  padding:7px;
+  border:1px solid #1e1e1f;
+}
+.stock-watchlist-view-green{
+  color:#8ca83f;
+}
+.stock-watchlist-view-red{
+  color:#c0392b;
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------STOCK SYMBOL DETAIL PAGE------------------------------------
+------------------------------------------------------------------------------*/
+.stock-symbol-detail-page{
+  background-color:#000000;
+}
+.stock-symbol-detail-page-col-1{
+  background-color:#000000;
+  max-width:3%;
+  flex:0 0 3%;
+  border-right:1px solid #1e1e1f;
+  padding:0px;
+}
+.stock-symbol-detail-page-col-1 ul li{
+  font-size:24px;
+  padding-top:20px;
+  padding-bottom:20px;
+  color:#232526;
+  text-align:center;
+  border-bottom:1px solid #1e1e1f;
+  padding-left:0px;
+  padding-right:0px;
+}
+.in-stock-symbol-detail-page{
+  border-bottom:2px solid #5a6b31 !important;
+  color:#ffffff !important;
+}
+.stock-symbol-detail-page-col-1 ul li:hover{
+  cursor:pointer;
+  border-bottom:2px solid #5a6b31;
+  color:#ffffff;
+}
+.stock-symbol-detail-page-col-1 ul{
+  list-style:none;
+  padding:0px;
+}
+.stock-symbol-detail-page-col-2{
+  height:86.2vh;
+  overflow:auto;
+  flex:0 0 72%;
+  max-width:72%;
+  padding-right:0px;
+  padding-left:0px;
+  padding-bottom:5px;
+  padding-top:10px;
+  border-right:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-col-3{
+  height:86.2vh;
+  overflow:auto;
+  flex:0 0 23.5%;
+  max-width:23.5%;
+  padding-right:0px;
+  padding-left:2px;
+  padding-bottom:0px;
+  padding-top:2px;
+  border-right:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-col-4{
+  background-color:#000000;
+  max-width:1.5%;
+  flex:0 0 1.5%;
+  padding:0px;
+  overflow:hidden;
+}
+.stock-symbol-detail-page-col-4 ul li{
+  font-size:16px;
+  padding-top:20px;
+  padding-bottom:20px;
+  text-align:left;
+  border-bottom:1px solid #1e1e1f;
+  padding-left:0px;
+  padding-right:0px;
+}
+.stock-symbol-detail-page-col-4 ul li:hover{
+  border-bottom:2px solid #5a6b31;
+  cursor:pointer;
+  color:#ffffff !important;
+}
+.stock-symbol-detail-page-col-4 ul li{
+  list-style:none;
+  padding:0px;
+}
+.stock-symbol-detail-page-col-4-menu{
+  padding-right:10px;
+  padding-left:5px;
+  padding-top:10px;
+  color:#232526;
+  margin-top:2px;
+  border-radius:0px !important;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+  background-color:#000000;
+}
+
+.stock-symbol-detail-page-col-4-menu:hover{
+  color:#ffffff;
+}
+
+.stock-symbol-detail-page-col-4-menu.active{
+  border-bottom:2px solid #5a6b31;
+  color:#ffffff;
+}
+
+.stock-symbol-detail-page-col-2-header{
+  border-bottom:2px solid #1e1e1f;
+}
+.stock-symbol-detail-page-col-2-header h1{
+  color:#ffffff;
+  font-size:18px;
+  padding:8px;
+}
+.stock-symbol-detail-page-col-2-header-price-name{
+  text-transform:none;
+  font-family:"rajdhani-bold";
+}
+.stock-symbol-detail-page-col-2-header-price-symbol{
+  text-transform:uppercase;
+  font-family:"rajdhani-bold";
+}
+.stock-symbol-detail-page-col-2-header-price-increase{
+  color:#8ca83f;
+  font-family:"rajdhani-bold";
+}
+.stock-symbol-detail-page-col-2-header-price-decrease{
+  color:#c0392b;
+  font-family:"rajdhani-bold";
+}
+.stock-symbol-detail-page-col-2-header-price-change-positive{
+  color:#8ca83f;
+  font-size:14px;
+  font-family:"rajdhani-medium";
+}
+.stock-symbol-detail-page-col-2-header-price-change-negative{
+  color:#c0392b;
+  font-size:14px;
+  font-family:"rajdhani-medium";
+}
+
+.stock-detail-page-add-to-watchlist-edit-alert-section a{
+  color:#8e8e8e !important;
+  font-size:14px;
+  padding-top:5px;
+  padding-bottom:10px;
+  padding-right:7px;
+  text-transform:uppercase;
+  display:inline;
+  clear:both;
+  font-family:"rajdhani-medium";
+}
+.stock-detail-page-add-to-watchlist-edit-alert-section a:hover{
+  color:#ffffff !important;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.stock-detail-page-add-to-watchlist-edit-alert-section-dropdown-menu{
+  padding:0px;
+  font-size:14px;
+  margin:0px;
+  border:none;
+  margin-left:-8px;
+  min-width:180px;
+}
+.add-to-portfolio-form{
+  background-color:#0f0f0f;
+  padding-top: 8px;
+}
+.add-to-portfolio-form input{
+  background-color:#0f0f0f;
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  border:none;
+  padding-left:8px;
+  padding-bottom:5px;
+  text-transform: uppercase;
+}
+.add-to-portfolio-form input:hover{
+  cursor:pointer;
+  color:#ffffff;
+}
+.add-remove-action-list{
+  background-color:#0f0f0f;
+  margin-top:-190px;
+  margin-left:150px;
+}
+.add-remove-action-list p{
+  color:#8e8e8e;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+.forms-portfolio-name-div:hover{
+  cursor:pointer;
+}
+
+
+.stock-symbol-detail-page-col-2-header-col-2{
+  float:right;
+  padding-right:0px;
+}
+.stock-symbol-detail-page-col-2-header-historical-datatables-btn{
+  float:right;
+  padding-right:15px;
+  font-family:"rajdhani-medium";
+  font-size:16px;
+  background:radial-gradient(circle at 0% 0%, #93b874 0%, #8ca83f 21%, #33442c 100%);
+  padding:7px;
+}
+.stock-symbol-detail-page-col-2-header-historical-datatables-btn:hover{
+  opacity:0.8;
+  cursor:pointer;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-text{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  padding-left:8px;
+  padding-right:15px;
+  line-height:35px;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1{
+  border-right:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-nav-link-col1.active, .stock-symbol-detail-page-col-2-header-chart-range-nav-link-col2.active{
+  background:none !important;
+  border-top:none !important;
+  border-left:none !important;
+  border-right:1px solid #1e1e1f !important;;
+  border-bottom:2px solid #5a6b31 !important;
+  border-radius:0px;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-link{
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-col-2-header-chart-range ul li a{
+  font-size:14px;
+  padding:7px;
+  color:#8e8e8e;
+  padding-right:15px;
+  padding-left:15px;
+}
+.stock-symbol-detail-page-col-2-header-chart-range ul li a:hover{
+  border-bottom:2px solid #5a6b31;
+  border-radius:0px;
+  color:#ffffff;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-full-featured-chart{
+  float:right;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-full-featured-chart li a{
+  color:#5a6b31 !important;
+  font-family:"rajdhani-semibold";
+}
+.stock-symbol-detail-page-col-2-header-chart-range-full-featured-chart li a:hover{
+  color:#ffffff !important;
+}
+.stock-symbol-detail-page-col-2-header-chart-range-full-featured-chart-div{
+  padding-right:0px;
+}
+
+/*FULL SCREEN MODAL -----------------------------------------------------------*/
+.stock-symbol-detail-page-full-width-historical-data-modal-dialog{
+    min-width: 100%;
+    margin: 0;
+    min-height: 100vh;
+    overflow:auto;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-content{
+  border:none;
+  /* overflow:scroll;
+  height:100vh; */
+  border-radius:0px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-dialog-header{
+  background-color:#1a1a19;
+  border-radius:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-dialog-header h3{
+  color:#ffffff;
+  font-size:18px;
+  padding:8px;
+  padding-bottom:0px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-dialog-header-minimize{
+  color:#ffffff;
+  padding-top:10px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-dialog-header-minimize:hover{
+  color:#ffffff;
+  cursor:pointer;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body{
+  background-color:#000000;
+  padding:0px;
+  height:89vh;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-full-width-historical-data-datatable-title{
+  color:#5a6b31;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body h2{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:16px;
+  padding-left:20px;
+  padding-top:14px;
+  padding-bottom:4px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-menu-ul{
+  border-bottom:1px solid #1e1e1f;
+  border-top:1px solid #1e1e1f;;
+  padding-left:20px;
+  padding-right:20px;
+  line-height:15px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link{
+  border-right:1px solid #1e1e1f;
+  color:#c2c2c2;
+  padding:10px;
+  font-size:13px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link.active{
+  background:#000000 !important;
+  border-radius:0px;
+  border-bottom:2px solid #5a6b31;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-menu-nav-link:hover{
+  border-bottom: 2px solid #5a6b31;
+  color:#ffffff;
+  border-radius:0px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link{
+  color:#8e8e8e;
+  font-size:12px;
+  line-height:15px;
+  border-right:1px solid #1e1e1f;
+  border-radius:0px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link:hover{
+  color:#8e8e8e;
+  border-bottom:2px solid #5a6b31 !important;
+  border-radius:0px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-sub-menu-nav-link.active{
+  background:none !important;
+  border-bottom:2px solid #5a6b31 !important;
+  color:#ffffff;
+  border-radius:0px;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable{
+  height:70vh;
+  overflow:auto;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable .dataframe{
+  border:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable .dataframe th{
+  position: sticky;
+  top: 0;
+  color:#ffffff;
+  text-transform:uppercase;
+  font-family:"rajdhani-medium";
+  font-weight:400;
+  font-size:12px;
+  text-align:left;
+  white-space:nowrap;
+  padding:7px;
+  border:1px solid #1e1e1f;
+  background-color:#171716;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable .dataframe td{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:13px;
+  text-align:left;
+  white-space:nowrap;
+  padding:7px;
+  border:1px solid #1e1e1f;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable .dataframe tr:hover{
+  background-color:#171716;
+}
+
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable .dataframe td a{
+  color:#c2c2c2;
+}
+
+/* .stock-symbol-detail-page-full-width-historical-data-modal-body-datatable tr:nth-child(even){
+  background: #171716;
+}
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable tr:nth-child(odd){
+  background: #000000;
+} */
+
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable p{
+  color:#ffffff;
+  font-family:"rajdhani-semibold";
+  font-size:16px;
+  padding-left:30px;
+  padding-top:10px;
+}
+.stock-detail-page-historical-data-full-width-col-8{
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.stock-detail-page-historical-data-full-width-col-2-left{
+  padding-left:0px;
+  padding-right:0px;
+  background-color:#000000;
+  border-right:1px solid #1e1e1f;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1{
+  background-color:#24261e;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:10px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1 h3{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:16px;
+  text-transform:uppercase;
+  padding-top:10px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1 p{
+  color:#5a6b31;
+  font-family:"rajdhani-bold";
+  font-size:20px;
+  font-weight:900;
+  margin-bottom:0px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1 small{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:12px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-1-btn{
+  border:1px solid #5a6b31;
+  font-size:14px !important;
+  text-align:center;
+  color:#ffffff !important;
+  padding-top:10px;
+  padding-bottom:10px;
+  margin-top:10px;
+  margin-bottom:10px !important;
+}
+
+
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-2{
+  padding-left:10px;
+  padding-bottom:10px;
+  padding-top:10px;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-2 span{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:14px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-2 small{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:12px;
+  display:block;
+  padding-top:5px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-3{
+  padding-left:10px;
+  padding-bottom:10px;
+  padding-top:5px;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-3 p{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:14px;
+  margin-bottom:5px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-3 small{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:12px;
+  display:block;
+  margin-bottom:5px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-4{
+  padding-left:10px;
+  padding-right:5px;
+  padding-bottom:10px;
+  padding-top:5px;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-4 p{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:14px;
+  margin-bottom:5px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left-data-info-div-4 small{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:12px;
+  display:block;
+  margin-bottom:5px;
+}
+
+
+.stock-detail-page-historical-data-full-width-col-2-right{
+  padding-right:0px;
+  background-color:#000000;
+  border-left:1px solid #1e1e1f;
+  padding-left:0px;
+}
+.stock-detail-page-historical-data-full-width-col-2-right-api-info-div-1{
+  background-color:#24261e;
+  padding-left:10px;
+  padding-bottom:10px;
+}
+.stock-detail-page-historical-data-full-width-col-2-right-api-info-div-2{
+  padding-left:10px;
+  padding-top:10px;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-detail-page-historical-data-full-width-col-2-right-api-info-div-2 p{
+  color:#ffffff;
+  font-size:16px;
+  font-family:"rajdhani-bold";
+}
+.stock-detail-page-historical-data-full-width-col-2-right-api-info-div-3{
+  padding-left:10px;
+  border-bottom:1px solid #1e1e1f;
+}
+.stock-detail-page-historical-data-full-width-col-2-right-api-info-div-4{
+  padding-left:10px;
+  border-bottom:1px solid #1e1e1f;
+  padding-top:10px;
+}
+
+.stock-detail-page-historical-data-full-width-col-2-left h3, .stock-detail-page-historical-data-full-width-col-2-right h3{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:16px;
+  text-transform:uppercase;
+  padding-top:10px;
+}
+.stock-detail-page-historical-data-full-width-col-2-left h5, .stock-detail-page-historical-data-full-width-col-2-right h5{
+  color:#c2c2c2;
+  font-family:"rajdhani-semibold";
+  font-size:14px;
+}
+.stock-detail-page-historical-data-full-width-col-2-right h4{
+  color:#5a6b31;
+  font-size:12px;
+  font-family:"rajdhani-bold";
+  text-transform:uppercase;
+}
+
+.stock-detail-page-historical-data-full-width-col-2-right ul{
+  padding-left:0px;
+}
+.stock-detail-page-historical-data-full-width-col-2-right ul li{
+  display:inline;
+  list-style:none;
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  background-color:#5a6b31;
+  border:1px solid #5a6b31;
+  border-radius:2px;
+  padding:5px;
+  margin-right:3px;
+}
+.stock-detail-page-historical-data-full-width-col-2-right ul li:hover{
+  opacity:0.8;
+  cursor:pointer;
+}
+
+.stock-detail-page-historical-data-full-width-modal-content{
+  border:none;
+}
+.stock-detail-page-historical-data-full-width-modal-header{
+  background-color:#1a1a19;
+  padding-bottom:0px;
+  padding-top:5px;
+  border:none;
+  border-radius:0px;
+  height:30px;
+  border-top-right-radius:2px;
+  border-top-left-radius:2px;
+
+}
+.stock-detail-page-historical-data-full-width-modal-header h5{
+  color:#5a6b31;
+  font-family:"rajdhani-bold";
+  font-size:16px;
+  text-align:center;
+  padding-top:5px;
+  margin:auto;
+  width:100%;
+  text-transform:uppercase;
+}
+.stock-detail-page-historical-data-full-width-modal-body{
+  background-color:#1a1a19;
+}
+
+.stock-detail-page-historical-data-full-width-modal-body p{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+.stock-detail-page-historical-data-full-width-modal-body-inner-div{
+  background-color:#000000;
+  padding-right:12px;
+  padding-left:12px;
+  padding-top:20px;
+  padding-bottom:10px;
+  border:none;
+  border-radius:2px;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
+.stock-detail-page-historical-data-full-width-modal-body-inner-div p{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+.stock-detail-page-historical-data-full-width-modal-body-inner-div p a{
+  color:#ffffff;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+
+
+/*END FULL SCREEN MODAL-------------------------------------------------------- */
+
+.stock-symbol-detail-page-col-3-sticky-quote{
+  background-color:#24261e;
+  padding:8px;
+  padding-top:15px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote h2{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:22px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote h3{
+  color:#c2c2c2;
+  font-family:"rajdhani-medium";
+  font-size:16px;
+  line-height:10px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-price-increase{
+  color:#8ca83f;
+  font-family:"rajdhani-bold";
+  font-size:38px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-price-decrease{
+  color:#c0392b;
+  font-family:"rajdhani-bold";
+  font-size:38px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-price-change-positive{
+  color:#8ca83f;
+  font-family:"rajdhani-semibold";
+  font-size:18px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-price-change-negative{
+  color:#c0392b;
+  font-family:"rajdhani-semibold";
+  font-size:18px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-last-updated{
+  color:#8e8e8e;
+  font-size:12px;
+  font-family:"rajdhani-medium";
+}
+.stock-symbol-detail-page-col-3-sticky-quote-maximize{
+  float:right;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-maximize:hover{
+  cursor:pointer;
+}
+
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile{
+  background-color:#1a1a19;
+  padding:8px;
+  margin-top:3px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats h3, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis h3, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile h3{
+  color:#ffffff;
+  font-family:"rajdhani-bold";
+  font-size:16px;
+  border-bottom:1px solid #c2c2c2;
+  padding-bottom:8px;
+  text-transform:uppercase;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats p, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis p, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile p{
+  line-height:6px;
+  padding-left:0px;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats-title, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis-title, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile-title{
+  color:#c2c2c2;
+  font-size:12px;
+  font-family:"rajdhani-medium";
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats-data, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis-data, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data{
+  color:#ffffff;
+  font-size:12px;
+  font-family:"rajdhani-medium";
+  float:right;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats-data a, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis-data a, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile-data a{
+  color:#ffffff;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats p, .stock-symbol-detail-page-col-3-sticky-quote-summary-analysis p, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile p{
+  padding-left:0px !important;
+}
+
+.stock-symbol-detail-page-col-3-sticky-quote-summary-key-stats-financials{
+  background-color:#000000;
+}
+
+.stock-detail-page-col-3-financials-link{
+  padding-left:10px;
+  color:#5a6b31;
+  font-family:"rajdhani-semibold";
+  background-color:#1a1a19;
+  padding-top:7px;
+  padding-bottom:4px;
+  font-size:14px;
+  margin-bottom:15px;
+  border-top-left-radius:2px;
+  border-top-right-radius:2px;
+}
+.stock-detail-page-col-3-financials-link:hover{
+  color:#ffffff;
+}
+.stock-detail-page-col-3-financials-menu{
+  width:100%;
+  padding-left:6px;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+}
+.stock-detail-page-col-3-financials-nav{
+  display:block;
+}
+.stock-detail-page-col-3-financials-nav li a{
+  color:#8e8e8e;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  padding:5px;
+  font-weight:400;
+}
+.stock-detail-page-col-3-financials-nav li a:hover{
+  text-decoration:none;
+  cursor:pointer;
+  color:#ffffff !important;
+  border-bottom:1px solid #5a6b31;
+}
+.stock-detail-page-col-3-financials-link-dropdown-icon{
+  float:right;
+}
+
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-description{
+  border-top:1px solid #c2c2c2;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-description p{
+  font-size:12px;
+  font-family:"rajdhani-medium";
+  margin-top:20px;
+  color:#c2c2c2;
+  line-height:15px;
+  text-align:justify;
+  font-weight:400;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-brief.active{
+  padding:5px !important;
+  border-radius:2px !important;
+  background:none !important;
+  border:none !important;
+  border-bottom:2px solid #5a6b31 !important;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-key-executives.active{
+  padding:5px !important;
+  border-radius:2px !important;
+  background:none !important;
+  border:none !important;
+  border-bottom:2px solid #5a6b31 !important;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-key-executives{
+  padding:5px !important;
+  border-radius:2px !important;
+  color:#5a6b31;
+  font-family:"rajdhani-semibold";
+  text-align:center;
+}
+#stock-detail-profile-key-executives-h3-no-border{
+  border-bottom:none;
+}
+.stock-detail-full-width-modal-profile-profile{
+  padding-left:20px;
+  border-right:1px solid #1e1e1f;
+}
+.stock-detail-full-width-modal-profile-title{
+  color:#8e8e8e;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  line-height:2px;
+}
+.stock-detail-full-width-modal-profile-data{
+  color:#8e8e8e;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+  float:right;
+  line-height:2px;
+}
+.stock-detail-full-width-modal-profile-data a{
+  color:#8e8e8e;
+}
+.stock-detail-full-width-modal-profile-description p{
+  color:#8e8e8e;
+  line-height:20px;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+.stock-detail-full-width-modal-profile-description h4{
+  color:#ffffff;
+  font-family:"rajdhani-semibold";
+  font-size:16px;
+}
+
+
+.stock-symbol-detail-page-full-width-historical-data-modal-body-datatable-key-exec-p p{
+  padding-left:30px !important;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-key-executives{
+  color:#5a6b31 !important;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-key-executives:hover{
+  color:#ffffff !important;
+  cursor:pointer;
+}
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-brief{
+  padding:5px !important;
+  border-radius:2px !important;
+  color:#5a6b31;
+  margin-right:5px !important;
+  font-family:"rajdhani-semibold";
+}
+
+.stock-symbol-detail-page-col-3-sticky-quote-summary-profile-brief:hover, .stock-symbol-detail-page-col-3-sticky-quote-summary-profile-key-executives:hover{
+  border-bottom:2px solid #5a6b31 !important;
+  color:#ffffff;
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------D3 JS CHART------------------------------------------
+------------------------------------------------------------------------------*/
+.svgcontainer{
+  width: 1000px;
+  height: 600px;
+  margin: auto;
+}
+svg{
+  width: 100%;
+  height: 37vh;
+  background-color:#000000;
+}
+
+.stock-detail-income-stmt-operating-income-chart-container, .stock-detail-income-stmt-net-income-chart-container{
+  border-bottom:1px solid #1e1e1f;
+}
+
+.stock-detail-income-stmt-operating-income-chart-container h4, .stock-detail-income-stmt-net-income-chart-container h4, .stock-detail-income-stmt-revenue-chart-container h4{
+  color:#ffffff;
+  font-size:16px;
+  font-family:"rajdhani-semibold";
+  padding-top:10px;
+}
+
+.bar {
+  fill: #33442c;
+}
+.revenue{
+  font-size: 12px;
+  fill: #c2c2c2;
+  font-family:"rajdhani-medium";
+}
+text {
+  font-size: 11px;
+  fill: #8e8e8e;
+  font-family:"rajdhani-medium";
+}
+path {
+  stroke: #8e8e8e;
+}
+line {
+  stroke: #c2c2c2;
+}
+.grid path {
+  stroke-width: 0;
+}
+.grid .tick line {
+  stroke: #8e8e8e;
+  stroke-opacity: 0.2;
+}
+
+
+/*------------------------------------------------------------------------------
+---------------------------HISTORICAL TIMESERIES CHART-------------------------------------------
+------------------------------------------------------------------------------*/
+
+.historical-timeseries-chart-svg{
+  height:67vh !important;
+  background-color:#000000;
+  overflow:scroll;
+}
+
+#historical-timeseries-chart {
+  background: #000000;
+  color: #8e8e8e;
+  font-family:"rajdhani-bold";
+  font-size:12px;
+  width: 100%;
+}
+
+.crosshair-circle{
+  fill:red;
+}
+
+
+
+/* .flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+} */
+
+/* .flex-item {
+  color: white;
+  text-align: left;
+  padding: 1em;
+} */
+
+
+
+
+
+/*------------------------------------------------------------------------------
+---------------------------END D3 JS CHART-------------------------------------------
+------------------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------------------
+---------------------------REGISTERED USERS ONLY-------------------------------------------
+------------------------------------------------------------------------------*/
+.registered-users-only-data{
+  background-color:#171716;
+  padding:30px;
+  margin-top:10vh;
+  border-radius:4px;
+}
+
+.registered-users-only-data p{
+  color:#ffffff;
+  text-transform:uppercase;
+  text-align:center;
+  font-family:"rajdhani-semibold";
+}
+
+.registered-users-only-data small{
+  color:#ffffff;
+  text-align:left;
+  font-family:"rajdhani-medium";
+  font-size:14px;
+}
+#registered-users-only-sec-sign-up{
+  text-align:center;
+  margin-top:20px;
+  margin-bottom:20px;
+  font-family:"rajdhani-semibold";
+}
+#registered-users-only-sec-sign-up:before, #registered-users-only-sec-sign-up:after {
+  background:#171716;
+}
+
+#registered-users-only-sec-login:before, #registered-users-only-sec-login:after {
+  background:#171716;
+}
+
+#registered-users-only-sec-login{
+  text-align:center;
+  font-family:"rajdhani-semibold";
+}
+
+/*------------------------------------------------------------------------------
+---------------------------FOOTER-------------------------------------------
+------------------------------------------------------------------------------*/
+footer{
+  padding-right:20px;
+  padding-left:0px;
+  padding-top:10px;
+  position:fixed;
+  display:block;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #1a1a19;
+}
+
+.footer-brand-logo{
+  text-align:center;
+  font-size:30px;
+  color:#5a6b31;
+  font-family:"rajdhani-bold";
+  margin-bottom:0px;
+  font-weight:800;
+}
+.footer-copyright{
+  text-align:center;
+  font-size:12px;
+  color:#8e8e8e;
+  font-family:"rajdhani-medium";
+}
+
+
+
+
+/*------------------------------------------------------------------------------
+---------------------------MEDIA QUERIES-------------------------------------------
+------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 100px) and (max-width: 320px) {
+.bg-dark{
+  padding:0px;
+  height:50px;
+}
+
+.navbar-brand{
+  float:none;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+.navbar-dark .navbar-toggler{
+  margin-left:8px;
+  border:none;
+}
+
+.navbar-toggler-icon{
+  margin-top:5px;
+}
+
+.navbar-collapse{
+  padding:20px;
+  background-color:#1a1a19;
+  z-index:1000;
+}
+.navbar-signup-link, .navbar-login-link{
+  background:none;
+}
+
+.media-queries-hide-stock-search-form{
+  display:none;
+}
+.media-navbar-stock-search-button{
+  background-color: #1a1a19;
+  border:none;
+  padding-right:15px;
+  color:#ffffff;
+}
+
+.media-navbar-stock-search-button:hover{
+  background-color: #1a1a19;
+  border:none;
+}
+
+.media-navbar-stock-search-button-modal-dialog{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.media-navbar-stock-search-button-modal-content{
+  width:100%;
+  height: auto;
+  min-height: 100%;
+  border-radius: 0;  border:none;
+  border-radius:0px;
+  background-color: #1a1a19;
+}
+.media-navbar-stock-search-button-modal-content-cancel-btn{
+  color:#0069d9;
+  text-shadow:none;
+  font-family:"rajdhani-medium";
+  font-size:16px;
+  padding-top:10px;
+  margin-top:-38px;
+  margin-right:-50px;
+  font-weight:400;
+}
+.media-navbar-stock-search-button-modal-content-cancel-btn:hover{
+  color:#0069d9;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.media-navbar-modal-content-div{
+  padding-left:10px;
+}
+
+#id_symbol{
+  margin-top:20px;
+  padding-right:40px;
+  border-radius:100px;
+  font-size:14px;
+}
+
+.media-navbar-stock-search-button-modal-content-stock-search-button{
+  margin-top:20px;
+  margin-left:-50px;
+}
+
+.login-register-page-col-1{
+  display:none;
+}
+.login-register-page-col-2-login-form-section{
+  padding-left:20px;
+  padding-right:0px;
+}
+.login-register-page-col-2{
+  padding-top:10px;
+}
+
+.alert-danger ul li{
+  padding:0px;
+  text-align:left;
+  font-size:14px;
+}
+.alert{
+  text-align:left;
+}
+
+.alert-danger{
+  padding:5px;
+}
+.m-0{
+  padding:2px;
+}
+
+.alert-success{
+  padding:10px;
+}
+
+}
+
+@media only screen and (min-width: 100px) and (max-width: 900px) {
+  .stock-symbol-detail-page-col-4{
+    display:none;
+  }
+}
+
+@media only screen and (max-width: 480) {
+  body {
+  }
+}
+
+@media only screen and (max-width: 600) {
+  body {
+  }
+}
+
+@media only screen and (max-width: 768) {
+  body {
+  }
+}
+
+@media only screen and (max-width: 900) {
+  body {
+  }
+}
+
+@media only screen and (max-width: 1024) {
+  body {
+  }
+}
+
+
+@media only screen and (max-width: 1200) {
+  body {
+  }
+}

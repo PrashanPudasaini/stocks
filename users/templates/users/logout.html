@@ -1,0 +1,26 @@
+{% extends "users/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Rupy | Log Out {% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid">
+<div class = "row">
+<div class = "col-md-5 login-register-page-col-1">
+<h1>RUPY</h1>
+<p>Welcome Back</p>
+</div>
+<div class = "col-md-7 login-register-page-col-2">
+<div class = "login-sign-up-toggle">
+<ul>
+<li><a id = "login-register-page-col-2-sign-up-link" href = "{% url 'register' %}">SIGN UP</a></li>
+<li><a id = "login-register-page-col-2-sign-up-link-login-link" href = "{% url 'login' %}">LOG IN</a></li>
+</ul>
+</div>
+<div class = "login-register-page-col-2-login-form-section">
+<h1>You have been logged out</h1>
+<p class = "signup-login-form-footer">Log In Again? <a href = "{% url 'login' %}">Log In</a></p>
+</div>
+</div>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

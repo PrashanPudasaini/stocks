@@ -1,0 +1,73 @@
+{% extends "Securities/base.html" %}
+{% load include_by_ajax_tags %}
+{% block title %} Rupy Investments | Markets{% endblock title %}
+{% block bodyContent %}
+<div class = "container-fluid markets-page">
+<div class = "row">
+<div class = "col-md-1 markets-page-col-1">
+<ul>
+<li><i class="far fa-star"></i></li>
+<li><i class="fas fa-poll"></i></li>
+<li class = "in-markets-page"><i class="fas fa-globe"></i></li>
+<li><i class="fab fa-searchengin"></i></li>
+</ul>
+</div>
+<div class = "col-md-11 markets-page-col-11">
+<div class = "container-fluid markets-page-col-11-row-1">
+<div class = "row">
+<div class = "col-md-4 markets-page-col-divs">
+<h1>Index</h1>
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+<div class = "col-md-4 markets-page-col-divs">
+<h2>Sector Performance</h2>
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+<div class = "col-md-4 markets-page-col-divs">
+<div class = "markets-page-pd-dataframe">
+<h2>News</h2>
+</div>
+</div>
+</div>
+</div>
+<div class = "container-fluid markets-page-col-11-row-2">
+<div class = "row">
+<div class = "col-md-4 markets-page-col-divs">
+<ul class="nav nav-pills" id="pills-tab" role="tablist">
+<li class="nav-item">
+<a class="nav-link markets-page-pills-tabs active" id="pills-most-active-tab" data-toggle="pill" href="#pills-most-active" role="tab" aria-controls="pills-most-active" aria-selected="true"><h3>Most Active</h3></a>
+</li>
+<li class="nav-item">
+<a class="nav-link markets-page-pills-tabs" id="pills-top-gainers-tab" data-toggle="pill" href="#pills-top-gainers" role="tab" aria-controls="pills-top-gainers" aria-selected="false"><h3>Top Gainers</h3></a>
+</li>
+<li class="nav-item">
+<a class="nav-link markets-page-pills-tabs" id="pills-top-losers-tab" data-toggle="pill" href="#pills-top-losers" role="tab" aria-controls="pills-top-losers" aria-selected="false"><h3>Top Losers</h3></a>
+</li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+<div class="tab-pane fade show active" id="pills-most-active" role="tabpanel" aria-labelledby="pills-most-active-tab">
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+<div class="tab-pane fade" id="pills-top-gainers" role="tabpanel" aria-labelledby="pills-top-gainers-tab">
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+<div class="tab-pane fade" id="pills-top-losers" role="tabpanel" aria-labelledby="pills-top-losers-tab">
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+</div>
+</div>
+<div class = "col-md-4 markets-page-col-divs">
+<h2>Upcoming Earnings</h2>
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+<div class = "col-md-4 markets-page-col-divs">
+<h2>IPO Calendar</h2>
+{% include_by_ajax 'markets_page_content.html' placeholder_template_name='loading_please_wait.html' %}
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% include "Securities/footer.html" %}
+{% endblock bodyContent %}

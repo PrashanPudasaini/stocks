@@ -1,0 +1,51 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link id="mystylesheet" rel="stylesheet" type="text/css" href="{% static 'Securities/css/dark.css' %}">
+<script src="{% static 'include_by_ajax/js/include_by_ajax.min.js' %}" defer></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.min.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/c668c496a8.js" crossorigin="anonymous"></script>
+<title>{% block title %} {% endblock title%}</title>
+</head>
+<body>
+<script type = "text/javascript">
+  var cssFile = "{% static 'Securities/css' %}"
+  var setTheme = localStorage.getItem('theme')
+  if (setTheme == null){
+    swapStyles('dark.css')
+  }else{
+    swapStyles(setTheme)
+  }
+  function swapStyles(sheet){
+    document.getElementById('mystylesheet').href = cssFile + '/' + sheet
+    localStorage.setItem('theme', sheet)
+  }
+</script>
+{% if messages %}
+{% for message in messages %}
+<div class = "alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+{{message}}
+<button type="button" class="alert-close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+{% endfor %}
+{% endif %}
+<script>
+$(document).ready(function() {
+    $(".alert").first().hide().slideDown(500).delay(6000).slideUp(500, function () {
+       $(this).remove();
+    });
+});
+</script>
+{% block bodyContent %}
+{% endblock bodyContent %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+</body>
+</html>
