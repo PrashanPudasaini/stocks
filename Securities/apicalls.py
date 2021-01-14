@@ -6,7 +6,7 @@ import datetime
 from django.core.files import File
 
 # def get_symbols_list():
-#     url_symbols_list = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+#     url_symbols_list = 'API'
 #     symbols_list_json = requests.get(url_symbols_list).json()
 #     symbols_list = pd.DataFrame.from_dict(symbols_list_json)
 #     print(symbols_list)
@@ -23,7 +23,7 @@ from django.core.files import File
 
 
 def get_major_indexes():
-    url_indexes = 'https://financialmodelingprep.com/api/v3/quotes/index?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_indexes = 'API'
     indexes_json = requests.get(url_indexes).json()
     indexes = pd.DataFrame.from_dict(indexes_json)
     market_datetime = datetime.datetime.now()
@@ -38,7 +38,7 @@ def get_major_indexes():
     return HttpResponseRedirect("/stocks/markets/")
 
 def get_most_active():
-    url_most_active = 'https://financialmodelingprep.com/api/v3/actives?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_most_active = 'API'
     most_active_json = requests.get(url_most_active).json()
     most_active = pd.DataFrame.from_dict(most_active_json)
     market_datetime = datetime.datetime.now()
@@ -53,7 +53,7 @@ def get_most_active():
     return HttpResponseRedirect("/stocks/markets/")
 
 def get_top_gainers():
-    url_top_gainers = 'https://financialmodelingprep.com/api/v3/gainers?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_top_gainers = 'API'
     top_gainers_json = requests.get(url_top_gainers).json()
     top_gainers = pd.DataFrame.from_dict(top_gainers_json)
     market_datetime = datetime.datetime.now()
@@ -68,7 +68,7 @@ def get_top_gainers():
     return HttpResponseRedirect("/stocks/markets/")
 
 def get_top_losers():
-    url_top_losers = 'https://financialmodelingprep.com/api/v3/losers?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_top_losers = 'API'
     top_losers_json = requests.get(url_top_losers).json()
     top_losers = pd.DataFrame.from_dict(top_losers_json)
     market_datetime = datetime.datetime.now()
@@ -83,7 +83,7 @@ def get_top_losers():
     return HttpResponseRedirect("/stocks/markets/")
 
 def get_sector_performance():
-    url_sector_performance = 'https://financialmodelingprep.com/api/v3/sectors-performance?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_sector_performance = 'API'
     sector_performance_json = requests.get(url_sector_performance).json()
     sector_performance = pd.DataFrame.from_dict(sector_performance_json)
     market_datetime = datetime.datetime.now()
@@ -98,7 +98,7 @@ def get_sector_performance():
     return HttpResponseRedirect("/stocks/markets/")
 
 def get_upcoming_earnings():
-    url_upcoming_earnings = 'https://financialmodelingprep.com/api/v3/earning_calendar?apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_upcoming_earnings = 'API'
     upcoming_earnings_json = requests.get(url_upcoming_earnings).json()
     upcoming_earnings = pd.DataFrame.from_dict(upcoming_earnings_json)
     market_datetime = datetime.datetime.now()
@@ -113,7 +113,7 @@ def get_upcoming_earnings():
     return HttpResponseRedirect("/stocks/markets/")
 
 def get_new_ipo():
-    url_new_ipo = 'https://financialmodelingprep.com/api/v3/ipo_calendar?&apikey=4ea5593093f3202bae9ca992c7ff4ce6'
+    url_new_ipo = 'API'
     new_ipo_json = requests.get(url_new_ipo).json()
     new_ipo = pd.DataFrame.from_dict(new_ipo_json)
     market_datetime = datetime.datetime.now()
