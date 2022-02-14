@@ -1,6 +1,6 @@
 ### Trading App project:
 
-**Each ticker data size = 3MB / ticker**
+**Each ticker file size = 3MB / ticker**
 
 Ticker data includes following datasets:
 
