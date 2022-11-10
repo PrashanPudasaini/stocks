@@ -1,4 +1,3 @@
-### Trading App project summary:
 
 **Each ticker file size = 3MB / ticker**
 
